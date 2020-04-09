@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>website/portfolio</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+<style>
+
+header { 			
+	width:100%;
+	height:5vw;
+	border-bottom:1px silver solid; 					
+	position:fixed;	
+	background:white;
+	z-index:1;											
+	transition:all 0.5s;
+}
+header:hover { 		height:15vw;										transition:all 0.5s;}					
+header #gnb
+		{			height:0;											
+					width:100%;											transition:all 0.5s;
+					padding-top:1.5vw;									box-sizing:border-box;	
+					position:fixed;												}
+header #gnb.view
+		{			height:15vw;										background:rgba(0,0,0,0.8);
+					width:100%;											transition:all 0.5s;	
+					color:white;								}
+
+
+header #gnb h1
+		{			margin-left:10%;									width:50px;
+					overflow:hidden;									height:50px;
+					background:url(img/logo.png)	no-repeat;			cursor:pointer;
+					background-size:100% ;
+					background-position:center 110%;					float:left;
+					transition:all 0.5s;						}
+header #gnb h1 a { border:1px red solid;  }
+header #gnb h1.view
+		{			background-position:center -5%;
+					transition:all 0.5s;}
+header #gnb ul 
+		{			width:60%; 											float:left;		
+					margin-left:10%;									cursor:pointer;			}
+header #gnb ul>li
+		{			width:6vw;											overflow:hidden;		
+					float:left;											margin-left:5%;	
+					font-size:0.8vw;									text-align:center;
+					line-height:50px;									position:relative;}
+header #gnb ul>li::before
+		{			content:"";											position:absolute;
+					top:0;	left:50%;									background:green;
+					width:0;height:0.1vw;								transform:translateX(-50%);	
+					transition:all 0.5s;}
+header #gnb ul>li:hover::before
+		{			width:100%;											transition:all 0.5s;}
+header #gnb ul>li>ol
+		{			padding-top:3vw;									white-space: wrap;	
+					transition:all 0.5s;								height:0;			
+					cursor:pointer;												}
+header #gnb ul>li>ol.view
+		{			height:10vw;										transition:all 0.3s 0.1s;}
+
+header #gnb ul>li>ol>li
+		{			height:3vw;											width:120px;	
+					display:flex;											}
+header #gnb ul>li>ol>li>a
+		{			display:block;										cursor:pointer;
+					width:100px; 										height:30px;
+					line-height:30px;									text-align:center;				
+					color:silver;										font-size:0.7vw;		
+					margin:auto;										}
+header #gnb ul>li>ol>li>a:hover
+		{			color:white;										}
+
+header #gnb ul>li>ol>li.view
+		{			color:silver;					}
+/*-----------------------------------------------------------------------------------------*/
+#page01 {			width:100%;										height:100%;
+					padding-top:6vw;								box-sizing:border-box;		}			
+#page01 #slider 
+		{			width:80vw;										margin:auto;								
+					height:27.9vw;									position:relative;}
+#page01 #slider ul
+		{			width: 80vw;									height:27.9vw;
+					overflow:hidden;}
+#page01 #slider ul li
+		{			width:80vw;										
+					box-sizing:border-box;							display:none;
+					}
+#page01 #slider ul li img	{width:100%;							}
+#page01 #slider ul li video	{width:80vw;							}
+
+#page01 #slider ul li a		{width:100%;							height:100%;		}				
+/*-----------------------------------------------------------------------------------------*/
+#page01 #slider button
+		{			position:absolute;								width:2.5vw;
+					height:5vw;										top:50%;
+					left:0;											background:rgba(255,255,255,0.3);
+					margin-top:-2.5vw;								overflow:hidden;
+					z-index:2;}
+#page01 #slider button#right
+		{			left:auto;										right:0;	}					
+#page01 #slider button::before
+		{			content:"";										position:absolute;
+					width:0.1vw;									height:5vw;
+					background:black;									top:0;left:0;
+					transform:rotate(45deg) translate(-50%,-50%);		}
+#page01 #slider button::after
+		{			content:"";										position:absolute;
+					width:0.1vw;									height:5vw;
+					background:black;									top:0; left:0;
+					transform:rotate(-45deg)  translate(50%,50%);	}				
+#page01 #slider button#right::before
+		{			transform:rotate(-45deg)  translate(-50%,-50%);	left:2.4vw;}
+#page01 #slider button#right::after
+		{			transform:rotate(45deg)  translate(50%,50%);	left:2.4vw;}									
+/*-----------------------------------------------------------------------------------------*/
+@media all and (max-width: 1400px) {
+
+}
+
+
+@media all and (max-width: 992px) {
+	
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+
+
+@media all and (max-width:576px) {
+	
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	$(function(){ 
+		$("header").hover(function(){
+			$("header #gnb").toggleClass("view")
+			$("header #gnb h1").toggleClass("view")
+			$("header #gnb ul>li>ol").toggleClass("view")
+			$("header #gnb ul>li>ol>li").toggleClass("view")	
+		});
+// -------------------------------------------------------------------
+new Vue ({
+	el:"#gnb",
+	data:{
+		list:[
+					{name:"HOME"								,link:"../index.html"			
+				},
+					{name:"Round A'rond"						,link:"round/index.html"			
+				},
+					{name:"TNGT"								,link:"tngt/index.html"				
+				},
+					{name:"대전시립박물관"						,link:"daejeon/index.html"			
+				},
+					{name:"하나금융"								,link:"hana/index.html"				
+				}
+			]
+	},
+	methods:{
+
+	}			
+});
+// -------------------------------------------------------------------
+new Vue ({
+	el:"#page01",
+	data:{
+		list:[
+					{name:"Round Around"		,link:"round/index.html"	,img:"img/round_a.jpg"	},
+					{name:"TNGT"				,link:"tngt/index.html"		,img:"img/tngt.jpg"	  },
+					{name:"대전시립박물관"		,link:"daejeon/index.html"	,img:"img/daejeon01.jpg"},
+					{name:"하나금융 "			,link:"hana/index.html"		,img:"img/hana.jpg"}
+			]
+	},
+	methods:{
+
+	}			
+});
+// -------------------------------------------------------------------
+$("#page01 #slider ul li").eq(0).fadeIn();
+
+	var click=0;
+
+$("#page01 #slider button#left").click(function(){
+	click--;
+	clickNum= click %4
+	$("#page01 #slider ul li").fadeOut(100)
+	$("#page01 #slider ul li").eq(clickNum).fadeIn(1000)
+});
+$("#page01 #slider button#right").click(function(){
+	click++;
+	clickNum= click %4
+	$("#page01 #slider ul li").fadeOut(100)
+	$("#page01 #slider ul li").eq(clickNum).fadeIn(1000)
+});
+	});
+</script>
+</head>
+<body>
+
+<header>
+	<div id="gnb">
+			<a href="../index.html"><h1></h1></a>
+		
+			<ul >
+				<li v-for="(item,index) in list">
+					<p> {{item.name}} </p>
+					<ol >
+						<li><a href="#" target="_blank">CONCEPT</a></li>
+						<li><a v-bind:href="item.link" target="_blank">VIEW</a></span></li>
+					</ol>
+				</li>
+			</ul>
+	</div>
+</header>
+
+<div id="page01">
+	
+	<div id="slider" >
+		<button id="left"></button>
+		<button id="right"></button>
+		<ul>
+			<li v-for="(item,index) in list">
+				<a v-bind:href="item.link" target="_blank"> 
+					<img v-bind:src="item.img">	
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="indi">
+		<ol>
+			<li v-for="(item,index) in list">
+				<a v-bind:href="item.link" target="_blank"> 	{{ item.title }}	</a>
+			</li>
+		</ol>
+	</div>
+
+</div>
+
+
+
+</body>
+</html>

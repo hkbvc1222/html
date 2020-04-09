@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>Document</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/icon/lotte.png" type="image/x-icon">
+	<link rel="icon" href="img/icon/lotte.png" type="image/x-icon">
+<style>
+
+img{width:100%;}
+a {color:black;}
+button{background:none;}
+
+@media all and (max-width: 3400px) {
+header {
+width:99.9%;
+height:9vw;
+}
+header #logo{
+width:100%;
+height:4vw;
+display:flex;
+background:#2a2e33;
+border-bottom:1px silver solid;
+}
+header #logo h1{
+	margin:auto;
+	width:12vw;
+	height:3vw;
+	overflow:hidden;
+	background:url(img/icon/logo.png) no-repeat;
+	background-size:contain;
+	background-position:center;
+}
+header ul#subTop{
+	width:100%;
+	height:2vw;
+	background:#2a2e33;
+	padding:0 1vw;
+	box-sizing:border-box;
+}
+header ul#subTop ol{
+	display:flex;
+	align-items:center;
+	height:2vw;
+}
+header ul#subTop ol#left{
+	float:left;
+}
+header ul#subTop ol#right{
+	float:right;
+}
+header ul#subTop ol li{
+	float:left;
+	height:0.6vw;
+	font-size:0.6vw;
+	margin-left:1vw;
+}
+header ul#subTop ol li:first-child{
+	margin-left:0;
+}
+header ul#subTop ol#right button{
+	margin-left:1vw;
+	background:silver;
+}
+header ul#subTop ol li img{
+	width:auto;
+	height:0.6vw;
+}
+header ul#subTop ol li a{
+	color:white;
+}
+header ul#mainTop{
+	width:100%;
+	height:3vw;
+	background:white;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px gray solid;
+}
+header ul#mainTop li{
+	width:8vw;
+	height:2vw;
+	display:flex;
+	font-weight:bold;
+	margin-right:5px;
+}
+header ul#mainTop li a{
+	color:black;
+	display:block;
+	width:8vw;
+	height:1vw;
+	margin:auto;
+	border-right:1px silver solid;
+}
+header ul#mainTop li:last-child a{
+	border:none;
+}
+/*===============================================*/
+#main01{
+	width:100%;
+	position:relative;
+}
+#main01 > video{
+	position:absolute;
+	top:70px;
+	right:10px;
+	width:850px;
+}
+/*========================================*/
+#main02 {
+	padding-left:200px;
+	padding-right:200px;
+	box-sizing: border-box;
+	width:100%;
+	overflow:hidden;
+}
+#main02 > #movie_guide{}
+#main02 > #movie_guide > ol{}
+#main02 > #movie_guide > ol > img{}
+#main02 > #movie_guide > ol > p#title {}
+#main02 > #movie_guide > ol > p#guide {}
+#main02 > #movie_guide > ol > li {}
+
+
+
+}
+
+
+@media all and (max-width: 992px) {
+	
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+
+
+@media all and (max-width:576px) {
+	
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	(function(){ 
+
+	});
+</script>
+</head>
+<body>
+<header>	
+	<div id="logo">
+		<h1></h1>
+	</div>
+
+	<ul id="subTop">
+		<ol id="left">
+			<li><img src="img/icon/top_lotte.png"><a href="">모바일 APP</a></li>
+			<li><img src="img/icon/top_face.png"><a href="">좋아요</a></li>
+			<li><img src="img/icon/top_youtube.png"><a href="">구독하기</a></li>
+		</ol>
+		
+		<ol id="right"> 
+			<li><a href="">로그인</a></li>
+			<li><a href="">회원가입</a></li>
+			<li><a href="">맴버쉽</a></li>
+			<li><a href="">고객센터</a></li>
+			<button> <a href="">ENGLISH </a></button>
+		</ol>
+	</ul>
+
+	<ul id="mainTop">
+		<li><a href="">예매</a></li>
+		<li><a href="">영화</a></li>
+		<li><a href="">영화관</a></li>
+		<li><a href="">이벤트</a></li>
+		<li><a href="">스토어</a></li>
+		<li><a href="">VOD</a></li>
+	</ul>
+</header>
+
+<div id="main01">
+	<div id="img">
+		<img src="img/main/sub_main01.jpg">
+	</div>
+	<video src="img/video/main01.mp4" autoplay="" loop="" muted="" preload=""></video>
+</div>
+
+<div id="main02">
+	<div id="moview_guide">
+		<ol id="winter">
+			<img src="">
+			<p id="title">겨울왕국2	<span>FROZEN 2</span></p>
+			<p id="guide"></p>
+			<li></li>
+		</ol>
+	</div>
+</div>
+
+
+
+</body>
+</html>

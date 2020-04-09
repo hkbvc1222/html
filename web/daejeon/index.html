@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>대전시립미술관</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/daejeon.png" type="image/x-icon">
+	<link rel="icon" href="img/daejeon.png" type="image/x-icon">
+
+<style>
+
+button { 
+	border:none;  
+	outline:none; 
+}
+
+@media all and (max-width: 3400px) {
+
+header { 
+	display:flex;
+	position:fixed;
+	padding-left:15vw;
+	padding-right:15vw;
+	width:100%;
+	height:6vw;
+	background:white;
+	box-sizing:border-box;
+	align-items: center;
+	justify-content: space-between;
+	z-index:3;
+}
+header h1 {	
+	float:left;
+	width:15.5vw;
+	height:3vw;
+	background-image:url(img/logo.png);
+	background-size:contain;
+	background-position:center;
+	cursor:pointer;
+}
+header h1 >a{
+	display:block;
+	width:100%;
+	height:100%;
+}
+header ol#list{
+	display:flex;
+	float:right;
+	height:3vw;
+	line-height:3vw;
+}
+header ol#list li a{
+	position:relative;
+	margin-left:1vw;
+}
+header ol#list li a::before{
+	content:"|";
+	position:absolute;
+	right:-0.6vw;
+}
+header ol#list li:last-child a{
+	color:#c10b12;
+}
+header ol#list li:last-child a::before{
+	display:none;
+}
+header ol#list li > a {
+	font-size:0.8vw;
+	color:black;
+}
+#header_bar{
+	overflow:hidden;
+	position:fixed;
+	top:6vw;
+	width:100%;
+	height:3vw;
+	background:white;
+	white-space: wrap;
+	z-index:2;
+	transition:all 0.5s;
+}
+#header_bar.view{
+	height:19vw;
+	box-shadow:5px 5px 10px rgba(0,0,0,0.8);
+	transition:all 0.5s;
+}
+#header_bar > ul {
+	height:3vw;
+	background:#c10b12;
+	cursor:pointer;
+}
+#header_bar > ul > li#sub_bar{
+	display:flex;
+	position:relative;
+	top:3vw;
+	width:100%;
+	white-space: wrap;
+	justify-content: center;
+}
+#header_bar > ul > li#sub_bar > ol {
+	height:16vw;
+	border-left:1px solid silver;
+}
+#header_bar > ul > li#sub_bar> ol > p{
+	position:relative;
+	width:10vw;
+	height:3vw;
+	margin-top:-3vw;
+	text-align:center;
+	font-size:0.95vw;
+	line-height:3vw;
+	color:white;
+}
+#header_bar > ul > li#sub_bar> ol > p>span{
+	overflow:hidden;
+	display:none;
+	position:relative;
+	top:-0.9vw;
+	margin-left:-0.5vw;
+	left:50%;
+	width:1vw;
+	height:1vw;
+}
+#header_bar > ul > li#sub_bar> ol > p>span.view{	
+	display:block;
+}
+#header_bar > ul > li#sub_bar> ol > p>span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	left:50%;
+	bottom:-0.25vw;
+	margin-left:-0.25vw;
+	width:0.5vw;
+	height:0.5vw;
+	background:white;
+	transform:rotate(-45deg);
+}
+#header_bar > ul > li#sub_bar> ol:nth-of-type(1) > p{	
+	width:12vw;
+}
+#header_bar > ul > li#sub_bar> ol:nth-of-type(4) > p{	
+	width:12vw;
+}
+#header_bar > ul > li#sub_bar> ol > li:nth-of-type(1){	
+	margin-top:1vw;
+}
+#header_bar > ul > li#sub_bar> ol > li{
+	padding-left:1vw;
+	width:100%;
+	height:2.5vw;
+	box-sizing: border-box;
+	font-size:0.8vw;
+	line-height:2.5vw;
+	color:rgba(0,0,0,0.8);
+}
+#header_bar > ul > li#sub_bar> ol > li.view{
+	background:#333333;
+	color:white;
+}
+#header_bar > ul > li#sub_bar>button{
+	display:flex;
+	position:relative;
+	margin-top:-3vw;
+	margin-left:4vw;
+	width:3vw;
+	height:3vw;
+	background:rgba(0,0,0,0.4);
+	justify-content: center;
+}
+#header_bar > ul > li#sub_bar>button.view	{	
+	background:rgba(0,0,0,0.6);
+}
+#header_bar > ul > li#sub_bar>button>span{
+	display:block;	
+	position:absolute;
+	top:50%;
+	width:40%;
+	height:2px;
+	background:white;
+}
+#header_bar > ul > li#sub_bar>button::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:35%;
+	width:40%;
+	height:2px;	
+	background:white;
+}
+#header_bar > ul > li#sub_bar>button::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:65%;
+	width:40%;
+	height:2px;
+	background:white;
+}
+/*==========================================*/
+main{
+	overflow:hidden;
+	position:relative;
+	top:9vw;
+	width:100%;
+	height:37vw;
+	z-index:0;
+}
+main > #slider > ul{
+	position:relative;
+	width:100%;
+	height:100%;
+}
+main > #slider > ul > li{
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:34vw;
+	z-index:-1;
+}
+main > #slider > ul > li#main02	{
+	z-index:-2;
+}
+main > #slider > ul > li > img{
+	width:100%;
+	height:100%;
+}
+main > ol#nav{
+	position:fixed;
+	top:50%;
+	padding:1.5vw;
+	margin-top:-6vw;
+	width:8vw;
+	height:12vw;
+	background:white;
+	box-shadow:0.5vw 0.5vw 1vw rgba(0,0,0,0.1);
+	box-sizing:border-box;
+	z-index:2;
+}
+main > ol#nav > li{
+	position:relative;
+	width:5vw;
+	height:2vw;
+	border-bottom:1px dotted black;
+	cursor:pointer;
+	text-align:center;
+	line-height: 2vw;
+	font-size:0.8vw;
+}
+main > ol#nav > li.view{
+	text-align:left;
+	color:#c10b12;
+}
+main > ol#nav > li > span#arrow	{	
+	opacity:0;
+}
+main > ol#nav > li > span#arrow.view{
+	display:block;
+	position:relative;
+	top:-100%;
+	left:60%;
+	margin-top:-0.5px;
+	margin-left:-0.4vw;
+	width:2vw;
+	height:2vw;
+	opacity:1;
+}
+main > ol#nav > li > span#arrow::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	right:0;
+	margin-top:-0.05vw;
+	width:0.5vw;
+	height:0.1vw;
+	border-top:1px solid #c10b12;
+}
+main > ol#nav > li > span#arrow::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	right:0;
+	margin-top:0.1vw;
+	width:0.3vw;
+	height:0.3vw;
+	border-top:1px solid #c10b12;
+	border-right:1px solid #c10b12;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+main > ol#nav > li:nth-of-type(4){
+	display:flex;
+	border:none;
+	align-items: center;	
+	justify-content: center;
+}
+main > ol#nav > li > span.icon{
+	width:25px;
+	height:25px;
+	background:url(img/icon_sns.png) no-repeat;
+	transition:all 0.5s;
+}
+main > ol#nav > li > span#ins.view{
+	background-position-y:-25px;
+	transition:all 0.5s;
+}
+main > ol#nav > li > span#face.view{
+	background-position:-25px -25px;
+	transition:all 0.5s;
+}
+main > ol#nav > li > span#ins{	
+	background-position-y:0;
+}
+main > ol#nav > li > span#face	{	
+	background-position:-25px 0px;	
+}
+main > button{
+	display:flex;
+	position:absolute;
+	top:50%;
+	margin-top:-2.8vw;
+	width:3.5vw;
+	height:3.5vw;
+	background:rgba(0,0,0,0.6);
+	border-radius:0.1vw;
+	box-shadow: 5px 5px 20px rgba(255,255,255,0.4);
+	align-items: center;
+	justify-content: center;
+	transform:rotate(-45deg);
+}
+main > button > span{
+	width:2vw;
+	height:1px;
+	background:gray;
+	transform:rotate(45deg);
+}
+main>button#left{
+	top:50%;
+	left:10%;
+}
+main > button#left > span{
+	position:relative;
+	margin-top:1.5vw;
+	margin-left:1.5vw;
+}
+main > button#left > span::before{
+	content:"";
+	display:block;
+	margin-left:5%;
+	width:1vw;
+	height:1vw;
+	border-bottom:1px gray solid;
+	border-left:1px gray solid;
+	transform:rotate(45deg) translate(-30%,-30%);
+}
+main>button#right{
+	right:10%;
+}
+main > button#right > span{
+	position:relative;
+	margin-top:-1.5vw;
+	margin-left:-1.5vw;
+}
+main > button#right > span::before{
+	content:"";
+	display:block;
+	margin-left:45%;
+	width:1vw;
+	height:1vw;
+	border-top:1px gray solid;
+	border-right:1px gray solid;
+	transform:rotate(45deg) translate(-30%,-30%);
+}
+main > ol#slider_nav {
+	display:flex;
+	position:absolute;
+	left:50%;
+	bottom:8vw;
+	padding-left:1vw;
+	padding-right:1vw;
+	margin-left:-4vw;
+	width:7.5vw;
+	height:2vw;
+	background:rgba(0,0,0,0.6);
+	border-radius:1vw;
+	align-items: center;
+	justify-content: space-around;
+	box-sizing: border-box;
+}
+main > ol#slider_nav > li{
+	position:relative;
+	width:1vw;
+	height:1vw;
+	border-radius:1vw;
+	cursor:pointer;
+}
+main > ol#slider_nav > li.view	{	
+	border:1px white solid;
+}
+main > ol#slider_nav > li::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:1px;
+	margin-left:1px;
+	width:5px;
+	height:5px;
+	background:white;
+	border-radius: 5px;
+	transform:translate(-50%,-50%);
+	transition: all 0.5s;
+}
+main > ol#slider_nav > button {
+	overflow:hidden;
+	position:relative;
+	width:1vw;
+	height:1vw;
+	background:none;
+	border-radius:0;
+}
+main > ol#slider_nav > button::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-6px;
+	margin-left:-5px;
+	width:6px;
+	height:12px;
+	border-left:2px white solid;
+	border-right:2px white solid;
+	transition:all 0.5s;
+}
+main > ol#slider_nav > button.view::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:60%;
+	left:0;
+	width:6px;
+	height:8px;
+	background:white;
+	transform:rotate(45deg);
+	transition:all 0.5s;
+}
+/*===================================*/
+#main_bar{
+	display: flex;
+	position:relative;
+	top:6vw;
+	width:100%;
+	height:7vw;
+	justify-content: center;
+	box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+#main_bar > ol#main{
+	display:flex;
+	margin:0 auto;
+	width:70%;
+	height:100%;
+	justify-content: center;
+}
+#main_bar > ol#main > li{
+	display:flex;
+	width:33.3333%;
+	align-items: center;
+	flex-direction:column;
+	cursor:pointer;
+}
+#main_bar > ol#main > li:nth-of-type(2){
+	border-left:1px silver solid;
+	border-right:1px silver solid;
+}
+#main_bar > ol#main > li > p#title{
+	display:flex;
+	position:relative;
+	width:10vw;
+	align-items:center;
+	line-height: 4vw;
+	font-size:1.2vw;
+}
+#main_bar > ol#main > li > p#title > span{
+	overflow:hidden;
+	display:block;
+	position:absolute;
+	right:-15px;
+	width:25px;
+	height:25px;
+	background:#c10b12;
+	border-radius:20px;
+	opacity:0.8;
+	transition:0.5s all;
+}
+#main_bar > ol#main > li > p#title > span.view{
+	right:-5px;
+	opacity:1;
+	transition:0.5s all;
+}
+#main_bar > ol#main > li > p#title > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:8px;
+	left:5px;
+	width:10px;
+	height:5px;
+	border-bottom:1px silver solid;
+	border-right:1px silver solid;
+	transform:skew(45deg);
+}
+#main_bar > ol#main > li > p#time >span:nth-of-type(1){
+	display:block;
+	float:left;
+	width:70px;
+	height:15px;
+	border-right:1px silver solid;
+	text-align:left;
+	line-height:15px;
+}
+#main_bar > ol#main > li > p#time >span:nth-of-type(2){
+	display:block;
+	float:left;
+	margin-left:10px;
+	line-height:15px;
+}
+/*===================================================*/
+#page02{
+	overflow:hidden;
+	position:relative;
+	top:6vw;
+	padding:5vw 15vw;
+	width:100%;
+	height:50vw;
+	background:#f4f4f4;
+	box-sizing:border-box;
+	z-index:-1;
+}
+#page02 > p {
+	width:100%;
+	text-align: center;
+	font-size:2.4vw;
+} 
+#page02 > ul{
+	display:flex;
+	position:absolute;
+	margin-top:50vw;
+	width:44vw;
+	align-items: center;
+	justify-content: space-between;
+	opacity:0;
+	transition:all 0.3s;
+}
+#page02 > ul.view{
+	margin-top:5vw;
+	opacity:1;
+	transition:all 0.3s;
+}
+#page02 > ul::before{
+	content:"";
+	display:block;
+	position:absolute;
+	right:-24px;
+	bottom:-16px;
+	width:48px;
+	height:48px;
+	background:rgba(255,255,255,0.9);
+	border-radius:48px;
+	border:1px rgba(0,0,0,0.1) solid;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+#page02 > ul::after{
+	content:"";
+	display:block;
+	position:absolute;
+	right:-10px;
+	bottom:7px;
+	width:20px;
+	height:1px;
+	background:gray;
+}
+#page02 > ul > ol{
+	width:13vw;
+	height:14vw;
+	background:white;
+	border:1px silver solid;
+	cursor:pointer;
+	transition:all 0.1s;
+}
+#page02 > ul > ol:hover{
+	border:1px #c10b12 solid;
+	transition:all 0.1s;
+}
+#page02 > ul > ol:hover span{
+	background:#c10b12;
+	transition:all 0.1s;
+}
+#page02 > ul > ol > li{
+	position:relative;
+	padding:1.5vw;
+	box-sizing:border-box;
+}
+#page02 > ul> ol > li > span{	
+	display:block;
+	position:absolute;
+	top:-2vw;
+	left:-2vw;
+	width:4vw;
+	height:4vw;
+	background:rgba(0,0,0,0.8);
+	text-align:center;
+	color:white;
+}
+#page02 > ul> ol > li > span > p{
+	height:2vw;
+	line-height:2.5vw;
+	font-size:0.8vw;
+}
+#page02 > ul> ol > li > span > p:last-child{
+	line-height:1.5vw;
+	font-size:1.5vw;
+}
+#page02 > ul > ol > li > h1 {
+	margin:0 auto 1.5vw;
+	width:3vw;
+	height:2vw;
+	border-bottom:2px #711e76 solid;
+	text-align: center;	
+	line-height:2vw;
+	font-size:0.9vw;
+	color:#711e76;
+}
+#page02 > ul > ol > li > dl > dd{
+	margin-top:1vw;
+	letter-spacing: -0.1px;
+	font-size:0.7vw;
+	color:gray;
+}
+#page02 > ul > ol#third > li > dl > dt	{	
+	margin-top:0.5vw;
+}
+#page02 > ol#play{
+	display:flex;
+	position:absolute;
+	top:40vw;
+	right:15vw;
+	width:125px;
+	height:40px;
+	justify-content: space-between;
+	opacity:0;
+	transition:all 0.3s;
+}
+#page02 > ol#play.view{
+	top:25vw;
+	opacity:1;
+	transition:all 0.3s;
+}
+#page02 > ol#play > li{
+	width:40px;
+	height:40px;
+	background:#939393;
+	cursor:pointer;
+}
+#page02 > ol#play > li.view{	
+	background:#d69395;
+}
+#page02 > ol#play > li > span {
+	overflow:hidden;
+	display: block;
+	position:relative;
+	margin:10px auto;
+	width:20px;
+	height:20px;
+}
+#page02 > ol#play > li#left > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:60%;
+	left:25%;
+	width:8px;
+	height:8px;
+	border-bottom:2px white solid;
+	border-left:2px white solid;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+#page02 > ol#play > li#play > span::before{
+	content:"";
+	display:block;	
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:7px;
+	height:14px;
+	border-left:2px white solid;
+	border-right:2px white solid;
+	transform:translate(-50%,-50%);
+}
+#page02 > ol#play > li#play > span.view	{	
+	margin: 10px 16px;
+}
+#page02 > ol#play > li#play > span.view::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:65%;
+	left:-30%;
+	width:7px;
+	height:10px;
+	background:white;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+#page02 > ol#play > li#right > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:60%;
+	left:25%;
+	width:8px;
+	height:8px;
+	border-top:2px white solid;
+	border-right:2px white solid;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+#page02 > #sub {
+	position:relative;
+	top:23vw;
+	padding-left:25vw;
+	margin-left:-100vw;
+	width:84vw;
+	height:12vw;
+	background:white;
+	box-sizing: border-box;
+	opacity:0;
+	transition:all 0.3s 0.3s;
+}
+#page02 > #sub.view{
+	margin-left:-15vw;
+	opacity:1;
+	transition:all 0.3s 0.3s;
+}
+#page02 > #sub > dl#first {
+	position:absolute;
+	left:0;
+	padding:1vw;
+	margin-top:-1vw;
+	width:8.5vw;
+	height:9.5vw;
+	background:#ab2227;
+	box-sizing:border-box;
+	text-align: center;
+	color:white;
+	opacity:0;
+	transition:0.6s all;
+}
+#page02 > #sub > dl#first.view{
+	left:13vw;
+	opacity:1;
+	transition:all 0.3s 0.6s;
+}
+#page02 > #sub > dl#first > dt	{	
+	font-size:0.8vw;
+}
+#page02 > #sub > dl#first > dd{
+	height:4.5vw;
+	border-bottom:1px rgba(255,255,255,0.4) solid;
+	line-height:4.5vw;
+	font-size:1.2vw;
+}
+#page02 > #sub > dl#first > dd > span	{	
+	font-size:2.5vw;
+}
+#page02 > #sub > dl#first > button{
+	display:flex;
+	padding-left:0.8vw;
+	padding-right:0.8vw;
+	width:100%;
+	height:2.8vw;
+	justify-content: space-around;
+	box-sizing: border-box;
+	font-size:0.9vw;
+	color:white;
+}
+#page02 > #sub > ul {
+	display:flex;
+	padding-top:1vw;
+	margin-left:-10vw;
+	width:55vw;
+	height:10vw;
+	justify-content: space-between;
+	box-sizing: border-box;
+	opacity:0;
+	transition:all 0.9s;
+}
+#page02 > #sub > ul.view{
+	margin-left:0;
+	opacity:1;
+	transition:all 0.3s 0.9s;
+}
+#page02 > #sub > ul > ol{
+	padding-top:1vw;
+	width:20vw;
+	box-sizing: border-box;
+}
+#page02 > #sub > ul > ol#second	{	
+	width:26vw;
+}
+#page02 > #sub > ul > ol > li	{	
+	list-style: disc;
+} 
+#page02 > #sub > ul > ol#first > li > p {
+	float:left;
+	position:relative;
+	width:160px;
+}
+#page02 > #sub > ul > ol#second > li > p {
+	float:left;
+	position:relative;
+	width:300px;
+}
+#page02 > #sub > ul > ol> li > span {
+	margin-left:10px;
+	color:rgba(0,0,0,0.78);
+}
+#page02 > #sub > ul > ol > li > p::before {
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	right:0;
+	width:1px;
+	height:20px;
+	background:#c10b12;
+}
+#page02 > #sub > ul > ol > p#sub{
+	margin-top:0.5vw;
+	font-size:0.8vw;
+	color:rgba(0,0,0,0.78);
+}
+/*================================*/
+#page03{
+	position:relative;
+	padding:3vw 15vw;
+	margin-top:6vw;
+	width:100%;
+	height:40vw;
+	background:white;
+	box-sizing:border-box;
+	z-index:-2;
+}
+#page03 > p {
+	width:100%;
+	text-align: center;
+	font-size:2.5vw;
+} 
+#page03 > ul {
+	overflow:hidden;
+	display:flex;
+	margin:1vw auto;
+	width:70vw;
+	height:25vw;
+	align-items: center;
+	justify-content: space-between;
+}
+#page03 > ul > li{
+	overflow:hidden;
+	position:relative;
+	top:50vw;
+	width:23%;
+	height:85%;
+	cursor:pointer;
+	opacity:0;
+	transition:all 0.3s;
+}
+#page03 > ul > li:nth-of-type(1).view{
+	top:0;
+	opacity:1;
+	transition:all 0.3s;
+}
+#page03 > ul > li:nth-of-type(2).view{
+	top:0;
+	opacity:1;
+	transition:all 0.3s 0.2s;
+}
+#page03 > ul > li:nth-of-type(3).view{
+	top:0;
+	opacity:1;
+	transition:all 0.3s 0.4s;
+}
+#page03 > ul > li:nth-of-type(4).view{
+	top:0;
+	opacity:1;
+	transition:all 0.3s 0.6s;
+}
+#page03 > ul > li > img {
+	position:absolute;
+	top:0;
+	left:50%;
+	width:100%;
+	z-index:-1;
+	transform:translate(-50%,0);
+}
+#page03 > ul > li > p{
+	display:block;
+	position:relative;
+	top:75%;
+	width:100%;
+	height:25%;
+	background:#f8f7f5;
+}
+#page03 > ul > li > p > span{
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:100%;
+	height:25%;
+	background:#f8f7f5;
+	text-align:center;
+	font-size:1.5vw;
+	transform:translate(-50%,-50%);
+}
+#page03 > ul > li > p > img {
+	position:absolute;
+	top:-25%;
+	width:100%;
+}
+#page03 > ul> li > #active{
+	display:none;	
+	position:relative;
+	top:-6vw;
+	width:100%;
+	height:110%;
+	background:rgba(0,0,0,0.6);
+	z-index:1;
+}
+#page03 > ul> li > #active.view{
+	display:block;
+}
+#page03 > ul > li > #active > p {
+	position:absolute;
+	top:40%;
+	width:100%;
+	text-align:center;
+	font-size:2vw;
+	color: white;
+}
+#page03 > ul > li > #active > span {
+	display:block;
+	position:relative;
+	top:65%;
+	left:50%;
+	width:4vw;
+	height:4vw;
+	border-radius:10vw;
+	border: 1px white solid;
+	transform:translate(-50%,-50%);
+}
+#page03 > ul > li > #active > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:1.5vw;
+	height:0.1vw;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+#page03 > ul > li > #active > span::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:0.2vw;
+	width:0.8vw;
+	height:0.8vw;
+	border-top:1px white solid;
+	border-right:1px white solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+/*==============================================*/
+#page04{
+	position:relative;
+	padding:3vw 15vw;
+	width:100%;
+	height:50vw;
+	background:#f4f4f4;
+	box-sizing:border-box;
+	z-index:-2;
+}
+#page04 > p {
+	width:100%;
+	text-align: center;
+	font-size:2.5vw;
+} 
+#page04 > ul {
+	display:flex;
+	position:relative;
+	margin:3vw auto;
+	width:70vw;
+	height:30vw;
+	align-items: center;
+	justify-content: space-between;
+}
+#page04 > ul > li{
+	display:flex;
+	position:relative;
+	margin-top:20vw;
+	width:23%;
+	height:100%;
+	background:#ececec;
+	flex-direction:column;
+	cursor:pointer;
+	opacity:0;
+	transition:all 0.3s;
+}
+#page04 > ul > li > span {
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:103%;
+	background:rgba(0,0,0,0.6);
+	z-index:1;
+}
+#page04 > ul > li > span > p{
+	width:100%; 
+	text-align: center;
+	font-size:20px;
+	color:white;
+}
+#page04 > ul > li > span > p#name	{	
+	margin-top:40%;
+}
+#page04 > ul > li >span > p#title{
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:26px;
+}
+#page04 > ul >li > span > span{
+	display:block;
+	position:relative;
+	top:28%;
+	left:50%;
+	width:64px;
+	height:64px;
+	border-radius: 64px;
+	border:1px white solid;
+	transform:translate(-50%,-50%);
+}
+#page04 > ul > li > span > span > img {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:28px;
+	height:28px;
+	transform:translate(-50%,-50%);
+}
+#page04 > ul > li:hover span{
+	display:flex;
+	flex-direction:column;
+}
+#page04 > ul > li:nth-of-type(1).view{
+	margin-top:0;
+	opacity:1;
+	transition:all 0.3s;
+}
+#page04 > ul > li:nth-of-type(2).view{
+	margin-top:0;
+	opacity:1;
+	transition:all 0.3s 0.2s;
+}
+#page04 > ul > li:nth-of-type(3).view{
+	margin-top:0;
+	opacity:1;
+	transition:all 0.3s 0.4s;
+}
+#page04 > ul > li:nth-of-type(4).view{
+	margin-top:0;
+	opacity:1;
+	transition:all 0.3s 0.6s;
+}
+#page04 > ul > li > ol{
+	overflow:hidden;
+	position:relative;
+	width:100%;
+	height:70%;
+}
+#page04 > ul > li > ol > img {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:100%;
+	z-index:0;
+	transform:translate(-50%,-50%);
+}
+#page04 > ul > li > dl {
+	display:flex;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:30%;
+	text-align:center;
+	flex-direction:column;
+	align-items:center;
+	justify-content: space-between;
+}
+#page04 > ul > li > dl > dt{
+	margin-top:0.5vw;
+	font-size:1.1vw;
+}
+#page04 > ul > li > dl > dd{
+	margin-top:0.5vw;
+	font-size:1.2vw;
+}
+#page04 > ul > li > dl > button {
+	display:inline-block;
+	margin-top:2vw;
+	border-radius:3vw;
+	font-size:0.9vw;
+	color:white;
+}
+#page04 > span{
+	display:block;
+	position:absolute;
+	right:12.5vw;
+	bottom:8vw;
+	width:3vw;
+	height:3vw;
+	background:white;
+	border-radius:2vw;
+	border:1px #f4f4f4 solid;
+	box-shadow:rgba(0,0,0,0.3) 3px 3px 10px;  
+	z-index:2;
+}
+#page04 > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:1.5vw;
+	height:0.1vw;
+	background:gray;
+	transform:translate(-50%,-50%);
+}
+#page04 > span::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:0.05vw;
+	height:1.5vw;
+	background:gray;
+	transform:translate(-50%,-50%);
+}
+/*=================================================*/
+#page05{
+	display:flex;
+	width:100%;
+	height:20vw;
+	background:white;
+	flex-direction:column;
+	justify-content: flex-end;
+}
+#page05 > footer {
+	position:relative;
+	padding:0 15vw;
+	width:100%;
+	height:13vw;
+	background:#3d3d3d;
+	text-align:center;
+	box-sizing:border-box;
+}
+#page05 > footer > ul {
+	display:flex;
+	height:4.5vw;
+	border-bottom:1px #5b5b5b solid;
+	align-items: center;
+	justify-content: center;
+}
+#page05 > footer > ul > button {
+	display:flex;
+	position:absolute;
+	top:-2vw;
+	right:15vw;
+	width:3.5vw;
+	height:3.6vw;
+	background:#c10b12;
+	align-items: center;
+	flex-direction:column;
+	justify-content: space-around;
+	
+}
+#page05 > footer > ul > button > p{
+	display:block;
+	color:white;
+}
+#page05 > footer > ul > button > span{
+	display:block;
+	position:relative;
+	width:1vw;
+	height:1vw;
+}
+#page05 > footer > ul > button > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:100%;
+	left:50%;
+	width:0.05vw;
+	height:0.5vw;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+#page05 > footer > ul > button > span::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:90%;
+	left:50%;
+	width:0.3vw;
+	height:0.3vw;
+	border-top:1px white solid;
+	border-right:1px white solid;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+#page05 > footer > ul > p > a{
+	font-size:0.8vw;
+	color:#f2b636;
+}
+#page05 > footer > ul > li > a{
+	font-size:0.8vw;
+	color:white;
+}
+#page05 > footer > ul > li{
+	position:relative;
+	margin-left:1vw;
+}
+#page05 > footer > ul > li::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:-8px;
+	width:4px;
+	height:4px;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+#page05 > footer > ol{
+	display:flex;
+	padding-top:2vw;
+	height:7.5vw;
+	flex-direction:column;
+	box-sizing: border-box;
+	color:white;
+}
+#page05 > footer > ol > li {
+	letter-spacing: -0.3px;
+	font-size:0.8vw;
+}
+#page05 > footer > ol > h1{
+	position:absolute;
+	top:6vw;
+	right:15vw;
+}
+#page05 > footer > ol > p {
+	margin-top:1.2vw;
+	letter-spacing: -0.3px;
+	font-size:0.4vw;
+	color:#8d8a83;
+}
+
+
+}
+@media all and (max-width: 992px) {	
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width:576px) {
+}
+	
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	$(function(){
+// 메인페이지 슬라이드
+	timer() 
+	time = -1;
+function timer() {
+	slide = setInterval(function(){
+	time ++;
+	timer01 = time % 2;
+	timer02 = (time+1) % 2;
+		$("main > #slider > ul > li").eq(timer01).fadeOut();
+		$("main > #slider > ul > li").eq(timer02).fadeIn();
+		$("main > ol#slider_nav > li").eq(timer01).removeClass("view")
+		$("main > ol#slider_nav > li").eq(timer02).addClass("view")
+		$("main > ol#slider_nav > button").removeClass("view")
+	},3000);
+}
+
+// 메인페이지 슬라이드네비게이션바
+interval = true;
+$("main > ol#slider_nav > button").click(function(){
+	if(interval){
+		interval=false;
+		$(this).addClass("view");
+		clearInterval(slide);
+	}else if (!interval){
+		$(this).removeClass("view");
+		timer();
+		interval=true;
+	}
+})
+// ======================================================
+	 $("#header_bar > ul > li#sub_bar > ol ").hover(function(){
+	 	$("p>span",this).addClass("view")
+	 	$("p",this).css({color:"yellow"})
+	 },function(){
+	 	$("p>span",this).removeClass("view")
+	 	$("p",this).css({color:"white"}) 	
+	 })
+// ======================================================
+	$("#header_bar").hover(function(){
+		$(this).toggleClass("view")
+	})
+// ======================================================
+	$("#header_bar > ul > li#sub_bar > ol > li ").hover(function(){
+		$(this).toggleClass("view")
+	});
+// ======================================================
+	$("#header_bar > ul > li#sub_bar > button ").hover(function(){
+		$(this).toggleClass("view")
+	});
+// ======================================================
+	$("main > ol#nav > li > span.icon").hover(function(){
+		$(this).toggleClass("view")
+	});
+// ======================================================
+	$("main > ol#nav > li").hover(function(){
+		$(this).toggleClass("view")
+		$("span#arrow",this).toggleClass("view")
+	});
+// ======================================================
+$("#main_bar > ol#main > li").hover(function(){
+	$("p#title > span",this).toggleClass("view")
+})
+// ======================================================
+$("main > button.arrow").click(function(){
+	clearInterval(slide);
+		time ++;
+	timer01 = time % 2;
+	timer02 = (time+1) % 2;
+		$("main > #slider > ul > li").eq(timer01).fadeOut();
+		$("main > #slider > ul > li").eq(timer02).fadeIn(500);
+		$("main > ol#slider_nav > li").eq(timer01).removeClass("view")
+		$("main > ol#slider_nav > li").eq(timer02).addClass("view")
+		$("main > ol#slider_nav > button").addClass("view");
+		clearInterval(slide);
+	})
+// ======================================================
+$("main > ol#slider_nav > li").first().addClass("view")
+
+$("main > ol#slider_nav > li#first").click(function(){
+	clearInterval(slide);
+	$("main > #slider > ul > li#main02").fadeOut();
+	$("main > #slider > ul > li#main01").fadeIn(500);
+	$("main > ol#slider_nav > li").removeClass("view")
+	$(this).addClass("view")
+	$("main > ol#slider_nav > button").addClass("view")
+	interval=false;
+});
+$("main > ol#slider_nav > li#second").click(function(){
+	clearInterval(slide);
+	$("main > #slider > ul > li#main01").fadeOut();
+	$("main > #slider > ul > li#main02").fadeIn(500);
+	$("main > ol#slider_nav > li").removeClass("view")
+	$(this).addClass("view")
+	$("main > ol#slider_nav > button").addClass("view");
+	interval=false;
+})
+// ====================================================== 
+$("#page02 > ol#play > li#left ").click(function(){
+	$("#page02 > ol#play > li ").removeClass("view")
+	$(this).addClass("view")
+	$("#page02 > ol#play > li#play > span").addClass("view")
+}); 
+$("#page02 > ol#play > li#play ").click(function(){
+	$("#page02 > ol#play > li ").removeClass("view")
+	$(this).addClass("view")
+	$("#page02 > ol#play > li#play > span").toggleClass("view")
+});
+$("#page02 > ol#play > li#right ").click(function(){
+	$("#page02 > ol#play > li ").removeClass("view")
+	$(this).addClass("view")
+	$("#page02 > ol#play > li#play > span").addClass("view")
+});
+// ======================================================
+new Vue ({
+	el:"#page03",
+	data:{
+		imgList:[
+		{img :"slider01.jpg" ,desc:"성인·전문인"},
+		{img :"slider02.jpg" ,desc:"어린이·가족"},
+		{img :"slider03.jpg" ,desc:"학술프로그램"},
+		{img :"slider04.jpg" ,desc:"문화행사"}
+		],
+		// active:false
+	},
+	methods:{
+		// mouseOver:function(){
+		// 	this.active = !this.active;
+		// }
+	}
+});
+// ======================================================
+$("#page03 > ul > li ").hover(function(){
+	$("#active",this).toggleClass("view")
+});
+// ======================================================
+new Vue({
+	el:"#page04",
+	data:{
+		imgList:[
+			{img:"01.jpg" 
+			,name:"정재식" 
+			,title:"Domain of intelligence　···"
+			,desc:"Domain of intelli···"
+			,years:"2006"
+			,type:"판화"
+			,color:"#7728a4"
+		},
+			
+			{img:"02.jpg" 
+			,name:"유병호" 
+			,title:"Work2014 , Blue&jazz #···"
+			,desc:"Work2014 , Blue···"
+			,years:"2014"
+			,type:"  판화  "
+			,color:"#7728a4"
+		},
+
+			{img:"03.jpg" 
+			,name:"이명자" 
+			,title:"소녀상"
+			,desc:"소녀상"
+			,years:"1982"
+			,type:"  서양화  "
+			,color:"#009f65"
+		},
+
+			{img:"04.jpg" 
+			,name:"최영옥" 
+			,title:"Human-man"
+			,desc:"Human-man"
+			,years:"1998"
+			,type:"  뉴미디어  "
+			,color:"#ba8800"
+		}
+		]
+	}
+})
+// 스크롤시 효과
+$(window).scroll(function(){
+	var scrTop = $(window).scrollTop();
+	var pageHeight = $("#page02").height();
+	if( scrTop < (pageHeight/2) ){
+		$("#page02 > ul").removeClass("view")
+		$("#page02 > ol#play").removeClass("view")
+		$("#page02 > #sub").removeClass("view")			
+		$("#page02 > #sub > dl#first").removeClass("view")
+		$("#page02 > #sub > ul").removeClass("view")
+	}else if( scrTop > (pageHeight/2) && scrTop < (pageHeight*0.8) ){
+		$("#page02 > ul").addClass("view")
+		$("#page02 > ol#play ").addClass("view")
+	}else if (scrTop > (pageHeight*0.8) && scrTop < (pageHeight*1.8) ){
+		$("#page02 > #sub").addClass("view")		
+		$("#page02 > #sub > dl#first").addClass("view")		
+		$("#page02 > #sub > ul").addClass("view")
+		$("#page03 > ul > li ").removeClass("view")
+	}else if (scrTop > (pageHeight*1.8) && scrTop < (pageHeight*2.8) ){
+		$("#page03 > ul > li ").addClass("view")
+		$("#page04 > ul > li ").removeClass("view")
+		$("#page02 > ul").addClass("view")
+		$("#page02 > ol#play").addClass("view")
+		$("#page02 > #sub").addClass("view")			
+		$("#page02 > #sub > dl#first").addClass("view")
+		$("#page02 > #sub > ul").addClass("view")
+	}else if (scrTop > (pageHeight*2.8) && scrTop < (pageHeight*3.2) ){
+		$("#page03 > ul > li ").removeClass("view")
+		$("#page04 > ul > li ").addClass("view")
+	}
+}) 
+// ======================================================
+$("#page05 > footer > ul > button").click(function(){
+	$("html,body").animate({scrollTop:"0"})
+})
+// ======================================================
+
+	});
+</script>
+</head> 
+<body>
+
+<header>
+	<h1><a href="#"></a></h1>
+	<ol id="list">
+		<li><a href="#">HOME</a></li>
+		<li><a href="#">로그인</a></li>
+		<li><a href="#">ENGLISH</a></li>
+		<li><a href="#">대전광역시청</a></li>
+	</ol>
+</header>
+	<div id="header_bar">
+		<ul>
+			<li id="sub_bar">	
+				<ol id="header_list01">
+					<p>미술관소개 <span></span></p>
+					<li> 인사말 </li>
+					<li> MI소개 </li>
+					<li> 연혁 및 시설 </li>
+					<li> 조직 및 주요업무 </li>
+					<li> 후원회 </li>
+				</ol>
+				<ol id="header_list02">
+					<p>관람<span></span></p>
+					<li> 대전시립미술관 </li>
+					<li> 대전창작센터 </li>
+					<li> DMA 아트센터 </li>
+				</ol>
+				<ol id="header_list03">
+					<p>전시<span></span></p>
+					<li> 현재전시 </li>
+					<li> 예정전시 </li>
+					<li> 지난전시 </li>
+					<li> 대전비엔날레 </li>
+					<li> 전시 일정 </li>
+				</ol>
+				<ol id="header_list04">
+					<p>교육·행사<span></span></p>
+					<li> 성인·전문인 </li>
+					<li> 어린이·가족 </li>
+					<li> 학술프로그램 </li>
+					<li> 문화행사 </li>
+				</ol>
+				<ol id="header_list05">
+					<p>소장품<span></span></p>
+					<li> 소장품검색 </li>
+				</ol>
+				<button>
+					<span></span>
+				</button>
+			</li>
+		</ul>
+
+	</div>
+<main>
+	<ol id="nav">
+		<li>아카이브  <span id ="arrow" ></span></li>
+		<li>소식·참여 <span id ="arrow" ></span></li>
+		<li>대관안내  <span id ="arrow" ></span></li>
+		<li>
+			<span id="ins" class="icon"></span>
+			<span id="face"class="icon"></span>
+		</li>
+	</ol>
+	<div id="slider">
+		<ul>
+			<li id="main01">
+				<img src="img/main01.jpg" alt="">
+			</li>
+			<li id="main02">
+				<img src="img/main02.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+
+	<ol id="slider_nav">
+		<li id ="first"></li>
+		<li id="second"></li>
+		<button></button>
+	</ol>
+
+	<button id="left" class="arrow"> <span></span></button>
+	<button id="right" class="arrow"><span></span></button>
+</main>
+
+<div id="main_bar">
+	<ol id="main">
+		<li>
+			<p id="title">대전시립미술관 <span></span></p>
+			<p id="time">
+				<span>관람시간</span>
+				<span>10:00 ~ 18:00</span>
+			</p> 
+		</li>
+		<li>
+			<p id="title">대전창작센터 <span></span></p>
+			<p id="time">
+				<span>관람시간</span>
+				<span>10:00 ~ 18:00</span>
+			</p> 
+		</li>
+		<li>
+			<p id="title">DMA 아트센터 <span></span></p>
+			<p id="time">
+				<span>관람시간</span>
+				<span>10:00 ~ 17:00</span>
+			</p> 
+		</li>
+	</ol>
+</div>
+
+<div id="page02">
+	<p>미술관소식</p>
+	<ul>
+		<ol id="first">
+			<li>
+				<span>
+					<p>2020.01</p>
+					<p>06</p>
+				</span>
+				<h1>채용</h1>
+				<dl>
+					<dt>대전비엔날레 2020 : AI전시코디네이터 채용공고</dt>
+					<dd>대전광역시 공고 제2020-6호 대전시립미술관 전시 코디네이터 채용 공고 대전비엔날레 2020 대···</dd>
+				</dl>
+			</li>
+		</ol>
+		<ol id="second">
+			<li>
+				<span>
+					<p>2020.01</p>
+					<p>03</p>
+				</span>
+				<h1>채용</h1>
+				<dl>
+					<dt>2020 상반기 실무연수생 (인턴) 채용공고</dt>
+					<dd>2020년 상반기 대전시립미술관 실무연수생(인턴)채용공고 미래학예 전문인력 양성을 위해 현···</dd>
+				</dl>
+			</li>
+		</ol>
+		<ol id="third">
+			<li>
+				<span>
+					<p>2019.12</p>
+					<p>11</p>
+				</span>
+				<dl>
+					<dt>점,선,면 어린이교육 참여자 재모집</dt>
+					<dd>대전시립미술관은 그동안 보내주신 성원에 힘입어 <점,선,면>연계 어린이교육을 재진행합니다.···</dd>
+				</dl>
+			</li>
+		</ol>
+	</ul>
+
+	<ol id="play">
+		<li id="left">
+			<span></span>
+		</li>
+		<li id="play">
+			<span></span>
+		</li>
+		<li id="right">
+			<span></span>
+		</li>
+	</ol>
+
+	<div id="sub">
+		<dl id="first">
+			<dt>이달의 전시일정</dt>
+			<dd>2020. <span>01</span></dd>
+			<button><span>+</span> <span>전체보기</span></button>
+		</dl>
+		<ul>
+			<ol id="first">
+				<li>
+					<p>ArtiST Project 2019</p>
+				 	<span>11.26 ~ 02.02</span>
+				 </li>
+				<p id="sub">대전창작센터</p>
+			</ol>
+
+			<ol id="second">
+				<li> 
+					<p>&lt; WAYS OF SEEING:어떻게 볼 것인가 &gt;</p>
+					<span>11.05 ~ 01.27</span>
+				</li>
+				<p id="sub">1전시실,2전시실,3전시실,4전시실</p>
+			</ol>
+		</ul>
+	</div>
+</div>
+
+<div id="page03">
+	<p>교육·행사</p>
+
+	<ul>
+		<li v-for="(items,index) in imgList"> 
+			<!-- @mouseover="mouseOver" -->
+			<img v-bind:src="'img/slider/' + items.img  " alt="">
+			<p>
+				<img src="img/slider/icon_span.png" alt="">
+				<span>
+					{{ items.desc }}
+				</span>
+				<!-- <div v-show="active">
+					<span></span>
+					<p>{{items.desc}}</p>
+				</div> -->
+			</p>
+			<div id="active">
+					<p>{{items.desc}}</p>
+					<span></span>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<div id="page04">
+	<p>소장품</p>
+	<ul>
+		<li v-for="(items,index) in imgList">
+			<span>
+				<p id="name">{{items.name}}</p>
+				<p id="title">{{items.desc}}</p>
+				<p>{{items.years}}</p>
+				<span>
+					<img src="img/icon_share.png" alt="">
+				</span>
+			</span>
+			<ol>
+				<img v-bind:src="'img/slider/' + items.img " alt="">
+			</ol>
+			<dl>
+				<dt>{{items.name}}</dt>
+				<dd>{{items.title}}</dd>
+				<dt>{{items.years}}</dt>
+				<button v-bind:style="{backgroundColor: items.color}">
+					&nbsp&nbsp{{items.type}}&nbsp&nbsp
+				</button>
+			</dl>
+		</li>
+	</ul>
+	<span></span>
+</div>
+
+<div id="page05">
+	<footer>
+		<ul>
+			<p><a href=#>개인정보처리방침</a></p>
+			<li><a href=#>사이트이용약관</a></li>
+			<li><a href=#>영상정보처리기기 운영·관리방침</a></li>
+			<li><a href=#>뷰어프로그램</a></li>
+			<li><a href=#>찾아오시는 길</a></li>
+			<button>
+				<span></span>
+				<p>TOP</p>
+			</button>
+		</ul>
+		<ol>
+			<li>
+				(35204) 대전광역시 서구 둔산대로 155(만년동) / 대표전화 042)120(콜센터),전시안내 042)270-7370
+			</li>
+			<p>
+				COPYRIGHT 2019 (C) DAEJEON METROPOLITAN CITY. ALL RIGHTS RESERVED.
+			</p>
+			<h1>
+				<img src="img/icon_logo.png" alt="">
+			</h1>
+		</ol>
+	</footer>
+</div>
+</body>
+
+</html>

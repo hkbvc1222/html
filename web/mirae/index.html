@@ -1,0 +1,2547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>미래에셋 TIGER ETF</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="sub/img/icon/favicon.png" type="image/x-icon">
+	<link rel="icon" href="sub/img/icon/favicon.png" type="image/x-icon">
+<style>
+
+a{
+	color:black;
+}
+button { 
+	background:none;
+	border:none; 
+	outline:none; 
+}
+img{
+	width:100%;
+}
+@media all and (max-width: 3400px) {
+button#top {
+	display:flex;
+	position:fixed;
+	right:350px;
+	bottom:100px;
+	width:50px;
+	height:50px;
+	background:white;
+	border-radius:10px;
+	border:1px silver solid;
+	opacity:0;
+	z-index:3;
+	transition:all 0.5s;
+}
+button#top.view{
+	opacity:1;
+	transition:all 0.5s;
+}
+button#top > span{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	margin:auto;
+	width:20px;
+	height:15px;
+	border-top :1px silver solid;
+}
+button#top > span::before{
+	content:"";
+	position:absolute;
+	top:15px;
+	left:50%;
+	width:8px;
+	height:8px;
+	border:2px silver solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+header{	
+	display:flex;
+	position:fixed;
+	padding-left:10vw;
+	padding-right:10vw;
+	width:100%;
+	height:5vw;
+	background:white;
+	box-sizing:border-box;
+	align-items: center;
+	justify-content: space-between;
+	z-index:3;
+	transition:all 0.5s;
+}
+/*---------------------------------------------------------*/
+header.header{
+	padding-top:0;
+	height:3.5vw;
+	background:#e96803;
+	transition:all 0.5s;
+}
+header ul#middle li.header{
+	color:white;
+	transition:all 0.5s;
+}
+header ul#right >li#mirae > ol> p.header{
+	background:#e96803;
+	color:white;
+	transition:all 0.5s;
+}
+header ul#middle li a.header{
+	color:white;
+}
+/*------------------------------------------------------------*/
+header > ul#right > li > span{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	width:5vw;
+	height:5vw;
+	transition:all 0.5s;
+}
+/*------------------------------------------------------------*/
+header h1 { 
+	display:flex; 	
+	width:10vw;
+}
+header h1 > a{
+	overflow:hidden;
+	width:10vw;
+	height:1.4vw;
+}
+header h1 > a > img{ 
+	margin:auto; 
+}
+header #bottom{
+	position:absolute;
+	top:5vw;
+	left:20%;
+	z-index:-1;
+}
+header #bottom::before{
+	content:"";
+	display:block;
+	position:absolute;
+	bottom:8px;
+	left:-40%;
+	width:40%;
+	height:8px;
+	background:#666666;
+}
+header #bottom::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	right:-40%;
+	width:40%;
+	height:8px;
+	background:#f67100;
+}
+header ul#middle{
+	display:flex;
+	width:30vw;
+	height:2vw;
+	margin-left:-5vw;
+	justify-content: space-between;
+}
+header ul#middle > li{
+	width:15vw;
+	height:5vw;
+}
+header ul#middle li a {
+	display:inline;
+	position:relative;	
+	font-weight:bold;
+	font-size:1vw;
+	transition:all 0.5s;
+}
+header ul#middle li a::before{
+	content:"";
+	position:absolute;
+	left:50%;
+	bottom:-5px;
+	width:0;
+	transform:translate(-50%,-50%);
+}
+header ul#middle li a.hr::before{
+	content:"";
+	width:100%;
+	height:2px;
+	background:#fe7650;
+	transition:all 0.2s;
+}
+header ul#middle li > ol{
+	display:none;
+	position:absolute;
+	margin-top:3vh;
+	padding:20px 40px;
+	width:15vw;
+	background:white;
+	box-shadow:5px 5px 50px rgba(0,0,0,0.2);
+	box-sizing:border-box;
+	white-space:wrap;
+	z-index:100;
+}
+header ul#middle li > ol.view{
+	display:block;
+}
+header ul#middle li > ol> li{
+	display:flex;
+	height:50px;
+	cursor:pointer;
+	align-items:center;
+}
+header ul#middle li > ol> li > p{
+	display:inline-block;
+	position:relative;
+	height:1.5vw;
+	font-size:0.8vw;
+}
+header ul#middle li > ol> li > p::before{
+	content:"";
+	position:absolute;
+	left:50%;
+	bottom:0;
+	width:0;
+	height:1px;
+	background:black;
+	transform:translate(-50%,-50%);
+}
+header ul#middle li > ol> li > p:hover::before{
+	width:100%;
+	transform:translate(-50%,-50%);
+	transition:all 0.5s;
+}
+header ul#middle li > ol> li#sub > p{
+	font-size:0.5vw;
+	color:gray;
+}
+header ul#middle li > ol> li#sub > p::before{
+	background:gray;
+}
+header > ul#right{
+	display:flex;
+	float:right;
+	width:400px;
+	height:50px;
+	justify-content: space-between;
+}
+header > ul#right li.icon{
+	display:flex;
+	width:50px; 
+	height:50px;
+}
+header > ul#right li.icon>span{
+	overflow:hidden;
+	position:relative;
+	margin:auto;
+	width:30px;
+	height:30px;
+}
+header > ul#right li#mirae{
+	position:relative;
+}
+header > ul#right li#mirae > ol{
+	overflow:hidden;
+	width:200px;
+	height:50px;
+	white-space: wrap;
+	transition:all 0.5s;
+}
+header > ul#right li#mirae > ol.view{
+	height:290px;
+	transition:all 0.5s;
+}
+header > ul#right li#mirae > ol li{
+	padding-left:20px;
+	height:45px;
+	width:200px;
+	background:white;
+	border-left:1px silver solid;
+	border-right:1px silver solid;
+	box-sizing:border-box;
+	letter-spacing: -1px;
+	line-height:45px;
+	font-size:0.8rem;
+	color:gray;
+}
+header > ul#right li#mirae > ol li:nth-of-type(1){
+	border-top:1px silver solid;
+}
+header > ul#right li#mirae > ol li:nth-of-type(5){
+	border-bottom:1px silver solid;	
+}
+header > ul#right li#mirae >ol > p{
+	display:flex;
+	padding-left:10px;
+	width:198px;
+	height:50px;
+	letter-spacing: -0.9px;
+	line-height: 50px;
+	text-align:left;
+	font-weight:bold;
+	font-size:0.8rem;
+	color:#ee7002;
+	box-sizing:border-box;
+	cursor:pointer;
+	transition:all 0.5s;
+}
+header > ul#right li#mirae >ol > p.view{
+	border:1px silver dotted;
+}
+header > ul#right li#mirae >ol > p >span{
+	overflow:hidden;
+	display:block;
+	float:right;
+	position:relative;
+	margin-top:20px;
+	margin-left:30px;
+	width:10px;
+	height:10px;
+	cursor:pointer;
+	transition:all 0.5s;
+}
+header > ul#right li#mirae >ol > p >span::before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:50%;
+	width:8px;
+	height:8px;
+	border:2px #474747 solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+header > ul#right li#mirae >ol > p >span.view::before{
+	content:"";
+	position:absolute;
+	top:100%;
+	left:50%;
+	width:8px;
+	height:8px;
+	border:2px #474747 solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+header > ul#right li#mirae >ol > li > a > p{
+	display:inline;
+	position:relative;
+}
+header > ul#right li#mirae >ol > li > a > p::before{
+	content:"";
+	position:absolute;
+	left:50%;
+	bottom:-5px;
+	width:0;
+	height:1px;
+	transform:translate(-50%,-50%);
+}
+header > ul#right li#mirae >ol > p >span.header::before{
+	border:2px white solid;
+}
+header > ul#right li#mirae >ol > li > a > p.view::before{
+	width:100%;
+	border-bottom:1px #474747 solid;
+	transition:all 0.3s;
+}
+header > ul#right > li> span::before{
+	content:"";
+	position:absolute;
+	transform:translate(-50%,-50%);
+}
+header > ul#right > li> span::after{
+	content:"";
+	position:absolute;
+	transform:translate(-50%,-50%);
+}
+header > ul#right > li{ 
+	cursor:pointer;
+}
+header > ul#right > li#search> span.header::before{
+	content:"";
+	top:50%;
+	left:50%;
+	background:none;
+	border:2px white solid;
+	transition:all 0.5s;
+}
+header > ul#right > li#search> span.header::after{
+	content:"";
+	background:white;
+	transition:all 0.5s;
+}
+header > ul#right > li#search> span::before{
+	content:"";
+	top:50%;
+	left:50%;
+	width:15px;
+	height:15px;
+	border-radius:15px;
+	border:2px #474747 solid;
+}
+header > ul#right > li#search> span.hover::before{
+	animation:before forwards 0.3s;
+}
+header > ul#right > li#search>span.hover::after{
+	animation:after forwards 0.3s 0.1s;
+}
+header > ul#right > li#login> span.hover::before{
+	animation:before forwards 0.3s;
+}
+header > ul#right > li#login> span.hover::after{
+	animation:before forwards 0.3s 0.1s;
+}
+@keyframes before {
+	0%		{ left:10%; }
+	50%		{border:2px transparent solid;}
+	100% 	{left:50%;}
+}
+@keyframes after {
+	0%		{ left:40%; }
+	50%		{background:transparent;}
+	100% 	{left:75%;}
+}
+header > ul#right > li#search > span::after{
+	content:"";
+	top:65%;
+	left:75%;
+	width:2px;
+	height:10px;
+	background:#474747;
+	transform:rotate(-45deg);
+}
+#right > li#login> span.header::after{
+	background:#e96803;
+	border:2px white solid;
+	transition:all 0.5s;
+}
+/*------------------------------------------*/
+header > ul#right > li#login> span.header::before{
+	border:2px white solid;
+	transition:all 0.5s;
+}
+header > ul#right > li#login> span::before{
+	content:"";
+	top:95%;
+	left:50%;
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	border:2px #474747 solid;
+}
+header > ul#right > li#login > span::after{
+	content:"";
+	top:50%;
+	left:50%;
+	width:12px;
+	height:12px;
+	background:white;
+	border-radius:12px;
+	border:2px #474747 solid;
+}
+/*-------------------------------------------*/
+header > ul#right > li#list> span.header::before{
+	background:white;
+	border:none;
+	transition:all 0.5s;
+}
+header > ul#right > li#list> span > hr.header{
+	background:white;
+	border:none;
+	transition:all 0.5s;	
+}
+header > ul#right > li#list> span.header::after{
+	background:white;
+	border:none;
+	transition:all 0.5s;
+}
+header > ul#right > li#list> span::before{
+	content:"";
+	position:absolute;
+	top:20%;
+	left:0;
+	width:30px;
+	height:3px;
+	background:#474747;
+	transform:translate(0);
+}
+
+header > ul#right > li#list > span::after{
+	content:"";
+	top:80%;
+	left:0;
+	width:12px;
+	height:3px;
+	background:#474747;
+	transform:translate(0);
+}
+
+header > ul#right > li#list > span > hr{
+	width:21px;
+	height:3px;
+	background:#474747;
+	position:absolute; 
+	top:50%;
+	left:0;
+	border:none;
+	transition:all 0.5s;
+}
+header > ul#right > li#list > span.hover::before{
+	animation:list 0.3s forwards;
+}
+header > ul#right > li#list > span > hr.hover{	
+	animation:list 0.3s 0.1s forwards;
+}
+header > ul#right > li#list > span.hover::after{
+	animation:list 0.3s 0.2s forwards;
+}
+@keyframes list {
+	0%		{ left:-50%; }
+	50%		{background:transparent;}
+	100%	{left:0;}
+}
+/*헤더 검색창*/
+#search_lnb.view{
+	position:fixed;
+	top:100px;
+	left:0;
+	height:80%;
+	z-index:3;
+	transition:all 0.5s;
+}
+#search_lnb{
+	overflow:hidden;
+	display:flex;
+	position:absolute;
+	width:100%;
+	height:0;
+	background:white;
+	box-shadow:5px 5px 50px rgba(0,0,0,0.1);
+	white-space: wrap;
+	align-items: center;
+	flex-direction:column;
+	z-index:2;
+	transition:all 0.5s;
+}
+#search_lnb > #search_header{
+	display:flex;
+	padding-left:20%;
+	padding-right:20%;
+	width:100%;
+	height:15%;
+	border-bottom:1px rgba(0,0,0,0.05) solid;
+	align-items: center;
+	box-sizing:border-box;
+}
+#search_lnb > #search_header > h1{
+	overflow:hidden;
+	display:flex;
+	width:155px;
+	height:3vw;
+	align-items: center;
+	justify-content: center;
+}
+#search_lnb > #search_header > p{
+	margin:auto;
+	font-weight:bold;
+	font-size:22px;
+}
+#search_lnb > #search_header > button#switch{
+	overflow:hidden;
+	position:relative;
+	width:25px;
+	height:25px;
+}
+#search_lnb > #search_header > button#switch::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	left:50%;
+	width:40px;
+	height:2px;
+	background:#545454;
+	transition:0.5s 0.1s all;
+}
+#search_lnb > #search_header > button#switch::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:100%;
+	left:50%;
+	width:40px;
+	height:2px;
+	background:#545454;
+	transition:0.5s 0.1s all;
+}
+#search_lnb > #search_header > button#switch.view::before{
+	top:50%;
+	transform:translate(-50%,-50%) rotate(-45deg);
+	transition:0.5s 0.1s all ;
+}
+#search_lnb > #search_header > button#switch.view::after{
+	top:50%;
+	transform:translate(-50%,-50%) rotate(45deg);
+	transition:0.5s 0.1s all ;
+}
+/*------------------------------------------------------------*/
+ul#search{
+	overflow:hidden;
+	padding-top:0;
+	padding-left:30%;
+	padding-right:30%;
+	height:100%;
+	box-sizing:border-box;
+}
+ul#search > li{
+	box-sizing:border-box;
+}
+ul#search > li#first{
+	display:flex;
+	height:15%;
+	border-bottom:2px black solid;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: space-around;
+}
+ul#search > li#first > input{
+	width:100%;
+	height:50%;
+	border:none;
+	outline:none;
+}
+ul#search > li#first > input::placeholder{
+	letter-spacing: -1px;
+	font-weight:bold; 
+	font-size:16px; 
+	color:silver;
+}
+ul#search > li#first > span{
+	display:block;
+	position:relative;
+	width:3vw;
+	height:100%;
+}
+ul#search > li#first > span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:1.5vw;
+	height:1.5vw;
+	border-radius:1.5vw;
+	border:0.2vw #ee7200 solid;
+	transform:translate(-50%,-50%);
+}
+ul#search > li#first > span::after{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:1vw;
+	margin-left:1vw;
+	width:0.2vw;
+	height:1vw;
+	background:#ee7200;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+/*------------------------------------------------------------*/
+ul#search > li#second{
+	display:flex;
+	width:100%;
+	height:10%;
+	border-bottom:1px rgba(0,0,0,0.05) solid;
+	align-items: center;
+}
+ul#search > li#second > button > p{
+	display:flex;
+	width:200px;
+	letter-spacing: -1px;
+	text-align:left;
+	font-weight:bold;
+	font-size:15px;
+	color:#0857f4;
+	align-items: center;
+}
+ul#search > li#second > button > p > span{
+	float:left;
+}
+ul#search > li#second > button > p > span#icon{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	margin-left:10px;
+	width:10px;
+	height:18px;
+}
+ul#search > li#second > button > p > span#icon::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:-5px;
+	width:15px;
+	height:15px;
+	border:1px #0857f4 solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+/*------------------------------------------------------------*/
+ul#search > li#third{
+	height:20%;
+	border-bottom:1px rgba(0,0,0,0.05) solid;
+}
+ul#search > li#third > p#title{
+	height:70px;
+	letter-spacing: -1px;
+	line-height: 80px;
+	font-weight:bold;
+	font-size:16px;
+}
+ul#search > li#third > p.tag{
+	display:flex;
+	float:left;
+	letter-spacing: -1px;
+	font-size:14px;
+	align-items: center;
+}
+ul#search > li#third > p#tag02{
+	margin-left: 15px;	
+}
+ul#search > li#third > p.tag>span{	
+	overflow:hidden;
+	display:block;
+	float:left;
+	position:relative;
+	width:12px;
+	height:12px;
+}
+ul#search > li#third > p.tag>span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:2px;
+	height:20px;
+	border:1.5px #ee7200 solid;
+	transform:translate(-50%,-50%) skew(-15deg);
+}
+ul#search > li#third > p.tag>span::after{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:10px;
+	height:2px;
+	border-top:1px #ee7200 solid;
+	border-bottom:1px #ee7200 solid;
+	transform:translate(-50%,-50%) skew(-15deg);
+}
+/*------------------------------------------------------------*/
+ul#search > li#fourth{
+	width:100%;
+	height:240px;
+}
+ul#search > li#fourth > p#title{
+	height:60px;
+	letter-spacing: -1px;
+	line-height: 60px;
+	font-weight:bold;
+	font-size:16px;
+}
+ul#search > li#fourth > ol {
+	display:flex;
+	width:100%;
+	height:50px;
+	flex-wrap:wrap;
+	align-items: center;
+}
+ul#search > li#fourth > ol > li:first-child{
+	margin-left:0;
+}
+ul#search > li#fourth > ol > li {	
+	display:flex;
+	margin-left:3px;
+	height:40px;
+	border-radius:20px;
+	background:#eaebf0;
+	font-size:0.5vw;
+	align-items: center;
+	
+}
+ul#search > li#fourth > ol > li >p{
+	display:inline-block;
+	padding-right:15px;
+	letter-spacing: -1px;
+	color:#5c5d62;
+}
+ul#search > li#fourth > ol > li >span{
+	overflow:hidden;
+	display:block;
+	float:left;
+	position:relative;
+	padding-left:15px;
+	width:12px;
+	height:12px;
+}
+ul#search > li#fourth > ol > li > span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:2px;
+	height:20px;
+	border:1px #5c5d62 solid;
+	transform:translate(-50%,-50%) skew(-15deg);
+}
+ul#search > li#fourth > ol > li > span::after{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:10px;
+	height:2px;
+	border-top:1px #5c5d62 solid;
+	border-bottom:1px #5c5d62 solid;
+	transform:translate(-50%,-50%) skew(-15deg);
+}
+/*-----------------------------------------------------*/
+#main{
+	overflow:hidden;
+	padding-top:5.4vw;
+	width:100%;
+	height:40vw;
+	box-sizing:border-box;
+}
+#main li.slide{
+	position:absolute;
+	padding-top:7vw;
+	padding-left: 15vw;
+	width:100%;
+	height:33vw;
+	box-sizing:border-box;
+	z-index: -1;
+}
+#main li#slide01{
+	background:url(img/main/main01.jpg) no-repeat;
+	background-position:bottom ;
+}
+/*=================================*/
+#main > ul > li#slide01 > #text > p{
+	color:white;
+}
+#main > ul > li#slide01 > #text > p#sub{	
+	position:absolute;
+	top:16vw;
+}
+#main > ul > li#slide01 > #text > #title{
+	margin-top:7vw;
+	width:40vw;
+	height:20vh;
+}
+#main > ul > li.slide > #text > p#sub.start{	
+	animation:start_up 0.5s 0.3s forwards;	
+}
+#main li#slide01 #text {
+	color:white;
+}
+/*=================================*/
+#main li.slide #text{
+	overflow:hidden;
+	position:relative;
+	top:-100px;
+	width:31vw;
+	height:20vw;
+}
+#main li.slide>#text>p#sticker{
+	position:absolute;
+	top:5vw;
+	width:4vw;
+	height:2vw;
+	border:1px #ee7200 solid;
+	line-height:2vw;
+	text-align:center;
+	font-size:14px;
+	color:#ee7200;
+}
+/*========================================*/
+#main li.slide>#text>p#sticker.start{
+	animation:start_down 0.3s forwards;
+}
+@keyframes start_down {
+	0%	{	top:0; 		opacity:0;}
+	100%{ 	opacity:1;				}
+}
+@keyframes start_left {
+	0%	{  margin-left:100vw; 	opacity:0;}
+	100%{ 	margin-left:0;		opacity:1;}
+}
+@keyframes start_up {
+	0%	{margin-top:180px; opacity:0;}
+	100%{ opacity:1;	}
+}
+/*===========================================*/
+#main > ul > li.slide > #text > #title{
+	margin-top:140px;
+	animation:start_up 0.5s forwards;
+}
+#main li.slide>#text>#title>p#title01>span{
+	color:#ee7200;
+}
+#main li.slide>#img{
+	overflow:hidden;
+	position:absolute;
+	top:2vw;
+	right:25vw;
+	width:25vw;
+}
+#main li.slide>#img>img{
+	margin-left:25vw;
+}
+#main li.slide>#img>img.start{
+	animation:start_left 0.5s 0.3s forwards;
+}
+#main li.slide #text p{
+	font-weight:bold;
+	font-size:3.2rem;
+}
+#main li.slide #text p#sub{
+	position:absolute;
+	top:320px;
+	letter-spacing: -2px;
+	font-size:15px;
+	opacity:0;
+}
+/*===========================================*/
+#main #indi_bar{
+	display:flex;
+	position:absolute;
+	top:500px;
+	left:400px;
+	width:220px;
+	height:20px;
+	align-items: center;
+	justify-content: space-between;
+}
+#main #indi_bar > ol {
+	overflow:hidden;
+	display:flex;
+	width:180px;
+	height:8px;
+	justify-content: space-between;
+}
+#main #indi_bar > ol li{
+	float:left;
+	width:50px; 
+	height:4px;
+	background:rgba(0,0,0,0.3);
+	transform: skew(-40deg);
+	cursor:pointer;
+}
+#main #indi_bar > ol li.view{
+	background:#e96803;
+	transition:all 0.1s;
+}
+#main #indi_bar > button{
+	overflow:hidden;
+	position:relative;
+	width:20px;
+	height:20px;
+	background:transparent;
+	border-radius:20px;
+}
+#main button.arrow{
+	display:flex;
+	position:absolute;
+	top:480px;
+	right:400px;
+	width:50px;
+	height:50px;
+	background:rgba(0,0,0,0.05);
+	border-radius:5px;
+}
+#main button.arrow.hover{
+	background:rgba(0,0,0,0.2);
+}
+#main button.arrow>span{
+	overflow:hidden;
+	position:relative;
+	margin:auto;
+	width:15px;
+	height:30px;
+}
+#main button.arrow>span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	width:20px;
+	height:20px;
+	border:2px silver solid;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+#main button#left>span::before{
+	left:20px;
+}
+#main button#right>span::before{
+	left:-5px;
+}
+#main button#left{
+	right:460px;
+}
+#main #detail_view{
+	display:flex;
+	position:absolute;
+	top:350px;
+	right:300px;
+	height:50px;
+	color:#ee7002;
+}
+#main #detail_view > p{
+	display:flex;
+	position:relative;
+	letter-spacing: -1px;
+	line-height: 50px;
+	font-weight:bold;
+	font-size:16px;
+}
+#main #detail_view >p >span{
+	display:block;
+	position:relative;
+	margin-left:20px;
+	width:50px;
+	height:50px;
+	background:#ee7002;
+	border-radius:30px;
+}
+#main #detail_view >p >span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+#main #detail_view >p >span>span#arrow{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	top:50%;
+	left:50%;
+	margin-left:10px;
+	width:10px;
+	height:20px;
+	transform:translate(-50%,-50%);
+}
+#main #detail_view >p >span>span#arrow::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:0;
+	width:5px;
+	height:5px;
+	border:2px white solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+/*----------------------------------------------------------*/
+#main_info{
+	position:absolute;
+	top:670px;
+	left:50%;
+	width:68%;
+	height:200px;
+	transform:translate( -50% ,-50%);
+}
+#main_info>ul{
+	display:flex;
+}
+#main_info > ul> li{
+	display:flex;
+	width:50%;
+	height:200px;
+	box-sizing:border-box;
+	background:#474747;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: center;
+}
+#main_info > ul> li:last-child{
+	background:#ee7200;
+}
+#main_info > ul> li > p{
+	position:relative;
+	width:100%;
+	height:100px;
+}
+#main_info > ul> li > p:first-child{
+	display:flex;
+	padding-left:20px;
+	border-bottom:2px white solid;
+	align-items: flex-end;
+	justify-content: space-between;
+	box-sizing:border-box;
+}
+#main_info > ul> li >p:last-child{
+	padding-top:20px;
+	box-sizing: border-box;
+}
+#main_info > ul> li > p >input{
+	width:80%;
+	height:50px;
+	background:none;
+	border:none;
+	letter-spacing: -1px;
+	font-weight:bold;
+	font-size:18px;
+	outline:none;
+	color:white;
+}
+#main_info > ul> li > p >input::placeholder{
+	color:white;
+}
+#main_info > ul> li p >span{
+	display:block;
+	width:50px;
+	height:50px;
+}
+#main_info > ul> li#product> p >span{
+	position:relative;
+	cursor:pointer;
+}
+#main_info > ul> li#product> p >span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:45%;
+	left:45%;
+	width:20px;
+	height:20px;
+	border-radius:30px;
+	border:2px white solid;
+	transform:translate(-50%,-50%);
+}
+#main_info > ul> li#product> p >span::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:73%;
+	left:70%;
+	width:2px;
+	height:15px;
+	background:white;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+#main_info > ul> li >p{
+	display:block;
+	width:80%;
+	height:100px;
+	letter-spacing: -1px;
+	font-size:18px;
+	color:white;
+}
+#main_info > ul> li >p>button{
+	width:80%;
+	height:50px;
+	background:none;
+	border:none;
+	letter-spacing: -1px;
+	text-align: left;
+	font-weight:bold;
+	font-size:18px;
+	color:white;
+}
+/*-------------------------------------COLOR--------------*/
+#main02{
+	display:flex;
+	padding-top:150px;
+	margin-top:-30px;
+	width:100%;
+	height:700px;
+	background:#ebecf0;
+	box-sizing:border-box;
+	align-items: center;
+	flex-direction:column;
+}
+#main02 > p#title{
+	display:inline-block;
+	letter-spacing: -3px;
+	font-weight:bold;
+	font-size:32px;
+}
+#main02 > ol#button{
+	display:flex;
+	margin-top:10px;
+	width:500px;
+	height:60px;
+	justify-content: center;
+}
+#main02 > ol#button > li{
+	display:flex;
+	width:80px;
+	border-bottom:2px silver solid;
+	font-weight:bold;
+	cursor:pointer;
+}
+#main02 > ol#button > li.button{
+	border-bottom:2px solid #ee6f00;;
+}
+#main02 > ol#button > li > p{
+	display:block;
+	margin:auto;
+	letter-spacing: -2px;
+	font-size:14px;
+	color:gray;
+}
+#main02 > ol#button > li > p.button{
+	width:70px;
+	height:25px;
+	border-radius:10px;
+	background:#ee6f00;
+	line-height:25px;
+	text-align: center;
+	color:white;
+}
+#main02 > #ratio_slide{
+	position:relative;
+	margin-top:10px;
+	width:1360px;
+	height:400px;
+}
+#main02 > #ratio_slide > #slideBox{
+	overflow:hidden;
+	width:1360px;
+	height:400px;
+}
+#main02 > #ratio_slide > #slideBox > #flex{
+	display:flex;
+	width:90000px;
+	height:400px;
+}
+#main02 > #ratio_slide > button.slide_button{
+	display:flex;
+	position:absolute;
+	top:50%;
+	margin-top:-25px;
+	width:50px;
+	height:50px;
+	border-radius:10px;
+	border:1px silver solid;
+}
+#main02 > #ratio_slide > button.slide_button > span{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	margin:auto;
+	width:20px;
+	height:20px;
+}
+#main02 > #ratio_slide > button.slide_button > span::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	width:20px;
+	height:20px;
+	border:2px gray solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+#main02 > #ratio_slide > button#slide_left > span::before{
+	left:100%;
+}
+#main02 > #ratio_slide > button#slide_right > span::before{
+	left:0;
+}
+#main02 > #ratio_slide > button#slide_left{
+	left:-70px;
+}
+#main02 > #ratio_slide > button#slide_right{
+	right:-70px;
+}
+#main02 > #ratio_slide > #slideBox > #flex > ul{
+	display:flex;
+	width:1360px;
+	height:400px;
+	align-items: center;
+	flex-wrap:wrap;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol{
+	margin-left:40px;
+	width:400px;
+	height:350px;
+	box-shadow:3px 3px 10px rgba(0,0,0,0.4);
+}	
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol > li {
+	position:relative;
+	padding-top:60px;
+	padding-left:40px;
+	width:400px;
+	height:350px;
+	background:white;
+	box-sizing:border-box;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol >li > p#number{
+	display:block;
+	width:20px;
+	height:35px;
+	border-bottom:1px solid #ee6f00;
+	line-height:0;
+	font-weight:bold;
+	font-size:30px;
+	color:#ee6f00;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol >li > p#title{
+	margin-top:15px;
+	letter-spacing: -2px;
+	font-size:24px;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol >li > p#ratio{
+	position:absolute;
+	left:40px;
+	bottom:60px;
+	font-weight:bold;
+	font-size:46px;
+	color:red;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol >li > p#price{
+	display:block;
+	position:absolute;
+	right:40px;
+	bottom:60px;
+	width:100px;
+	text-align:right;
+}
+#main02 > #ratio_slide > #slideBox> #flex > ul > ol >li > p#price > span:first-child{
+	display:block;
+	text-align:right;
+	font-weight:normal;
+	font-size:12px;
+	color:gray;
+}
+/*==================================================================*/
+#main03{	
+	padding:100px 300px 0;
+	width:99.9%;
+	height:700px;
+	background:white;
+	box-sizing: border-box;
+}
+#main03 > ul#leftBox{
+	float:left;
+	position:relative;
+	width:400px;
+	height:500px;
+}
+#main03 ul#leftBox > button.research{
+	display:flex;
+	position:absolute;
+	top:40%;
+	width:50px;
+	height:50px;
+	border-radius:10px;
+	border:1px silver solid;
+	z-index:2;
+}
+#main03 ul#leftBox > button.research > span{
+	overflow:hidden;
+	display:block;
+	position:relative;
+	margin:auto;
+	width:13px;
+	height:25px;
+}
+#main03 ul#leftBox > button.research > span::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	width:15px;
+	height:15px;
+	border: 2px gray solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+#main03 ul#leftBox > button#left > span::before{
+	right:-20px;
+}
+#main03 ul#leftBox > button#right > span::before{
+	left:0;	
+}
+#main03 ul#leftBox > button#left{
+	left:-50px;
+}
+#main03 ul#leftBox > button#right{
+	right:-50px;
+}
+#main03 ul#leftBox > #etf {
+	overflow:hidden;
+	position:relative;
+	margin-left:25px;
+	width:350px;
+	height:380px;
+}
+#main03 ul#leftBox > #etf > ol#slider{
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:900px;
+	height:320px;
+	transform:translate(-50%,-50%);
+}
+#main03 ul#leftBox > #etf > ol#slider > li{
+	float:left;
+	position:relative;	
+	padding-top:30px;
+	padding-left:10px;
+	margin-left:15px;
+	width:280px;
+	height:320px;
+	border-radius:10px;
+	box-sizing: border-box;
+	box-shadow:0 10px 0 rgba(0,0,0,0.1);
+	z-index:1;
+	transition:all 0.5s;
+}
+#main03 ul#leftBox > #etf > ol#slider > li:nth-of-type(2){
+	z-index:2;
+}
+#main03 ul#leftBox > #etf > ol#slider > li > p#title{
+	display:inline-block;
+	margin-left:50%;
+	height:30px;
+	border-bottom:1px white solid;
+	color:white;
+	transform:translate(-50%,0);
+}
+#main03 ul#leftBox > #etf > ol#slider > li > span{
+	display:block;
+	margin-top:30px;
+	text-align:center;
+	font-weight:bold;
+	font-size:21px;
+	color:white;
+}
+#main03 ul#leftBox > #etf > ol#slider > li > p#period{
+	display:block;
+	margin-top:20px;
+	text-align:center;
+	font-size:14px;
+	color:white;
+}
+#main03 ul#leftBox > #etf > ol#slider > li > img{
+	margin-top:50px;
+	margin-left:110px;
+	width:51px;
+	height:51px;
+	background:rgba(0,0,0,0.3);
+	border-radius: 51px;
+}
+/*==================================================================*/
+#main03 > ul{
+	position:relative;
+}
+#main03 > ul > p{
+	display:block;
+	margin:0 auto 30px;
+	text-align:center;
+	font-weight:bold;
+	font-size:24px;
+}
+/*==================================================================*/
+
+#main03 > ul#rightBox{
+	float:right;
+	width:600px;
+	height:500px;
+}
+#main03 > ul#rightBox > ol#notice{
+	display:flex;
+	flex-direction: column;
+}
+#main03 > ul#rightBox > ol#notice > li{
+	display:flex;
+	padding-left:20px;
+	padding-right:20px;
+	width:100%;
+	height:60px;
+	border-bottom:1px silver solid;
+	letter-spacing: -1px;
+	line-height:60px;
+	box-sizing:border-box;
+	justify-content: space-between;
+	cursor:pointer;
+}
+#main03 > ul#rightBox > ol#notice > li:hover{
+	background:rgba(0,0,0,0.1);
+}
+#main03 > ul#rightBox > ol#notice > li > span{
+	display:inline-block;
+	letter-spacing: -2px;
+	font-size:14px;
+}
+/*==================================================================*/
+#main03 button#all {
+	position:absolute;	
+	left:50%;
+	bottom:0;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align: center;
+	font-weight:bold;
+	color:blue;
+	transform:translate(-50%,-50%);
+}
+#main03 button#all > p{
+	display:block;
+	float:left;
+	height:30px;
+}
+#main03 button#all > span{
+	overflow:hidden;
+	display:block;
+	float:right;
+	margin-top:7.5px;
+	width:15px;
+	height:15px;
+}
+#main03 button#all > span::before{
+	content:"";
+	display:block;
+	margin-top:50%;
+	margin:left:100%;
+	width:5px;
+	height:5px;
+	border:1px blue solid;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+/*==================================================================*/
+footer {
+	width:100%;
+	height:250px;
+}
+footer > #foot01{
+	display:flex;
+	padding-left:350px;
+	padding-right:350px;
+	width:100%;
+	height:60px;
+	background:rgba(0,0,0,0.1);
+	box-sizing:border-box;
+	align-items: center;
+	justify-content: space-between;
+}
+footer > #foot01 > ul {
+	width:200px;
+}
+footer > #foot01 > ul > li{
+	display:inline-block;
+	font-weight:bold;
+	font-size:14px;
+}
+footer > #foot01 > ul > li:last-child{
+	position:relative;
+	margin-left:20px;
+}
+footer > #foot01 > ul > li:last-child::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:-12px;
+	width:1px;
+	height:18px;
+	background:silver;
+	transform:translate(-50%,-50%);
+}
+footer > #foot01 > button > p {
+	width:200px;
+	height:40px;
+	background:white;
+	border-radius:10px;
+	line-height:40px;
+	font-size:14px;
+}
+/*==================================================================*/
+footer > #foot02{
+	overflow:hidden;
+	display:flex;
+	padding-top:25px;
+	padding-left:350px;
+	padding-right:350px;
+	width:100%;
+	box-sizing:border-box;
+	justify-content: space-between;
+}
+footer > #foot02 > h1 {
+	width:120px;
+}
+footer > #foot02 > ol > li > p{
+	font-size:14px;
+	color:gray;
+}
+footer > #foot02 > ol#img{
+	display:flex;
+	width:300px;
+	align-items: center;
+	justify-content: space-between;
+}
+footer > #foot02 > ol#img > li{
+	width:30px;
+	height:20px;
+}
+footer > #foot02 > ol#img > li>img{
+	width:auto;
+	height:100%;
+}
+/*==================================================================*/
+::-webkit-scrollbar { display:none; }
+}
+
+
+@media all and (max-width: 992px) {
+	
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+
+
+@media all and (max-width:576px) {
+	
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	$(function(){ 
+// 헤더 리스트버튼 호버
+$("header ul#middle>li").hover(function(){
+	$("ol",this).toggleClass("view")
+});
+$("header > ul > li").hover(function(){
+	$("span",this).toggleClass("hover")
+	$("span hr",this).toggleClass("hover")
+});
+// 헤더 미래에셋글로벌 버튼
+$("header > ul#right > li#mirae > ol > p").click(function(){
+	$("span",this).toggleClass("view")
+	$(this).toggleClass("view")
+	$("header ul#right > li#mirae > ol").toggleClass("view")
+});
+// 검색
+$("header > ul#right li#search").click(function(){
+	$("#search_lnb").addClass("view")
+	$("#search_lnb >#search_header > button#switch").addClass("view")
+});
+$("#search_lnb >#search_header > button#switch").click(function(){
+	$("#search_lnb").removeClass("view")
+	$("#search_lnb >#search_header > button#switch").removeClass("view")
+})
+// 로그인
+$("header > ul#right > li#login").click(function(){
+	alert("로그인이 필요합니다.")
+})
+// ----------------------------------------------------------------------
+$("header > ul#right li#mirae >ol > li > a > p").hover(function(){
+	$(this).toggleClass("view")
+});
+// each
+var color = ["red","orange","indigo"]
+$("#main03 > ul#leftBox > #etf > ol#slider > li").each(function(index){
+	$(this).css({backgroundColor:color[index]})
+});
+// 스크롤
+$("header h1>img#fix").hide();
+$(window).scroll(function(){
+	var scrPos=$(window).scrollTop();
+	console.log(scrPos)
+	if(scrPos >0 ){
+		$("header #bottom").css({display:"none"})
+		$("header").addClass("header")
+		$("header ul li>span").addClass("header")
+		$("header ul li a").addClass("header")
+		$("header ul li span hr").addClass("header")
+		$("header ul#right li#mirae ol p span").addClass("header")
+		$("header ul#right li#mirae ol p").addClass("header")
+		$("header h1>a>img#head").hide();
+		$("header h1>a>img#fix").show();
+		$("button#top").addClass("view")
+	}else {
+		$("header #bottom").css({display:"block"})
+		$("header").removeClass("header")
+		$("header ul li span").removeClass("header")
+		$("header ul li a").removeClass("header")
+		$("header ul li span hr").removeClass("header")
+		$("header ul#right li#mirae ol p span").removeClass("header")
+		$("header ul#right li#mirae ol p").removeClass("header")
+		$("header h1>a>img#head").show();
+		$("header h1>a>img#fix").hide();
+		$("button#top").removeClass("view")
+	}
+});
+// 메인 슬라이드
+time = 0;
+timer();
+function timer(){
+	slide = setInterval(function(){
+	time++;
+	timer = time % 3
+	$("#main > ul > li").fadeOut()
+	$("#main > ul > li").eq(timer).fadeIn()
+
+	$("#main li.slide > #text > p").addClass("start");
+	$("#main li.slide > #text > #title").addClass("start");
+	$("#main li.slide > #img>img").addClass("start");
+
+	$("#main > #indi_bar > ol > li").removeClass("view")
+	$("#main > #indi_bar > ol > li").eq(timer).addClass("view")
+	},2000)
+}
+// nav 슬라이드 재생 버튼
+click= 0;
+$("#main #indi_bar > button").click(function(){
+	clearInterval(slide);
+	if(click==0){
+	$("img#play",this).show()
+	$("img#stop",this).hide()
+	click=1;
+}else if (click==1){
+	timer();
+	function timer(){
+	slide = setInterval(function(){
+	time++;
+	timer = time % 3
+	$("#main > ul > li").fadeOut()
+	$("#main > ul > li").eq(timer).fadeIn()
+
+	$("#main li.slide > #text > p").addClass("start");
+	$("#main li.slide > #text > #title").addClass("start");
+	$("#main li.slide > #img>img").addClass("start");
+
+	$("#main > #indi_bar > ol > li").removeClass("view")
+	$("#main > #indi_bar > ol > li").eq(timer).addClass("view")
+
+	},2000)
+}
+	$("img#play",this).hide()
+	$("img#stop",this).show()
+	click=0;
+}
+});
+$("#main #indi_bar >ol>li").eq(0).addClass("view")
+$("#main > ul > li.slide").hide();
+$("#main > ul > li.slide").eq(0).show();
+$("#main li#slide01 > #text > p").addClass("start");
+$("#main li#slide01 > #text > #title").addClass("start");
+// main nav 리스트버튼
+$("#main #indi_bar >ol>li").click(function(){
+	clearInterval(slide);
+	var index=$(this).index();
+	click=1;
+	time=index;
+
+	$("#main #indi_bar >ol>li").removeClass("view")
+	$(this).addClass("view")
+	$("#main > ul > li.slide").hide();
+	$("#main > ul > li.slide").eq(index).show();
+	$("#main #indi_bar> ol> li").removeClass("view")
+	$(this).addClass("view")
+
+	$("#main li.slide > #text > p").addClass("start");
+	$("#main li.slide > #text > #title").addClass("start");
+	$("#main li.slide > #img> img").addClass("start");
+
+	$("#main > #indi_bar > button>img#play").show();
+	$("#main > #indi_bar > button>img#stop").hide();
+
+});
+// 메인 버튼 클릭시 효과
+$("#main button#right").click(function(){
+	clearInterval(slide);
+	time++;
+	timer = time % 3 ;
+	click=1;
+	$("#main>ul>li.slide").hide();
+	$("#main > ul > li.slide").eq(timer).show();	
+
+	$("#main #indi_bar >ol>li").removeClass("view")
+	$("#main #indi_bar >ol>li").eq(timer).addClass("view")
+
+$("#main > #indi_bar > button>img#play").show();
+$("#main > #indi_bar > button>img#stop").hide();
+
+	$("#main li.slide > #text > p").addClass("start");
+	$("#main li.slide > #text > #title").addClass("start");
+	$("#main li.slide > #img>img").addClass("start");
+});
+$("#main button#left").click(function(){
+	clearInterval(slide);
+	time--;
+	timer = time % 3 ;
+	click=1;
+	$("#main>ul>li.slide").hide();
+	$("#main > ul > li.slide").eq(timer).show();	
+
+	$("#main > #indi_bar > button>img#play").show();
+	$("#main > #indi_bar > button>img#stop").hide();
+
+	$("#main #indi_bar >ol>li").removeClass("view")
+	$("#main #indi_bar >ol>li").eq(timer).addClass("view")
+
+	$("#main li.slide > #text > p").addClass("start");
+	$("#main li.slide > #text > #title").addClass("start");
+	$("#main li.slide > #img>img").addClass("start");
+});
+// 메인 버튼
+$("#main button.arrow").hover(function(){
+	$(this).toggleClass("hover")
+});
+// 헤더 리스트
+$("header ul#middle li a").hover(function(){
+	$(this).addClass("hr")
+	$(this).css({color:"#fe7650"})
+},function(){
+	$(this).removeClass("hr")
+	$(this).css({color:"black"})
+});
+// ----------------------------------------------------------------------
+
+new Vue({
+	el:"ul#search",
+	data:{
+		tagName01:[
+			{
+				name:"4차산업혁명"
+			},
+			{
+				name:"헬스케어"
+			},
+			{
+				name:"부동산"
+			},
+			{
+				name:"스마트베타"
+			},
+			{
+				name:"배당"
+			},
+			{
+				name:"우선주"
+			}
+		],
+		tagName02:[
+			{
+				name:"분배금 재투자"
+			},
+			{
+				name:"국채"
+			},
+			{
+				name:"채권"
+			},
+			{
+				name:"단기채"
+			},
+			{
+				name:"장기채"
+			},
+			{
+				name:"원자재"
+			}
+		],
+		tagName03:[
+			{
+				name:"통화"
+			},
+			{
+				name:"중국본토"
+			},
+			{
+				name:"중국"
+			},
+			{
+				name:"유럽"
+			},
+			{
+				name:"선진국"
+			},
+			{
+				name:"이머징"
+			}
+		],
+	},
+	methods:{
+
+	}
+});
+// <!-- ===================================================== -->
+new Vue({
+	el:"#ratio_slide",
+	data:{
+		oneM:[
+			{ 
+				number:"1"
+				,title:"TIGER 미국나스닥바이오"
+				,ratio:"9.78%"
+				,price_sub:"기준가"
+				,price:"16,404,44원"
+			},
+			{
+				number:"2"
+				,title:"TIGER 일본TOPIX헬스케어(합성)"
+				,ratio:"7.32%"
+				,price_sub:"기준가"
+				,price:"12,147,32원"
+			},
+			{
+				number:"3"
+				,title:"TIGER S&P글로벌헬스케어(합성)"
+				,ratio:"6.01%"
+				,price_sub:"기준가"
+				,price:"14,095,65원"
+			}
+		],
+		thM:[
+			{
+				number:"1"
+				,title:"TIGER 인도니프스50레버리지(합성)"
+				,ratio:"16.85%"
+				,price_sub:"기준가"
+				,price:"17,066,38"
+			},
+			{
+				number:"2"
+				,title:"TIGER 일본TOPIX헬스케어(합성)"
+				,ratio:"16.62%"
+				,price_sub:"기준가"
+				,price:"12,147,32원"
+			},
+			{
+				number:"3"
+				,title:"TIGER 미국나스닥바이오(합성)"
+				,ratio:"15.26%"
+				,price_sub:"기준가"
+				,price:"16,404,44원"
+			}
+		],
+		sixM:[
+			{
+				number:"1"
+				,title:"TIGER 일본TOPIX헬스케어(합성)"
+				,ratio:"20.32%"
+				,price_sub:"기준가"
+				,price:"12,147,32"
+			},
+			{
+				number:"2"
+				,title:"TIGER 대만TAIEX선물(H)"
+				,ratio:"17.45%"
+				,price_sub:"기준가"
+				,price:"14,878,31원"
+			},
+			{
+				number:"3"
+				,title:"TIGER 반도체"
+				,ratio:"17.24%"
+				,price_sub:"기준가"
+				,price:"24,637,19원"
+			}
+		],
+		oneY:[
+			{
+				number:"1"
+				,title:"TIGER 차이나CSI300레버리지(합성)"
+				,ratio:"47.00%"
+				,price_sub:"기준가"
+				,price:"19,409,81"
+			},
+			{
+				number:"2"
+				,title:"TIGER 유로스탁스50레버리지(합성H)"
+				,ratio:"37.30%"
+				,price_sub:"기준가"
+				,price:"9,417,11원"
+			},
+			{
+				number:"3"
+				,title:"TIGER 미국S&P500레버리지(합성H)"
+				,ratio:"33.67%"
+				,price_sub:"기준가"
+				,price:"19,579,42원"
+			}
+		],
+		after:[
+			{
+				number:"1"
+				,title:"TIGER 구리실물"
+				,ratio:"584.70%"
+				,price_sub:"기준가"
+				,price:"6,774,29"
+			},
+			{
+				number:"2"
+				,title:"TIGER 미국나스닥100"
+				,ratio:"341.89%"
+				,price_sub:"기준가"
+				,price:"44,482,20원"
+			},
+			{
+				number:"3"
+				,title:"TIGER 미국S&P500선물(H)"
+				,ratio:"268.84%"
+				,price_sub:"기준가"
+				,price:"37,322,55원"
+			}
+		],
+	},
+	methods:{
+
+	}
+});
+$("#main02 > ol#button > li").eq(0).addClass("button")
+$("#main02 > ol#button > li:first-child > p").addClass("button")
+$("#main02 #ratio_slide > button#slide_left").css({display:"none"})
+
+// <!-- 수익률 네비게이션바 클릭시 슬라이드 -->
+$("#main02 > ol#button > li").click(function(){
+	var index = $(this).index()
+	$("#main02 > ol#button > li").removeClass("button")
+	$("#main02 > ol#button > li > p").removeClass("button")
+
+	$(this).addClass("button")
+	$("p",this).addClass("button")
+
+	if (index == 0){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:0})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"none"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		number = 1;
+	}else if (index == 1){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-1360"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		number = 2;
+	}else if (index == 2){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-2720"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		number = 3;
+	}else if (index == 3){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-4080"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		number = 4;
+	}else if (index == 4){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-5440"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"none"})
+		number = 5;
+	}
+})
+// <!-- 수익률 슬라이드 좌우 버튼 -->
+number = 1
+$("#main02 #ratio_slide > button#slide_right").click(function(){
+	console.log(number)
+	if (number ==1){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-1360"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(1).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(2) > p").addClass("button")
+		number = 2
+	}else if (number == 2){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-2720"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(2).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(3) > p").addClass("button")
+		number=3
+	}else if (number == 3){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-4080"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(3).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(4) > p").addClass("button")
+		number=4
+	}else if (number == 4){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-5440"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"none"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(4).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(5) > p").addClass("button")
+		number = 5;
+	}
+});
+$("#main02 #ratio_slide > button#slide_left").click(function(){
+	console.log(number)
+	if (number ==5){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-4080"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"none"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(3).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(4) > p").addClass("button")
+		number = 4
+	}else if (number == 4){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-2720"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(2).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(3) > p").addClass("button")
+		number=3
+	}else if (number == 3){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"-1360"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"block"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(1).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(2) > p").addClass("button")
+		number=2
+	}else if (number == 2){
+		$("#main02 #ratio_slide > #slideBox > #flex").animate({marginLeft:"0"})
+		$("#main02 #ratio_slide > button#slide_left").css({display:"none"})
+		$("#main02 #ratio_slide > button#slide_right").css({display:"block"})
+		$("#main02 > ol#button > li").removeClass("button")
+		$("#main02 > ol#button > li").eq(0).addClass("button")
+		$("#main02 > ol#button > li > p").removeClass("button")
+		$("#main02 > ol#button > li:nth-of-type(1) > p").addClass("button")
+		number=1;
+	}
+});
+
+// <!-- ===================================================== -->
+$("#main03 > ul#leftBox > #etf > ol#slider > li").eq(0).addClass("view")
+$("#main03 > ul#leftBox > #etf > ol#slider > li").eq(2).addClass("view")
+// <!-- ===================================================== -->
+$("#main03 ul#leftBox > button#right").click(function(){
+	$("#main03 > ul#leftBox > #etf > ol#slider").animate({marginLeft:"-=280"},500,function(){
+		$("#main03>ul#leftBox>#etf>ol#slider>li").first().appendTo("#main03>ul#leftBox>#etf>ol#slider")
+		$("#main03>ul#leftBox>#etf>ol#slider>li").eq(1).css({transform:"skew(0)"})
+		$("#main03>ul#leftBox>#etf>ol#slider>li").first().css({transform:"skew(5deg)"})
+		$("#main03>ul#leftBox>#etf>ol#slider>li").last().css({transform:"skew(-5deg)"})
+		$("#main03 > ul#leftBox > #etf > ol#slider").css({marginLeft:0})	
+	});
+	return false;
+});
+$("#main03 ul#leftBox > button#left").click(function(){
+	$("#main03 > ul#leftBox > #etf > ol#slider").css({marginLeft:"-280px"})
+	$("#main03>ul#leftBox>#etf>ol#slider>li").last().prependTo("#main03>ul#leftBox>#etf>ol#slider")
+	$("#main03>ul#leftBox>#etf>ol#slider>li").eq(1).css({transform:"skew(0)"})
+	$("#main03>ul#leftBox>#etf>ol#slider>li").first().css({transform:"skew(5deg)"})
+	$("#main03>ul#leftBox>#etf>ol#slider>li").last().css({transform:"skew(-5deg)"})
+	$("#main03 > ul#leftBox > #etf > ol#slider").animate({marginLeft:"+=280px"},500);	
+	return false;
+});	
+// 탑버튼
+$("button#top").click(function(){
+	$("html,body").animate({scrollTop:0})
+});
+	});
+</script>
+</head>
+<body>
+	<button id="top"><span></span></button>
+<!-- ===================================================== -->
+<div id="search_lnb">
+	<div id="search_header">
+		<h1>
+			<img src="img/icon/logo.png">
+		</h1>
+		<p>통합검색</p>
+
+		<button id="switch"></button>
+	</div>
+<!-- =--------------------------- -->
+	<ul id="search">
+		<li id="first">
+			<input type="" name="" placeholder="검색어 입력">
+			<span></span>
+		</li>
+		<li id="second">
+			<button><p><span>전체상품 한눈에 보기 </span> <span id="icon"></span> </p></button>
+		</li>
+		<li id="third">
+			<p id="title">인기키워드</p>
+			<p id="tag01" class="tag"> <span></span> 투자클럽</p>
+			<p id="tag02" class="tag"> <span></span> 수익률</p>
+		</li>
+		<li id="fourth">
+			<p id="title">테마키워드 (0/5)</p>
+			<ol>
+				<li id="tag_button" v-for="(item,index) in tagName01">
+					<span></span> <p>{{item.name}}</p> 
+				</li>
+			</ol>
+			<ol>
+				<li id="tag_button" v-for="(item,index) in tagName02">
+					<span></span> <p>{{item.name}}</p> 
+				</li>
+			</ol>
+			<ol>
+				<li id="tag_button" v-for="(item,index) in tagName03">
+					<span></span> <p>{{item.name}}</p> 
+				</li>
+			</ol>
+		</li>
+
+	</ul>
+</div>
+<!-- ===================================================== -->
+<header>
+	
+		<h1>
+			<a href="sub/index.html">
+				<img id="head" src="img/icon/logo.png">
+				<img id="fix" src="img/icon/logo_fixed.png">
+			</a>
+		</h1>
+
+		<ul id="middle">
+			<li>
+				<a href="">ETF정보</a>
+				<ol id="first">
+					<li><p>전체운용상품</p></li>
+					<li><p>ETF 자료실</p></li>
+					<li id="sub"><p>- 상품별 자료조회</p></li>
+					<li id="sub"><p>- 종가현황</p></li>
+					<li><p>전체상품 한눈에 보기</p></li>
+				</ol>
+			</li>
+			<li>
+				<a href="">투자컨텐츠</a>
+				<ol id="second">
+					<li><p>ETF 시장리포트</p></li>
+					<li><p>TIGER 월간리포트</p></li>
+					<li><p>HOT ETF 소개</p></li>
+					<li><p>ETF 뉴스</p></li>
+				</ol>
+			</li>
+			<li>
+				<a href="">ETF교육</a>
+				<ol id="third">
+					<li><p>ETF의 이해</p></li>
+					<li id="sub"><p>-ETF의 정의</p></li>
+					<li id="sub"><p>-ETF의 특징과 장점</p></li>
+					<li id="sub"><p>-TIGER ETF 소개</p></li>
+					<li id="sub"><p>-TIGER Schol</p></li>
+					<li><p>투자방법</p></li>
+					<li id="sub"><p>-TIGER 거래방법</p></li>
+					<li id="sub"><p>-TIGER 활용방법</p></li>
+					<li><p>ETF적립식투자</p></li>
+					<li><p>ETF포트폴리오</p></li>
+
+				</ol>
+			</li>
+		</ul>
+
+		<ul id="right">
+			<li id="mirae">
+				<ol>
+					<p>Mirae Asset Global ETF<span></span></p>
+					<li><a href=""><p>Global X USA</p></a></li>
+					<li><a href=""><p>Global X HONGKONG SAR</p></a></li>
+					<li><a href=""><p>Global X JAPAN</p></a></li>
+					<li><a href=""><p>Horizons ETFs Canada</p></a></li>
+					<li><a href=""><p>Betashares Australia</p></a></li>
+				</ol>
+			</li>
+
+			<li id="search" class="icon">
+				<span></span>
+				<ol>
+					<li></li>
+				</ol>
+			</li>
+
+			<li id="login" class="icon">
+				<span></span>
+			</li>
+
+			<li id="list" class="icon">
+				<span><hr></span>
+				<ol>
+					<li></li>
+				</ol>
+			</li>
+		</ul>
+	
+	<span id="bottom"><img src="img/icon/header_bar.png">	</span>
+</header>
+<!-- ----------------------------------------------------- -->
+<div id="main">
+	
+	<div id="indi_bar">
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<button>
+			<img id="stop" src="img/icon/ic_stop.png">
+			<img id="play" src="img/icon/ic_play.png">
+		</button>
+	</div>
+	
+	<button id="left" class="arrow"> 
+		<span></span> 
+	</button>
+	<button id="right" class="arrow">
+		<span></span>
+	</button>
+
+	<div id="detail_view">
+		<p>자세히 보기 <span><span id="arrow"></span></span></p>
+	</div>
+
+		<ul>
+			<li id="slide01" class="slide">
+				<div id="text">
+					<div id="title">
+						<p id="title01">TIGER ETF 홈페이지가</p>
+						<p id="title02">새로워집니다</p>
+					</div>
+					<p id="sub">편리하고 유용한 기능을 확인해보세요~!</p>
+				</div>
+			</li>
+			<li id="slide02" class="slide">
+				<div id="text">
+					<p id="sticker">신규상장</p>
+					<div id="title">
+						<p id="title01"><span>TIGER</span>부동산인프라</p>
+						<p id="title02">고배당</p>
+					</div>
+					<p id="sub">국내 최초로 부동산집합투자기구를 통해 고정 수익과 낮은 변동성이 특징인 상품입니다.</p>
+				</div>
+				<div id="img">
+					<img src="img/main/main02.png">
+				</div>
+			</li>
+			<li id="slide02" class="slide">
+				<div id="text">
+					<p id="sticker">추천상품</p>
+					<div id="title">
+						<p id="title01"><span>TIGER</span>미국달러단기</p>
+						<p id="title02">채권액티브</p>
+					</div>
+					<p id="sub">국내 최초로 미국달러 현물 채권에 투자하는 상품입니다.</p>
+				</div>
+				<div id="img">
+					<img src="img/main/main03.png">
+				</div>
+			</li>
+
+		</ul>
+</div>
+
+
+<div id="main_info">
+	<ul>
+		<li id="product">
+			<p><input type="" name="" placeholder="상품명 또는 구성종목 입력"><span></span></p>
+			<p>ETF 상품명 또는 구성종목으로 검색해 보세요.</p>
+		</li>
+		<li id="category">
+			<p> <button>카테고리 상품검색 </button> <span><img src="img/icon/ic_filter.png"></span></p>			
+			<p>관심있는 분야의 ETF상품을 쉬운 테마로 검색해 보세요.</p>
+		</li>
+	</ul>
+</div>
+
+
+<div id="main02">
+	<p id="title">수익률 TOP3</p>
+	<ol id="button">
+		<li><p>1개월</p></li>
+		<li><p>3개월</p></li>
+		<li><p>6개월</p></li>
+		<li><p>1년</p></li>
+		<li><p>설정이후</p></li>
+	</ol>
+
+	<div id="ratio_slide">
+			<button id="slide_left" class="slide_button">
+				<span></span>
+			</button>
+			<button id="slide_right" class="slide_button">
+				<span></span>
+			</button>
+		<div id="slideBox">			
+			<div id="flex">
+				<ul id="one">
+					<ol v-for="(items,index) in oneM">
+						<li>
+							<p id="number">{{items.number}}</p>
+							<p id="title"> {{items.title}} </p>
+							<p id="ratio"> {{items.ratio}}</p>
+							<p id="price">
+								<span>{{items.price_sub}}</span>
+								<sapn>   {{items.price  }}</span>
+							</p>
+						</li>
+					</ol>
+				</ul>
+				<ul id="two">
+					<ol v-for="(items,index) in thM">
+						<li>
+							<p id="number">{{items.number}}</p>
+							<p id="title"> {{items.title}} </p>
+							<p id="ratio"> {{items.ratio}}</p>
+							<p id="price">
+								<span>{{items.price_sub}}</span>
+								<span>   {{items.price  }}</span>
+							</p>
+						</li>
+					</ol>
+				</ul>
+				<ul id="three">
+			
+					<ol v-for="(items,index) in sixM">
+						<li>
+							<p id="number">{{items.number}}</p>
+							<p id="title"> {{items.title}} </p>
+							<p id="ratio"> {{items.ratio}}</p>
+							<p id="price">
+								<span>{{items.price_sub}}</span>
+								<span>   {{items.price  }}</span>
+							</p>
+						</li>
+					</ol>
+				</ul>
+				<ul id="four">
+		
+					<ol v-for="(items,index) in oneY">
+						<li>
+							<p id="number">{{items.number}}</p>
+							<p id="title"> {{items.title}} </p>
+							<p id="ratio"> {{items.ratio}}</p>
+							<p id="price">
+								<span>{{items.price_sub}}</span>
+								<span>   {{items.price  }}</span>
+							</p>
+						</li>
+					</ol>
+				</ul>
+				<ul id="five">
+				
+					<ol v-for="(items,index) in after">
+						<li>
+							<p id="number">{{items.number}}</p>
+							<p id="title"> {{items.title}} </p>
+							<p id="ratio"> {{items.ratio}}</p>
+							<p id="price">
+								<span>{{items.price_sub}}</span>
+								<span>   {{items.price  }}</span>
+							</p>
+						</li>
+					</ol>
+
+				</ul>
+			</div>	
+		</div>
+	</div>
+</div>
+
+	<div id="main03">
+		<ul id="leftBox">
+			<p>ETF 리서치</p>
+			 <button id="left"  class="research"><span></span></button>
+			 <button id="right" class="research"><span></span></button>
+
+			 <div id="etf">
+			 	<ol id="slider">
+			 		<li id="red">
+			 			<p id="title">ETF 공시정보</p>
+			 			<span>집합투자규약 및 <br>
+			 				 투자설명서 변경의 건 </span>
+			 			<p id="period">2019.09.25</p>
+			 			<img src="img/icon/research01.png">
+			 		</li>	
+			 		<li id="orange">
+			 			<p id="title">ETF 시장리포트</p>
+			 			<span>[키움증권] 5G 시대의 <br>
+			 					사이버보안 ETF </span>
+			 			<p id="period">2019.12.13</p>
+			 			<img src="img/icon/research02.png">
+			 		</li>	
+			 		<li id="indigo">
+			 			<p id="title">ETF 월간리포트</p>
+			 			<span>TIGER <br>
+			 					KRX300레버리지 </span>
+			 			<p id="period">2019.12.10</p>
+			 			<img src="img/icon/research03.png">
+			 		</li>	
+			 	</ol>
+			 </div>
+
+			 <button id="all"><p>전체보기</p> <span id="arrow"></span></button>
+		</ul>
+
+		<ul id="rightBox">
+			<p>공지사항</p>
+			<ol id="notice">
+				<li>TIGER 원유선물(H) ETF 기초지수 투자 위험 안내 <span>2019-12 -03</span></li>
+				<li>TIGER 합성-차이나A레버리지 및 TIGHER 원유선물(H) ETF···<span>2019-12 -03</span></li>
+				<li>TIGER ETF 홈페이지가 새로워집니다<span>2019-11 -22</span></li>
+				<li>'개인연금도 미래에셋 TIGER ETF로!'이벤트 Final 대장 종···<span>2019-09 -30</span></li>
+				<li>'개인연금도 TIGER ETF로!'이벤트 대상 종목 안내<span>2019-04 -30</span></li>
+			</ol>
+
+			<button id="all"><p>전체보기</p> <span id="arrow"></span></button>
+		</ul>
+	</div>
+
+
+<footer>
+	<div id="foot01">
+		<ul>
+			<li>이용약관</li>
+			<li>개인정보취급방침</li>
+		</ul>
+
+		<button>
+			<p>ENGLISH</p>
+		</button>
+	</div>
+
+	<div id="foot02">
+		
+			<h1><img src="img/icon/footer_logo.png"></h1>
+			<ol>
+				<li>
+					<p>Copyright 2019 Mirae Asset Global Investments Co. Ltd All rights reserved.</p>
+				</li>
+				<li>
+					<p>서울시 종로구 종로 33, Tower1 13층 대표전화 1577-1640</p>
+				</li>
+			</ol>
+
+			<ol id="img">
+				<li><img src="img/icon/footer_icon.png"></li>
+				<li><img src="img/icon/footer_blog.png"></li>
+				<li><img src="img/icon/footer_fb.png"></li>
+				<li><img src="img/icon/footer_yt.png"></li>
+			</ol>
+		
+	</div>
+</footer>
+
+
+</body>
+</html>

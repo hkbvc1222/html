@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>하나금융TI</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/logo&icon/hana.png" type="image/x-icon">
+	<link rel="icon" href="img/logo&icon/hana.png" type="image/x-icon">
+<style>
+
+@media all and (max-width: 3600px) {
+	#wrap{ display:block; }
+	#mobile{ display:none; }
+
+img {  		
+	width:100%; 
+}
+
+#wrap	{	
+	overflow:hidden;
+	display:flex;	
+	position:relative;	
+	width:100%;		
+	flex-wrap:wrap;			 					
+	flex-direction:column;
+}		
+.page 	{ 	
+	overflow:hidden;
+	display:flex;	
+	width:100%;								
+	flex-wrap: wrap;						
+}
+#page01 {	
+	overflow:hidden;						
+	display:flex;
+	position:relative;	
+	width:100%; 							
+	height:55vw; 
+}
+#page01 video{	
+	position:absolute;
+	top:0;									
+	left:0;
+	width:100%;								
+	z-index: -1;
+}
+#page01 header	{	
+	overflow:hidden;
+	position:absolute;	
+	top:0;
+	left:0;
+	width:100%;								
+	height:80px;
+	background:transparent;	
+	z-index:1;								
+	transition:all 0.5s;
+}
+#page01 header.view	{	
+	height:500px;
+	background:white;
+	border-bottom:1px black solid;
+	transition:all 0.5s;					
+}
+#page01 header #lnb	{	
+	display:flex;
+	position:relative;	
+	width:100%;								
+	height:60px;
+	border-bottom:1px gray solid;			
+	align-items: center;					
+	box-sizing:border-box;
+}
+#page01 header #lnb #img{	
+	position:absolute;						
+	top:300px;
+	left:200px;		
+	width: 323px; 							
+	height:294px;
+	background:url(img/logo&icon/menu.png) no-repeat;
+	background-size:cover;					
+	transition:all 0.5s;
+}
+#page01 header #lnb #img.view	{	
+	top:110px;								
+	transition:all 0.5s;
+}
+#page01 header #lnb.view	{	
+	border-bottom:1px gray solid;			
+	transition:all 0.5s;
+}
+/*-----------------------------------------------------------------*/
+h1{	
+	margin-left:60px;
+	width:250px;							
+	height:20px;
+	background:url(img/logo&icon/logo.png)	no-repeat;
+	background-position:0 -20px;			
+}
+#page01 header h1.view{	
+	background-position:0 0;				
+	transition:all 0.5s;
+}
+#page01 header ul 	{	
+	display:flex; 	
+	margin:auto; 	
+	width:600px;							
+	height:60px;
+	justify-content: space-between;
+}
+#page01 header ul ol	{ 	
+	display:flex;
+	width:130px;							
+	height:600px;
+	line-height:80px;						
+	text-align:center;color:white; 
+	flex-direction:column;					
+	cursor:pointer;		
+}
+#page01 header ul ol p	{	
+	display:block;							
+	position:relative;
+	width:100%; 							
+	height:60px;
+	line-height:60px;
+}
+#page01 header ul ol p::before{	
+	content:"";								
+	display:block;
+	position:absolute;
+	top:0;									
+	left:50%;								
+	width:0;
+	height:3px;								
+	background:#00a286;
+	transform:translate(-50%);
+	transition: all 0.5s;	
+}
+#page01 header ul ol p.hover::before{	
+	content:"";
+	width:100%;								
+	transition:all 0.5s;
+}
+#page01 header ul ol.view	{	
+	color:black;
+}
+#page01 header ul ol li	{	
+	display:inline-block;		
+	margin-top:15px;
+	height:30px;	
+	font-weight:lighter;	
+	line-height:30px;					
+	font-size:13px;
+}
+#page01 header ul ol li:nth-of-type(1) {	
+	margin-top:30px;			
+}
+#page01 header ul ol li span	{	
+	display:inline-block;					
+	position:relative;
+}
+#page01 header ul ol li span::before	{	
+	content:"";		
+	position:absolute;
+	bottom:1px;						
+	width:0;
+	height:1px;								
+	background:black;
+}
+#page01 header ul ol li span:hover::before	{	
+	width:100%;								
+}
+#page01 header button	{	
+	margin-right:30px;	
+	width:130px; 							
+	height:30px;
+}
+#page01 header button.view{	
+	background:#00a286;
+}	
+#page01 header button a	{	
+	display:block;
+	width:130px; 							
+	height:30px;
+	border:1px white solid;
+	line-height:30px;		
+	color:white;		
+}
+#page01 header button a:hover		{	
+	background:white;
+	border:1px #00a286 solid;		
+	color:#00a286;			
+}
+/*-----------------------------------------------------------------*/
+#page01 header #lnb ol#right{	
+	display:flex;	
+	margin-right:50px;
+	width:150px;							
+	justify-content: space-between;
+}
+#page01 header #lnb ol#right li{	
+	float:left;		
+	position:relative;						
+	width:100px;							
+	text-align:center;
+	font-size:11px;
+}
+#page01 header #lnb ol#right li:first-child::before	{	
+	content:"";		
+	position:absolute;						
+	top:0;
+	right:0;						
+	width:1px;
+	height:20px;							
+	background:white;
+}
+#page01 header #lnb ol#right li:first-child.hover::before	{	
+	background:black;
+}
+#page01 header #lnb ol#right li a	{ 
+	color:white; 						
+}
+#page01 header #lnb ol#right li a.view{	
+	color:black;
+}
+/*-----------------------------------------------------------------*/
+#page01 #textBox { 
+	display:flex;	
+	margin:10vw auto;						
+	width:35vw; 							
+	height:20vw;
+}
+#page01 #textBox>img{	
+	margin:auto;
+} 
+/*-----------------------------------------------------------------*/
+#page01 header #lnb ul ol#secondOl li.plus{	
+	position:relative;			
+}
+#page01 header #lnb ul ol#secondOl li.plus::before{	
+	content:"";
+	display:block;	
+	position:absolute;
+	top:50%;
+	right:7px;	
+	width:1px;							
+	height:8px;
+	background:black;
+	transform:translate(-50%,-50%);		
+	transition:all 0.5s;		
+}
+#page01 header #lnb ul ol#secondOl li.plus::after{	
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	right:0;	
+	width:8px;							
+	height:1px;
+	background:black;
+	transform:translate(-50%,-50%);
+}
+#page01 header #lnb ul ol#secondOl li.plus.click::before{ 	
+	display:block;	
+	position:absolute;	
+	top:50%;
+	right:7px;		
+	background:red;			
+	transform:translate(-50%,-50%) rotate(-90deg);
+	transition:all 0.5s;
+}
+#page01 header #lnb ul ol#secondOl li.plus.click::after{ 	
+	background:red;
+}
+#page01 header #lnb ul ol#secondOl li.plus:hover::before{	
+	background:red;
+}
+#page01 header #lnb ul ol#secondOl li.plus:hover::after{	
+	background:red;
+}
+#page01 header #lnb ul ol#secondOl li#plusSub01	{	
+	overflow:hidden;
+	margin-top:0;	
+	width:100%; 							
+	height:0;	
+	transition:all 0.5s;
+}
+#page01 header #lnb ul ol#secondOl li#plusSub01.view	{	
+	margin-top:5px;	
+	height:120px;				
+	transition:all 0.5s;				
+}
+#page01 header #lnb ul ol#secondOl li#plusSub02{	
+	overflow:hidden;
+	margin-top:0;
+	width:100%; 							
+	height:0;								
+	transition:all 0.5s;
+}
+#page01 header #lnb ul ol#secondOl li#plusSub02.view	{	
+	margin-top:5px;	
+	height:15vw;	
+	transition:all 1.5s;
+}
+#page01 header #lnb ul ol#secondOl li.plusSub	{	
+	display:flex;
+	text-align:center;
+	white-space: wrap;						
+	flex-direction:column;					
+}
+#page01 header #lnb ul ol#secondOl li.plusSub>span{	
+	display:inline-block;
+	position:relative;
+	margin:0 auto;
+	color:#00a286;
+}
+#page01 header #lnb ul ol#secondOl li.plusSub>span:hover	{	
+	color:black;
+}
+#page01 header #lnb ul ol#secondOl li.plusSub>span::before{	
+	content:"";		
+	position:absolute; 		
+	left:0;
+	bottom:1px;						
+	width:0;
+	height:1px;								
+	background:black;
+}
+#page01 header #lnb ul ol#secondOl li.plusSub>span:hover::before{	
+	width:100%;								
+}
+/*-----------------------------------------------------------------*/
+#page02	{	
+	height:70vw;							
+	background:rgba(0,0,0,0.05);	
+}
+#page02 main{	
+	display:flex;
+	margin-left:20vw;			
+	width:60vw; 							
+	height:70vw;
+	flex-wrap:wrap;							
+}
+#page02 main .section{	
+	width:20vw;								
+	height:100%;
+	border:1px silver solid;
+	box-sizing:border-box;
+}
+#page02 main #section02{	
+	border-left:none;						
+	border-right:none;
+}
+#page02 main .section .sectionImg {	
+	overflow:hidden;
+	width:100%;								
+	opacity:0;			
+}
+#page02 main .section .sectionImg:hover img	{	
+	transform:scale(1.1);
+	transition:all 0.5s;					
+} 
+#page02 main .section .sectionImg>img{	
+	transition:all 0.5s;		
+}
+#page02 main .section #sectionImg01	{	
+	margin-top:40vw;						
+}
+
+#page02 main .section #sectionImg02	{	
+	margin-top:-10vw;							
+}
+
+#page02 main .section #sectionImg03	{	
+	margin-top:30vw;						
+}
+/*페이지02 스크롤시 클라스*/
+#page02 main .section #sectionImg01.view{	
+	margin-top:20vw;						
+	opacity:1;
+	transition:all 1s 0.4s;
+}
+#page02 main .section #sectionImg02.view{	
+	margin-top:3vw;							
+	opacity:1;
+	transition:all 1s 0.1s;
+}
+#page02 main .section #sectionImg03.view{	
+	margin-top:15vw;						
+	opacity:1;
+	transition:all 1s 0.2s;
+}
+#page02 main #section02>p#title{
+	display:block;
+	margin-top:5vw;	
+	text-align:center;
+	letter-spacing: -0.2vw;
+	font-size:2vw;
+	font-weight:bold;
+	color:black;
+}
+#page02 main .section>p{	
+	margin-top:2vw;
+	letter-spacing: -0.1vw;
+	font-weight:bold;
+	font-size:3vw;	
+	color:rgba(0,0,0,0.1);	
+}
+/*-----------------------------------------------------------------*/
+#page03 {	
+	height:30vw;							
+	flex-direction:column;
+}
+/*footer 상장*/
+#page03 #footer01{	
+	overflow:hidden;
+	display:flex;
+	position:relative;		
+	width:100%;
+	height:30%;								
+	align-items: center;					
+	justify-content: center;		
+}
+#page03 #footer01>p	{	
+	display:block;		
+	position:absolute; 							
+	width:60vw;
+}
+/*footer list 나열*/
+#page03 #footer02	{	
+	display:flex; 
+	padding-top:4%;	
+	width:100%;								
+	height:70%;
+	background:rgba(0,0,0,0.95);			
+	box-sizing:border-box;
+}
+#page03 #footer02 #leftbox	{	
+	width:30%;								
+	height:100%;
+}
+#page03 #footer02>h1{	
+	float:left;		
+	margin-left:0;							
+	margin-top:0.5vw;						
+}
+#page03 #footer02 #centerBox{	
+	width:40%;								
+	height:100%;
+}
+#page03 #footer02 #centerBox #title	{	
+	display:flex;							
+	float:left;	
+	margin-left:0;						
+	margin-top:0;
+	width:8vw;	
+	height:10vw;							
+	text-align:center;						
+	font-size:1vw;						
+	color:white;	
+	flex-direction:column;						
+	justify-content:space-between;	
+}
+#page03 #footer02 #centerBox #title p{	
+	width:100%;								
+	height:2.5vw;
+	line-height: 2.5vw;
+	text-align:left;						
+}
+#page03 #footer02 #centerBox #title p:hover	{	
+	color:white; 							
+	cursor:pointer;
+}
+#page03 #footer02 #centerBox ul	{	
+	display:flex;							
+	width:30vw;				
+}
+#page03 #footer02 #centerBox ul li	{	
+	display:inline-block;	
+	float:left;		
+	margin-left:1vw;							
+	height:2.5vw;
+	font-size:0.5vw;
+	line-height:2.5vw;
+	color:gray;								
+}
+#page03 #footer02 #centerBox ul li:hover{	
+	color:white;							
+	cursor:pointer;
+}
+#page03 #footer02 #rightBox { 	
+	display:flex;	
+	width: 30%;								
+	height:100%;	
+	color:white;							
+	flex-direction:column;			
+}
+#page03 #footer02 #rightBox #topText{	
+	overflow:hidden;
+	display:flex;	
+	padding-left:20%;
+	width:100%;
+	box-sizing:border-box;	
+	font-weight:bold;	
+	line-height:40px;						
+	flex-wrap:wrap;							
+	justify-content: space-between;	
+}
+#page03 #footer02 #rightBox #topText>p 	{			
+	width:6vw;					
+	font-size:5px;
+	text-align: left;
+}
+#page03 #footer02 #rightBox #topText>p:nth-of-type(4){	
+	width:5vw;								
+	text-align:right;	
+	color:#00a286;
+	cursor:pointer;
+}
+#page03 #footer02 #rightBox #centerText	{	
+	overflow:hidden;		
+	padding-left:20%;
+	margin-top:1vw;	
+	width:100%;
+	box-sizing:border-box;
+	letter-spacing: 1.5px;				
+	font-size:0.5vw;
+	color:gray;								
+}
+#page03 #footer02 #rightBox #bottomText	{	
+	overflow:hidden;
+	padding-left:15%;
+	margin-top:2vw;		
+	width:100%; 							
+	box-sizing:border-box;	
+}
+#page03 #footer02 #rightBox #bottomText>h2{	
+	overflow:hidden;
+	float:left;
+	margin-left:-15%;
+	width:3vw;								
+}
+#page03 #footer02 #rightBox #bottomText>p		{	
+	float:left;								
+	font-size:0.55vw;
+}
+
+}
+
+
+@media all and (max-width: 1056px) {
+#page01 header ul ol p{
+	font-size:9px;
+}
+#page02 main .section .sectionImg {
+	opacity:1;
+}
+#page02 main .section #sectionImg01{
+	margin-top:200px;
+}
+#page02 main .section #sectionImg02{
+	margin-top:30px;
+}
+#page02 main .section #sectionImg03{
+	margin-top:250px;
+}
+
+}
+
+@media all and (max-width: 576px) {
+}
+@media all and (max-width:776px) {
+#wrap{	display:none;	}
+#mobile{ 
+	overflow:hidden;
+	display:block; 
+	width:100%;
+}
+
+header {
+	display:flex;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:0 25px;
+	width:100%;
+	height:60px;
+	box-sizing:border-box;
+	align-items: center;
+	justify-content: space-between;
+}
+header > h1 {
+	overflow:hidden;
+	margin-left:0;
+	width:130px;
+	height:30px;
+	background-image:url(img/logo&icon/logo.png) no-repeat;
+	background-size:cover;
+	background-position-y:-22px;
+}
+header > button#list{
+	position:relative;
+	width:30px;
+	height:30px;
+}
+header > button#list > span {
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+header > button#list::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:25%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+header > button#list::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:75%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+/*====================*/
+#list_rnb{
+	position:fixed;
+	top:0;
+	left:100%;
+	padding-left:40%;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.6);
+	box-sizing:border-box;
+}
+#list_rnb.view{
+	left:0;
+}
+#list_rnb > ul {
+	position:relative;
+	top:0;
+	left:150%;
+	width:100%;
+	height:100%;
+	background:black;
+	transition:0.3s all;
+}
+#list_rnb > ul.view{
+	left:0;
+	transition:all 0.5s 0.3s;
+}
+#list_rnb > ul > li{
+	display:flex;
+	padding: 0 20px;
+	width:100%;
+	height:60px;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing:border-box;
+}
+#list_rnb > ul > li > #lang > span{
+	position:relative;
+	font-size:2vw;
+	font-weight:lighter;
+	color:white;
+}
+#list_rnb > ul > li > #lang >span:nth-of-type(1){
+	margin-right:10px;
+	color:green;
+}
+#list_rnb > ul > li > #lang > span:nth-of-type(1)::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	right:-10px;
+	width:2px;
+	height:70%;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+#list_rnb > ul > li >  button {
+	display:block;
+	position:relative;
+	width:30px;
+	height:30px;
+}
+#list_rnb > ul > li >  button::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+#list_rnb > ul > li >  button::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:20px;
+	height:2px;
+	background:white;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+#list_rnb > ul > ol {
+	display:flex;
+	position:absolute;
+	padding:0 20px;
+	width:100%;
+	height:100%;
+	background:white;
+	box-sizing:border-box;
+	flex-direction: column;
+}
+#list_rnb > ul > ol >li > a {
+	position:absolute;
+	color:black;
+}
+#list_rnb > ul > ol >li {
+	width:100%;
+	border-bottom:1px gray solid;
+	line-height: 60px;
+}
+#list_rnb > ul > ol >li > ol {
+	overflow:hidden;
+	margin-top:10vw;
+	width:100%;
+	height:0;
+	white-space: wrap;
+	transition:all 0.5s;
+}
+#list_rnb > ul > ol >li > ol > li{
+	margin-top:10px;	
+	height:12px;
+	font-size:12px;
+	color:gray;
+}
+#list_rnb > ul > ol >li > ol.view01{
+	height:60vw;
+	transition:all 0.5s;
+}
+#list_rnb > ul > ol >li > ol.view02{
+	height:30vw;
+	transition:all 0.5s;
+}
+/*====================*/
+#main01 {
+	overflow:hidden;
+	position:relative;
+	width:100%;
+	height:133vw;
+	z-index:-1;
+}
+#main01 > #imgbox{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:133vw;
+	background:url(img/mobile/main01.png) no-repeat; 
+	background-size:100%;
+	z-index:-1;
+}
+#main01 > #textbox{
+	display:flex;
+	position:absolute;
+	top:45%; 
+	left:50%;
+	width:90%;
+	height:35%;
+	text-align:center;
+	align-items: center;
+	flex-direction:column;
+	justify-content: space-between;
+	z-index:-1;
+	transform:translate(-50%,-50%);
+}
+#main01 > #textbox > span:nth-of-type(1) {
+	width:100%;
+	height:50%;
+	line-height:12vw;
+	font-size:7vw;
+	color:white;
+}
+#main01 > #textbox > span:nth-of-type(2) {
+	width:100%;
+	height:35%;
+	letter-spacing: -0.2px;
+	font-weight:lighter;
+	line-height:6vw;
+	font-size:4vw;
+	color:white;
+}
+/*==============================*/
+#main02 {
+	position:relative;
+	padding-top:10vw; 
+	width:100%;
+	height:185vw;
+	background:#f2f2f2;
+	border:1px #dcdcdc solid;
+	z-index:-1;
+	box-sizing:border-box;
+}
+#main02 > hr {
+	position:absolute;
+	top:0;
+	left:20%;
+	width:1px;
+	height:100%;
+	border:none;
+	border-left:1px #ececec solid;
+}
+#main02 > hr:nth-of-type(2) {
+	left:80%;
+}
+#main02 > p {
+	margin:0 auto;
+	width:60%;
+	text-align: center;
+	font-size:3vw;
+}
+#main02 > ul#section{
+	display:flex;
+	position:relative;
+	top:40%;
+	left:50%;
+	margin-top:10vw;
+	width:85%;
+	height:80%;
+	flex-direction:column;
+	justify-content: space-between;
+	transform:translate(-50%,-50%);
+}
+#main02 > ul#section > li {
+	margin-left:100vw;
+	width:100%;
+	height:30%;
+}
+#main02 > ul#section > li.view{
+	margin-left:0;
+	transition:all 0.5s;
+}
+/*====================================*/
+#main03{
+	padding:8vw;
+	width:100%;
+	background:#f2f2f2;
+	box-sizing:border-box;
+}
+#main03 > ul {
+	width:100%;
+}
+#main03 > ul > li {
+	display:flex;
+	position:relative;
+	width:100%;
+	border-bottom:1px #dbdbdb solid;
+	align-content: center;
+	flex-direction:column;
+}
+#main03 > ul > li > span{
+	position:absolute;
+	top:2.5vw;
+	font-weight:bold;
+	color:#666666;
+}
+#main03 > ul > li > ol{
+	overflow:hidden;
+	margin-top:10vw;
+	width:100%;
+	height:0;
+	white-space: wrap;
+	transition:all 0.5s;
+}
+#main03 > ul > li > ol > li{
+	margin-top:15px;
+	font-size:12px;
+	color:gray;
+}
+#main03 > ul > li > ol.view01{
+	height:60vw;
+	transition:all 0.5s;
+}
+#main03 > ul > li > ol.view02{
+	height:30vw;
+	transition:all 0.5s;
+}
+/*===================================*/
+footer{	
+	padding:8vw;
+	width:100%;
+	height:60vw;
+	background:#f2f2f2;
+	box-sizing:border-box;
+}
+footer > p {	
+	display:flex;
+	width:40%;
+	letter-spacing: 0.1px;
+	align-items: center;
+	justify-content: space-between;
+}
+footer > p > span {
+	font-weight:bold;
+	font-size:3vw;
+	color:#666666;
+}
+footer > p > button {
+	position:relative;
+	width:20px;
+	height:20px;
+}
+footer > p > button::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:8px;
+	height:8px;
+	border-top:1px green solid;
+	border-left:1px green solid;
+	transform:translate(-50%,-50%)rotate(45deg);
+}
+footer > ul{
+	display:flex;
+	width:95%;
+	height:6vw;
+	line-height:6vw;
+	justify-content: space-between;
+}
+footer > ul > li {
+	letter-spacing: -1px;
+	font-size:10px;
+}
+footer > ol {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+footer > ol > li {
+	font-size:12px;
+	color:gray;
+}
+footer > h2 {
+	position:relative;
+	left:50%;
+	margin-left:-19px;
+	width:38px;
+	height:38px;
+	background:url(img/footer/footeric.png);
+}
+footer > #foot_info{
+	display:flex;
+	margin-top:10px;
+	height:30px;
+	flex-direction:column;
+	justify-content:space-between;
+}
+footer > #foot_info > p{
+	text-align:center;
+	font-size:11px;
+	color:gray;
+}
+
+}
+	
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	$(function(){
+
+var height= $(window).height() -600;
+$(window).scroll(function(){
+	var scrPos = $(window).scrollTop();
+	if(scrPos > height){
+		$("#page02 main .section .sectionImg").addClass("view")
+	}else {
+		$("#page02 main .section .sectionImg").removeClass("view")
+	}
+})
+// header 호버시 메뉴바 활성화
+$("#page01 header").hover(function(){
+		$(this).addClass("view")
+		$("header #lnb #img").addClass("view");
+		$("header button").addClass("view")
+		$("header #lnb").addClass("view");
+		$("header h1").addClass("view");
+		$("header ul ol").css({color:"black"});
+		$("header ol#right a").css({color:"black"});
+		$("header ol#right li").css({color:"black"});
+		return false;
+	},function(){
+		$(this).removeClass("view")
+		$("header button").removeClass("view")
+		$("header #lnb #img").removeClass("view");
+		$("header #lnb").removeClass("view");
+		$("header h1").removeClass("view");
+		$("header ul ol").css({color:"white"});
+		$("header ol#right li a").css({color:"white"});
+		return false;
+});
+// 메뉴바 아코디언효과
+$("#page01 header #lnb ul ol#secondOl li#plus01").click(function(){
+	$(this).toggleClass("click")
+	$("#page01 header #lnb ul ol#secondOl li#plus02").removeClass("click")
+	$("#page01 header #lnb ul ol#secondOl li#plusSub01").toggleClass("view")
+	$("#page01 header #lnb ul ol#secondOl li#plusSub02").removeClass("view")	
+});
+$("#page01 header #lnb ul ol#secondOl li#plus02").click(function(){
+	$(this).toggleClass("click")
+	$("#page01 header #lnb ul ol#secondOl li#plus01").removeClass("click")
+	$("#page01 header #lnb ul ol#secondOl li#plusSub02").toggleClass("view")
+	$("#page01 header #lnb ul ol#secondOl li#plusSub01").removeClass("view")
+});
+//header 호버시 메뉴바
+$("#page01 header #lnb ul ol").hover(function(){
+		$("p",this).addClass("hover")
+},function(){
+		$("p",this).removeClass("hover")
+});
+// 방문자버튼 호버시 색변화
+$("#page01 header button").hover(function(){
+		$(this).addClass("hover")
+		$("a",this).addClass("hover")
+},function(){
+		$(this).removeClass("hover")
+		$("a",this).removeClass("hover")
+});
+// 메뉴 호버시 해당항목 표시
+$("#page01 header #lnb ul ol#secondOl li.plusSub span").hover(function(){
+	$(this).addClass("view")
+},function(){
+	$(this).removeClass("view")
+})
+
+// -------------------------------------------------------------------
+
+new Vue ({
+	el:"#footer02",
+	data:{
+		list:[
+			{
+				first:"하나금융그룹",
+				second:"사업영역",			
+				third:"인재",		
+				fourth:"기업문화"
+			},
+			{
+				first:"CEO",			
+				second:"금융IT전문서비스",	
+				third:"복지",		
+				fourth:"청라공간"
+			},
+			{
+				first:"비전과 미션",	
+				second:"신성장동력",			
+				third:"교육",		
+				fourth:"사회공헌"
+			},
+			{
+				first:"연혁",
+				third:"채용",		
+				fourth:"윤리경영"
+			},
+			{
+				first:"알림"
+			},
+			{
+				first:"입찰"
+			},
+			{
+				first:"홍보자료"
+			},
+			{
+				first:"찾아오시는 길"															
+			}
+		],
+		right:[
+				{	top:"하나맵",			
+					middle:"인천 서구 에코로 181 하나금융 그룹 통합데이터센터 비전센터 5층",
+					bottom:"정보보호 관리체계 인증"
+			},
+				{	top:"Contact us",		
+					middle:"Coptright @ Hana TI 2019. ALL RIGHT RESERVED.",
+					bottom:"통합데이터센터, 통합보안관제, 클라우드 및 공인전자문서 서비스 운영"
+			},
+				{	top:"Hana network",	
+					bottom:"2019.4.16~2022.4.15"
+			},
+				{	top:"^"				
+			},
+				{	top:"개인정보처리방침"				
+			},
+				{	top:"고객정보취급방침"	
+			},
+				{	top:"불공정거래제보"	
+			}
+		]
+	},
+	methods:{
+	}
+});
+// =================================
+new Vue ({
+	el:"#main02",
+	data:{
+		img:[
+			{img:"img/mobile/main02.png"},
+			{img:"img/mobile/main03.png"},
+			{img:"img/mobile/main04.png"}
+		]
+	},
+	methods:{
+	}
+});
+// 모바일 리스트
+$("header> button#list").click(function(){
+	$("#list_rnb").addClass("view")
+	$("#list_rnb > ul").addClass("view")
+});
+$("#list_rnb > ul > li > button").click(function(){
+	$("#list_rnb").removeClass("view")
+	$("#list_rnb > ul").removeClass("view")
+});
+// 모바일 클라스
+var mobile_height=$("#main01").height();
+$(window).scroll(function(){
+	var scr = $(window).scrollTop();
+	if(scr == 0 ){
+		$("#main02 > ul#section > li").removeClass("view")
+	}else if (scr > (mobile_height/3) && scr < (mobile_height/2)){
+		$("#main02 > ul#section > li:nth-of-type(1)").addClass("view")
+	}else if (scr > (mobile_height/2) && scr < (mobile_height) ){
+		$("#main02 > ul#section > li:nth-of-type(2)").addClass("view")
+	}else if (scr > (mobile_height)  ){
+		$("#main02 > ul#section > li:nth-of-type(3)").addClass("view")
+	}
+});
+// 모바일 아코디언메뉴
+$("#list_rnb > ul > ol >li ").eq(0).click(function(){
+		$("#list_rnb > ul > ol >li > ol#skill").removeClass("view02")
+		$("#list_rnb > ul > ol >li > ol#human").removeClass("view02")
+		$("#list_rnb > ul > ol >li > ol#culture").removeClass("view02")
+		$("ol#company",this).toggleClass("view01")
+})
+$("#list_rnb > ul > ol >li ").eq(1).click(function(){
+		$("#list_rnb > ul > ol >li > ol#company").removeClass("view01")
+		$("#list_rnb > ul > ol >li > ol#human").removeClass("view02")
+		$("#list_rnb > ul > ol >li > ol#culture").removeClass("view02")
+		$("ol#skill",this).toggleClass("view02")
+})
+$("#list_rnb > ul > ol >li ").eq(2).click(function(){
+		$("#list_rnb > ul > ol >li > ol#company").removeClass("view01")
+		$("#list_rnb > ul > ol >li > ol#skill").removeClass("view02")
+		$("#list_rnb > ul > ol >li > ol#culture").removeClass("view02")
+		$("ol#human",this).toggleClass("view02")
+})
+$("#list_rnb > ul > ol >li ").eq(3).click(function(){
+		$("#list_rnb > ul > ol >li > ol#company").removeClass("view01")
+		$("#list_rnb > ul > ol >li > ol#skill").removeClass("view02")
+		$("#list_rnb > ul > ol >li > ol#human").removeClass("view02")
+		$("ol#culture",this).toggleClass("view02")
+})
+// 모바일 page03 아코디언메뉴
+$("#main03 > ul > li ").eq(0).click(function(){
+		$("#main03 > ul > li > ol#skill").removeClass("view02")
+		$("#main03 > ul > li > ol#human").removeClass("view02")
+		$("#main03 > ul > li > ol#culture").removeClass("view02")
+		$("ol#company",this).toggleClass("view01")
+})
+$("#main03 > ul > li ").eq(1).click(function(){
+		$("#main03 > ul > li > ol#company").removeClass("view01")
+		$("#main03 > ul > li > ol#human").removeClass("view02")
+		$("#main03 > ul > li > ol#culture").removeClass("view02")
+		$("ol#skill",this).toggleClass("view02")
+})
+$("#main03 > ul > li ").eq(2).click(function(){
+		$("#main03 > ul > li > ol#company").removeClass("view01")
+		$("#main03 > ul > li > ol#skill").removeClass("view02")
+		$("#main03 > ul > li > ol#culture").removeClass("view02")
+		$("ol#human",this).toggleClass("view02")
+})
+$("#main03 > ul > li ").eq(3).click(function(){
+		$("#main03 > ul > li > ol#company").removeClass("view01")
+		$("#main03 > ul > li > ol#skill").removeClass("view02")
+		$("#main03 > ul > li > ol#human").removeClass("view02")
+		$("ol#culture",this).toggleClass("view02")
+})
+
+// =================================
+
+	});
+</script>
+</head> 
+<body>
+
+<div id="wrap">
+	<div id="page01" class="page">
+<!-- 메인페이지 동영상 -->
+		<video src="video/hanati.mp4" loop autoplay muted preload></video>
+<!-- 헤더 메뉴바 -->
+		<header>
+			<div id="lnb">
+				<h1></h1>
+				<div id="img"></div>
+				<ul>
+					<ol>
+						<p>회사소개</p>
+						<li><span>하나금융그룹</span></li>
+						<li><span>CEO</span></li>
+						<li><span>비전과 미션</span></li>
+						<li><span>연혁</span></li>
+						<li><span>알림</span></li>
+						<li><span>입찰</span></li>
+						<li><span>홍보자료</span></li>
+						<li><span>찾아오시는 길</span></li>
+					</ol>
+
+					<ol id="secondOl">
+						<p>기술</p>
+						
+						<li>
+							<span>사업영역</span>
+						</li>
+
+						<li id="plus01" class="plus">
+							<span>금융IT전문서비스</span>
+						</li>
+						
+						<li id="plusSub01" class="plusSub">
+							<span>한눈에보기</span>
+							<span>주요서비스</span>
+							<span>전략사업</span>
+							<span>디지털 솔루션</span>
+						</li>	
+						
+						<li id="plus02" class="plus">
+							<span>신성장동력</span>
+						</li>
+							
+						<li id="plusSub02" class="plusSub">
+							<span>하나금융융합기술원</span>
+							<span>Global Business</span>
+						</li>	
+						
+					</ol>
+					<ol>
+						<p>사람</p>
+						<li><span>인재</span></li>
+						<li><span>복지</span></li>
+						<li><span>교육</span></li>
+						<li><span>채용</span></li>
+					</ol>
+					<ol>
+						<p>문화</p>
+						<li><span>기업문화</span></li>
+						<li><span>청라공간</span></li>
+						<li><span>사회공헌</span></li>
+						<li><span>윤리공헌</span></li>
+					</ol>
+				</ul>
+				<button><a href="visit.html">방문자 예약하기</a></button>
+
+					<ol id="right">
+						<li><a href="#">KOR</a></li>
+						<li><a href="#">ENG</a></li>
+					</ol>
+
+			</div>
+		</header>
+
+		<div id="textBox">
+			<img src="img/logo&icon/videoTitle.png" alt="">
+		</div>
+	</div>
+
+	<div id="page02" class="page">
+		<main>
+			<div id="section01" class="section">
+				<div id="sectionImg01" class="sectionImg">
+					<img src="img/section/section01.jpg">
+				</div>
+				<p>BUSINESS</p>
+			</div>
+
+			<div id="section02" class="section">
+				<p id="title"> 하나금융TI 소개</p>
+				<div id="sectionImg02" class="sectionImg">
+					<img src="img/section/section02.jpg">
+				</div>
+				<p>RECRUIT</p>
+			</div>
+
+			<div id="section03" class="section">
+				<div id="sectionImg03" class="sectionImg">
+					<img src="img/section/section03.jpg">
+				</div>
+				<p>YOUTUBE</p>
+			</div>
+
+		</main>
+	</div>
+
+	<div id="page03" class="page">
+		
+		<div id="footer01">
+			<img src="img/footer/footerbg.jpg">
+			<p><img src="img/footer/footericon.png"></p>
+		</div>
+
+	<div id="footer02" >
+
+		<div id="leftBox">
+			<h1></h1>
+		</div>
+			
+		<div id="centerBox">
+			<div id="title">
+				<p>회사소개</p>
+				<p>기술</p>
+				<p>사람</p>
+				<p>문화</p>
+			</div>
+		
+			<ul id="company" >
+				<li v-for="(item,index) in list">{{ item.first }}</li>
+			</ul>
+
+			<ul id="skill" >
+				<li v-for="(item,index) in list">{{ item.second }}</li>
+			</ul>
+
+			<ul id="human" >
+				<li v-for="(item,index) in list">{{ item.third }}</li>
+			</ul>
+
+			<ul id="culture" >
+				<li v-for="(item,index) in list">{{ item.fourth }}</li>
+			</ul>
+		</div>
+		
+		<div id="rightBox">
+					
+			<div id="topText" >
+				<p v-for="(item,index) in right">{{ item.top }}</p>
+			</div>
+				
+			<div id="centerText" >
+				<p v-for="(item,index) in right">{{ item.middle }}</p>
+			</div>
+
+			<div id="bottomText" >
+				<h2><img src="img/footer/footeric.png"></h2>
+				<p v-for="(item,index) in right">{{ item.bottom }}</p>
+			</div>
+				
+		</div>
+
+		</div>
+	</div>
+</div>
+<!-- =========================================== -->
+<div id="mobile">
+	<header>
+		<h1></h1>
+		<button id="list">
+			<span></span>
+		</button>
+	</header>
+
+<div id="list_rnb">
+	<ul>
+		<li>
+			<div id="lang">
+				<span>KOR</span>
+				<span>ENG</span>
+			</div>
+
+			<button></button>			
+
+		</li>
+	
+		<ol>
+			<li>
+				<a href="#">회사소개</a>
+				<ol id="company">
+					<li>하나금융그룹</li>
+					<li>CEO</li>
+					<li>비전과 미션</li>
+					<li>연혁</li>
+					<li>알림</li>
+					<li>입찰</li>
+					<li>홍보자료</li>
+					<li>찾아오시는 길</li>
+				</ol>
+			</li>
+			<li>
+				<a href="#">기술</a>
+				<ol id="skill">
+					<li>사업영역</li>
+					<li>금융TI전문서비스</li>
+					<li>신성장동력</li>
+				</ol>
+			</li>
+			<li>
+				<a href="#">사람</a>
+				<ol id="human">
+					<li>인재</li>
+					<li>복지</li>
+					<li>교육</li>
+					<li>채용</li>
+				</ol>
+			</li>
+			<li>
+				<a href="#">문화</a>
+				<ol id="culture">
+					<li>기업문화</li>
+					<li>청라공간</li>
+					<li>사회공헌</li>
+					<li>윤리경영</li>
+				</ol>
+			</li>
+		</ol>
+	</ul>
+</div>
+
+	<div id="main01">
+		<div id="imgbox"></div>
+
+		<div id="textbox">
+			<span>For a Global Tomorrow
+				<br>
+				Add Digital Innovation
+			</span>
+			<span>
+				금융IT를 선도하는 하나금융그룹의 
+				<br>
+				핵심성장동력
+			</span>
+		</div>
+	</div>
+
+	<div id="main02">
+		<p>하나금융TI 소개</p>
+		<hr>
+		<hr>
+
+		<ul id="section">
+			<li v-for="(item , index) in img">
+				<img v-bind:src="item.img " alt="">
+			</li>
+		</ul>
+	</div>
+
+	<div id="main03">
+		<ul>
+			<li>
+				<span>회사소개</span>
+				<ol id="company">
+					<li>하나금융그룹</li>
+					<li>CEO</li>
+					<li>비전과 미션</li>
+					<li>연혁</li>
+					<li>알림</li>
+					<li>입찰</li>
+					<li>홍보자료</li>
+					<li>찾아오시는 길</li>
+				</ol>
+			</li>
+			<li>
+				<span>기술</span>
+				<ol id="skill">
+					<li>사업영역</li>
+					<li>금융TI전문서비스</li>
+					<li>신성장동력</li>
+				</ol>
+			</li>
+			<li>
+				<span>사람</span>
+				<ol id="human">
+					<li>인재</li>
+					<li>복지</li>
+					<li>교육</li>
+					<li>채용</li>
+				</ol>
+			</li>
+			<li>
+				<span>문화</span>
+				<ol id="culture">
+					<li>기업문화</li>
+					<li>청라공간</li>
+					<li>사회공헌</li>
+					<li>윤리경영</li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+	
+	<footer>
+		<p>
+			<span>Hana network</span> 
+			<button></button>
+		</p>
+		<ul>
+			<li>하나맵</li>
+			<li>Contact us</li>
+			<li>개인정보처리방침</li>
+			<li>고객정보취급방침</li>
+			<li>불공정거래제보</li>
+		</ul>
+		<ol>
+			<li>인천 서구 에코로 181하나금융그룹통합데이터센터비전센터5층</li>
+			<li>Copyright ⓒ Hana TI 2019. ALL RIGHT RESERVED.</li>
+		</ol>
+		<h2></h2>
+		<div id="foot_info">
+			<p>정보보호 관리체계</p>
+			<p>데이터센터 서비스 인프라/공인전자문서 서비스 운영 2018.5.25.~2021.5.24
+			</p>
+		</div>
+	</footer>
+</div>
+
+
+</body>
+
+</html>

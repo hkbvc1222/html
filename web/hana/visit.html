@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>방문객시스템</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/logo&icon/hana.png" type="image/x-icon">
+	<link rel="icon" href="img/logo&icon/hana.png" type="image/x-icon">
+<style>
+
+main {
+	display:flex;
+	width:100%;
+	height:100%;
+	background:#eaebef;
+	box-shadow:0vw 0vw 20vw 0vw inset #a9b1be;
+}
+main > ul {
+	display:flex;
+	position:relative;
+	padding-top:3vw;
+	margin:auto;
+	width:35vw;
+	height:70vh;
+	background:white;
+	flex-direction:column;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing:border-box;
+	box-shadow:0vw 0vw 10vw 0vw #a9b1be;
+}
+main > ul > button#close{
+	position:absolute;
+	top:0;
+	right:0;
+	width:5vw;
+	height:5vw;
+}
+main > ul > button#close > a {	
+	display:block;
+	width:100%;
+	height:100%;
+}
+main > ul > button#close::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:4vw;
+	height:0.2vw;
+	background:#ececec;
+	transform:translate(-50%,-50%) rotate(-45deg);
+}
+main > ul > button#close::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:4vw;
+	height:0.2vw;
+	background:#ececec;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+main > ul > p{
+	display:block;
+	text-align: center;
+}
+main > ul > p#top {
+	position:relative;
+	font-weight:bold;
+	font-size:2vw;
+	color:#4e515b;
+}
+main > ul > p#top::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	left:50%;
+	width:0.5vw;
+	height:0.5vw;
+	background:#1999c0;
+	border-radius:1vw;
+	transform:translate(-50%,-50%);
+}
+main > ul > p#top > span{
+	display:inline-block;
+	color:#1999c0;
+}
+main > ul > ol{
+	display:flex;
+	position:relative;
+	width:75%;
+	height:50%;
+	align-items: center;
+	justify-content: space-between;
+}
+main > ul > ol > li{
+	display:flex;
+	position:relative;
+	padding-top:1.5vw;
+	padding-bottom:1vw;
+	width:12vw;
+	height:12vw;
+	background:#c4c5ca;
+	box-sizing:border-box;
+	flex-wrap:wrap;
+	cursor:pointer;
+	flex-direction:column;
+	align-items: center;
+	justify-content: space-between;
+}
+main > ul > ol > li.view::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(255,255,255,0.3);
+}
+main > ul > ol > li:first-child{
+	background:#93bfca;
+}
+main > ul > ol > li > h2{
+	position:relative;
+	width:5vw;
+	height:5vw;
+}
+main > ul > ol > li > h2#list::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:4vw;
+	height:4vw;
+	border-radius:1vw;
+	border:0.2vw white solid;
+	transform:translate(-50%,-50%);
+}
+main > ul > ol > li > h2#list::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:2vw;
+	height:2vw;
+	border-top:0.2vw white solid;
+	border-bottom:0.2vw white solid;
+	transform:translate(-50%,-50%);
+}
+main > ul > ol > li > h2#list > span {
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:2vw;
+	height:0.2vw;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+main > ul > ol > li > h2#search::before{
+	content:"";
+	display:block;
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:2.5vw;
+	height:2.5vw;
+	border-radius:4vw;
+	border:0.15vw white solid;
+	transform:translate(-50%,-50%);
+}
+main > ul > ol > li > h2#search::after{
+	content:"";
+	display:block;
+	position:absolute;
+	top:82%;
+	left:82%;
+	width:1.5vw;
+	height:0.2vw;
+	background:white;
+	transform:translate(-50%,-50%) rotate(45deg);
+}
+main > ul > ol > li > p{
+	letter-spacing: -0.2vw;
+	text-align:center;
+	font-weight:bold;
+	font-size:1.5vw;
+	color:white;
+}
+main > ul > ol > p{
+	display:inline-block;
+	position:absolute;
+	right:0;
+	bottom:0;
+	text-decoration:underline;
+	font-size:0.6vw;
+	color:#97969c;
+}
+main > ul > p#bottom{
+	text-decoration:underline;
+	font-weight:bold;
+	font-size:0.9vw;
+	color:#97969c;
+}
+main > ul > h1{
+	margin-top:-2vw;
+	width:10vw;
+	height:3vw;
+	background-image:url(img/logo&icon/visitlogo.JPG);
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:center center;
+}
+
+@media all and (max-width: 1400px) {
+
+}
+
+
+@media all and (max-width: 992px) {
+	
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+
+
+@media all and (max-width:576px) {
+	
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+<script>
+	$(function(){ 
+		//버튼 호버시 효과
+		$("main > ul > ol > li ").hover(function(){
+			$(this).toggleClass("view")
+		});
+		// 버튼 클릭시 알림
+		$("main > ul > ol > li").click(function(){
+			alert("서비스 준비중입니다.")
+		});
+	});
+</script>
+</head>
+<body>
+<main>
+	<ul>
+		<button id="close">
+			<a href="index.html"></a>
+		</button>
+		<p id="top">내방객<span>시스템</span></p>
+		<ol>
+			<li>
+				<h2 id="list"><span></span></h2>
+				<p>외부방문자<br/>출입신청</p>
+			</li>
+			<li>
+				<h2 id="search"></h2>
+				<p>외부방문자<br/>신청현황 조회</p>
+			</li>
+			<p>내부승인자 등록신청 및 비밀번호 변경</p>
+		</ol>
+		<p id="bottom">개인정보처리방침</p>
+		 <h1><!-- 마지막로고 --> </h1>
+	</ul>
+</main>
+
+
+
+
+
+</body>
+</html>

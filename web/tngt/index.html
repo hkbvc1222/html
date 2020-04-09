@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>Document</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/logo&icon/logo/tngt.png" type="image/x-icon">
+	<link rel="icon" href="img/logo&icon/logo/tngt.png" type="image/x-icon">
+<style>
+button {
+	background: white;
+	border: none; 
+	outline:none;
+}
+a { 
+	color: black; 
+}
+body{
+	height:2400px;
+}
+header {
+	position:fixed; 
+	top: 0;
+	width:100%; 
+	height: 110px;
+	background: none;
+	z-index:1000;
+}
+header.view{
+	background: white;
+	border-bottom:1px silver solid;
+}
+header.view h1 {
+	background-position: 0 0px;
+}
+header.view nav li a {
+	color:black;
+}
+header nav {
+	overflow:hidden;
+	margin :40px auto;
+	width:100%; 
+}
+header nav h1 { 
+	overflow:hidden;
+	float: left;
+	margin-left: 2vw;
+	width:80px; 
+	height: 23px;
+	background:url(img/logo&icon/logo/logo.png);
+	background-position: 0 -23px;
+	text-indent:-9999px; 
+}
+header nav ul { 
+	float: left; 
+	margin-left:56px; 
+}
+header nav ul li{ 
+	float: left;  
+	margin-left:46px;
+	letter-spacing: 3px;
+	font-weight:lighter;
+	font-size:0.8rem;
+}
+header nav ul li a{ 
+	color: white;
+}
+header nav ul li:first-child { 
+	margin-left:0;  
+}
+header nav ol{ 
+	float: right;
+	margin-right:46px;
+}
+header nav ol li { 
+	float: left; 
+	font-weight: lighter; 
+	margin-left: 36px;
+	letter-spacing: 2px;
+	font-size:0.7rem;
+}
+header nav ol li.view { 
+	color:black; 
+}
+header nav ol li:nth-of-type(1) {
+	width:66px; 
+	height: 15px;
+	border-right: 1px white solid;
+	line-height: 15px;
+}
+header nav ol li:nth-of-type(3) {
+	overflow:hidden;
+	width:20px; 
+	height: 20px;
+	background:url(img/logo&icon/icon/icon1.png) 0 -20px; 
+}
+header nav ol li.view:nth-of-type(3) {
+	background-position: 0 0px;
+}
+header nav ol li:nth-of-type(4) { 
+	overflow:hidden;
+	width:20px; 
+	height: 20px;
+	background:url(img/logo&icon/icon/icon1.png) -40px -20px; 
+}
+header nav ol li:nth-of-type(5) {
+	overflow:hidden;
+	margin-left: 0.5vw;
+	width:20px; 
+	height: 20px;
+	color:white;
+	line-height: 20px;
+	font-size:0.5rem;
+}
+header nav ol li.view:nth-of-type(4) { 
+	background-position:-40px 0px;
+}
+header nav ol li a { 
+	color:white; 
+}
+.wrap {
+	overflow:hidden;
+	margin-top:8vw; 
+	width:100%;
+}
+#page01 {
+	/*overflow:hidden;*/
+	margin-top: 0;
+	width:100%;
+	height:40vw; 
+	cursor:pointer;
+}
+#page01 #slide { 
+	width:500%; 
+	height: 40vw;
+}
+#page01 #slide img {
+	float:left;	
+	width:20%;
+}
+ul#button { 
+	display:flex; 
+	position:absolute; 
+	top: 36.5vw; 
+	left: 42vw;
+	width:13vw;
+	height:2vw;
+	flex-wrap: wrap; 
+	justify-content: space-between;
+	align-content: center;
+}
+ul#button li{ 
+	width:1.8vw;
+	height: 0.2vw; 
+	 background: silver; 
+	 cursor:pointer;
+}
+ul#button li.view{  
+	background: white; 
+}
+#page02 p  { 
+	position:absolute;
+	top: 45vw; 
+	left: 40vw; 
+	font-size:3rem; 
+	font-weight:bold; 
+} 
+#page02 img {
+	width:100%;
+}
+#page03 img {
+	margin-left: -16vw;
+	width:130%;
+}
+#page04 p {
+	position:absolute; 
+	top: 145vw; 
+	left: 45vw;
+	font-size:2.5rem; 
+}
+#page04 {
+	overflow:hidden;
+	margin:12vw auto;
+	width:90vw;
+}
+#page04 #box{
+	/*overflow:hidden;*/
+	display:flex;
+	margin:0 auto;
+	width:200vw;
+	height: 30vw;
+	align-content: center;
+}
+#page04 #box .onetwo{
+	float:left;
+	margin-left: 0;
+	width:100vw;
+	height: 30vw;
+}
+#page04 #box .slideImg{
+	float:left;
+	margin-left: 2.5vw;
+	width:20vw;
+	height: 30vw;
+}
+#page04 #box .slideImg:nth-of-type(1) {
+	margin-left: 0; 
+}
+#page04 #box .slideImg img{ 
+	width:100%;
+}
+#page04 #box .slideImg span { 
+	margin-top:0.5vw;
+}
+#page04 #box .slideImg span:nth-of-type(1){ 
+	display: block;
+	margin-top: 0 ;
+}
+#page04 #box .slideImg span:nth-of-type(2){
+	float:left;
+	font-size:0.8rem;
+	font-weight:bold;
+}
+#page04 #box .slideImg span:nth-of-type(3){
+	float:left;
+	text-decoration: line-through;
+	color:silver; 
+	font-size:0.6rem;
+}
+#page04 #box .slideImg span:nth-of-type(4){
+	float:right;
+	color:red;
+	font-size:0.6rem;
+	line-height:2vw;
+}
+#page04 ul#list { 
+	overflow:hidden;
+	margin-top:1vw;
+	margin-left: 46%; 
+	width:8vw; 
+	height: 0.2vw; 
+}
+#page04 ul#list li:first-child { 
+	margin-left: 0;
+}
+#page04 ul#list li { 
+	float:left;
+	margin-left: 0.66vw;
+	width:1.5vw; 
+	height: 0.2vw; 
+	background: silver; 
+	cursor:pointer;
+}
+#page04 ul#list li.view { 
+	background: pink;
+}
+button.sliderbutton { 
+	position: relative;
+	top:-30vw;
+	left: 0vw;
+	width:4vw; 
+	height: 4vw;
+	border:none;
+	background:none;
+}
+button#sliderbutton02 { 
+	left:90.3vw;
+}
+button.sliderbutton::before {
+	content:"";
+	display:block;
+	position:absolute;
+	margin-top:1vw;
+	width:3vw; 
+	height: 0.1vw;
+	background: gray;
+	transform:rotate(45deg);
+}
+button.sliderbutton::after {
+	content:"";
+	display:block;
+	position:absolute;
+	margin-top:-1.1vw;
+	width:3vw; 
+	height: 0.1vw;
+	background: gray;
+	transform:rotate(-45deg);
+}
+button#sliderbutton02::before {
+	content:"";
+	display:block;
+	position:absolute;
+	margin-top:1.1vw;
+	width:3vw; 
+	height: 0.1vw;
+	background: gray;
+	transform:rotate(-45deg);
+}
+button#sliderbutton02::after {
+	content:"";
+	display:block;
+	position:absolute;
+	margin-top:-1vw;
+	width:3vw; 
+	height: 0.1vw;
+	background: gray;
+	transform:rotate(45deg);
+}
+#page05 {
+	margin-top:-10vw;
+}
+#page05 img {
+	width:100%;
+}
+#page06 p{
+	margin:5vw 30vw;
+	font-size:2rem; 
+	font-weight:bold;
+} 
+#page06 {
+	overflow:hidden; 
+	padding-left: 10vw;
+	padding-right:10vw;
+	width:100%; 
+	box-sizing: border-box;
+}
+#page06 img { 
+	width:45vw; 
+}
+#page06 img:nth-of-type(1){ 
+	float:left;
+}
+#page06 img:nth-of-type(2){ 
+	float:right; 
+	margin-top: 5vw;
+}
+#page06 ul.look {
+	float:right;
+	margin-top: 12vw;
+	text-align: right;
+}
+#page06 ul.look li:nth-of-type(1) {
+	font-weight:bold;
+	font-size:1.2vw;
+}
+#page06 ul.look li:nth-of-type(2) {
+	margin-top: 1vw;
+	font-weight:bold; 
+	font-size:2vw;
+}
+#page06 ul.look li:nth-of-type(3) {
+	margin-top: 1vw;
+	font-weight:lighter;
+	font-size:0.6vw;
+}
+#page06 ul.look:nth-of-type(2) {
+	float:left;
+	margin-top: 20vw;
+	margin-left:6vw;
+	text-align:right;
+}
+#page06 ul#look02 { 
+	text-align:left;
+	margin-left: 0; 
+}
+#page07 {
+	overflow:hidden;
+	padding-left:2vw;
+	padding-bottom:10vw;
+	width: 100%; 
+	background:rgba(0,0,0,0.1);
+	box-sizing:border-box;
+}
+#page07 p { 
+	margin-left:49%; 
+	font-size:2vw; 
+	font-weight:bold; 
+}
+#page07 #imgBox{
+	display:flex; 
+	margin:5vw auto;
+	width: 80%;
+	height:50.1vw;
+	justify-content:space-between; 
+	align-content: space-between;
+	flex-wrap:wrap;
+}
+#page07 #imgBox img {
+	width: 24.285714vw;
+}
+#lnb {
+	display:none; 
+	position:fixed; 
+	top:110px;
+	width:100%; 
+	height: 20vw; 
+	background: white; 
+	border-bottom:1px solid gray; 
+	box-shadow:gray 0 0 10px;
+	z-index:2;	
+}
+#lnb ol { 
+	overflow:hidden;
+	display:flex;
+	margin-left:10%; 
+	margin-top: -1VW;
+	width:40vw;
+	height: 50%;
+	flex-wrap:wrap;
+	align-content:center;
+}
+#lnb ol li{
+	display:inline-block;
+	margin-top: 1vw;
+	margin-left: 4.5vw;
+	width:10vw;
+	height: 1.3vw;
+	font-size: 0.9rem;
+	font-weight: lighter;
+	letter-spacing:0.2VW;
+}
+#lnb ol li:first-child{
+	margin-left: 0;
+}
+#lnb ol li:nth-of-type(4) {
+	margin-left: 0;
+}
+#lnb ol li:nth-of-type(7) {
+	margin-left: 0;
+}
+#lnb ol input {
+	display:block;
+	position:absolute;
+	top: 7.3vw;
+	left: 15vw;
+	width:65vw; 
+	height: 6vw ;
+	border:none;
+	border-bottom:0.3vw black solid; 
+	font-size:1.5rem;
+	outline:none;
+}
+#lnb ol input::placeholder {
+	color:silver;
+}
+#lnb ol h2 {
+	position:absolute;
+	top: 8.3vw;
+	left:77vw;
+	width:3vw; 
+	height: 3vw;
+}
+#lnb ol h2::before {
+	content:"";
+	display:block;
+	width:2vw; 
+	height: 2vw;
+	border-radius:5vw;
+	border: 0.3vw black solid;
+}
+#lnb ol h2::after {
+	content:"";
+	float: right;
+	display:block;
+	width:1.2vw; 
+	height: 0.3vw;
+	background: black;
+	transform:rotate(45deg);
+}
+#lnb span { 
+	display:block;
+	margin-left:10%; 
+	margin-top: 6vw; 
+	font-size:1.6rem; 
+	font-weight: bold;
+}
+button#top {
+	display:flex;
+	position:fixed; 
+	bottom: 32px; 
+	right: 32px;
+	width:2.2vw; 
+	height: 2.2vw;
+	border-radius:3vw;
+	box-shadow:black 0 0 10px;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+button#top span {
+	overflow:hidden; 
+	display:inline-block;
+	position:relative;
+	width: 1.5vw; 
+	height: 1.3vw; 
+	line-height: 26px;
+	font-size:24px;
+	font-weight:bold;	
+}
+button#top span::before {
+	content:"";
+	display:block;
+	position:absolute;
+	top: 0;
+	left:50%;
+	width:0.9vw; 
+	height: 0.15vw;
+	background: black;
+	transform:translate(-50%,-50%);
+}
+.item { 
+	overflow:hidden; 
+	position:absolute; 
+	top: 3vw; 
+	left: 50vw;
+	width:12vw; 
+	height: 18vw; 
+}
+.item dl {
+	overflow:hidden; 
+	height: 10vw;
+}
+.item dl img {
+	height: 100%;
+}
+.item dt { 
+	font-size:0.8rem; 
+	margin-top: 0.3vw;
+	font-weight: lighter;
+}
+#item02 {
+	left: 65vw;
+}
+footer {
+	padding-top:2vw;
+	width: 100%;
+	height:250px;
+	background: rgba(0,0,0,0.8);
+	box-sizing: border-box;
+	color:silver;
+}
+footer ul#foot {	
+	overflow:hidden;
+	width:100;
+	color:white;
+}
+footer ul#foot li{
+	float:left;
+	margin-left:30px;
+	font-weight:bold;
+	font-size:14px;
+}
+footer ol#info{
+	overflow:hidden;
+	display:flex;
+	margin-top:30px;
+	width:700px;
+	flex-wrap:wrap;
+	flex-direction: column;
+}
+footer ol#info li {		
+	display:inline-block;
+	position:relative;
+	height:30px;
+	font-size:12px;
+}
+footer ol#info li:last-child	{	
+	margin-left:30px;	
+}
+footer ol#info li#first p:nth-of-type(3)  { 
+	border-bottom:1px silver solid;	
+	font-size:11px; 
+}
+footer ol#info li#first p:nth-of-type(3)::after  { 
+	content:"";
+	position:absolute;
+	top:4px;
+	right:-10px;
+	width:8px;
+	height:8px;
+	border-bottom:1px silver solid;
+	border-right:1px silver solid;
+	transform:rotate(-45deg);
+}
+footer ol#info li p{
+	display:inline-block;
+	position:relative;
+	float:left;
+	margin-left:30px;
+}
+footer ol#info li p::after{
+	content:"|";
+	position:absolute;
+	top:0;
+	right:-20px;
+}
+::-webkit-scrollBar {display:none;}
+@media all and (max-width: 1400px) {
+}
+@media all and (max-width: 992px) {
+}
+@media all and (max-width: 768px) {
+}
+@media all and (max-width:576px) {
+}
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script>
+$(function(){ 
+	var subMenu = [
+		["ABOUT TNGT","ABOUT SIGNAL","NEWS","CATALOGUE"],
+		["BEST","ALL","OUTER","TOP","BOTTOM","ACC",,"SUIT","REVIEW"],
+		["TNGT LOOK","TNGT LAB"],
+		["PROMOTION"],
+		["매장 찾기","매장 개설안내"]
+	]
+	$("header nav ul li").mouseenter(function(){
+		var chkIndex = $(this).index();
+		var chkText = $(this).text();
+		html="";
+		for (i in subMenu[chkIndex]){
+				html+="<li>"
+				html+="<a href='#'>" + subMenu[chkIndex][i]; +"</a>" 
+				html+="</li>"
+		}
+		$("#lnb span").text(chkText)
+		$("#lnb ol").html(html)
+		$("header").addClass("view")
+		$("header nav ol li").addClass("view")
+		$("header nav ol li").eq(4).css({color:"black"})
+		$("#lnb").css({display:"block"})
+		$("#lnb .item").css({display:"block"})
+		return false;
+	});
+	$("#lnb").mouseleave(function(){
+		$("#lnb").css({display:"none"})
+		$("header").removeClass("view")
+		$("header nav ol li").removeClass("view")
+		$("header nav ol li").eq(4).css({color:"white"})
+	});
+$("header nav ol li").eq(2).mouseenter(function(){
+	search="";
+	search+="<input type='text' placeholder='검색어를 입력하세요.'>"
+	search+="<h2>"
+	search+="</h2>"
+		
+	$("#lnb .item").css({display:"none"})
+	$("#lnb ol").html(search)	
+	$("#lnb span").empty()	
+	$("header ").addClass("view")
+	$("header ol li").addClass("view")
+	$("header nav ol li").eq(4).css({color:"black"})
+	$("#lnb").css({display:"block"})
+});
+// $("#lnb").mouseleave(function(){
+// 			$("#lnb").css({display:"none"})
+// 			$("header").removeClass("view")
+// 			$("header nav ol li").eq(4).css({color:"white"})
+// 		});
+$("ul#button li").eq(0).addClass("view")
+$("ul#button li").click(function(){
+	clearInterval(sliderTime);
+	$("ul#button li").removeClass("view")
+	$(this).addClass("view")
+});
+$("ul#button li").eq(0).click(function(){
+	clearInterval(sliderTime);
+	$("#page01 > #slide:not(:animated)").animate({marginLeft:"0"})
+});
+$("ul#button li").eq(1).click(function(){
+	clearInterval(sliderTime);
+	$("#page01 > #slide:not(:animated)").animate({marginLeft:"-100%"})
+});
+$("ul#button li").eq(2).click(function(){
+	clearInterval(sliderTime);
+	$("#page01 > #slide:not(:animated)").animate({marginLeft:"-200%"})
+});
+$("ul#button li").eq(3).click(function(){
+	clearInterval(sliderTime);
+	$("#page01 > #slide:not(:animated)").animate({marginLeft:"-300%"})
+});
+$("ul#button li").eq(4).click(function(){
+	clearInterval(sliderTime);
+	$("#page01 > #slide:not(:animated)").animate({marginLeft:"-400%"})
+});
+a=0;
+html="";
+function timer(){
+	sliderTime= setInterval(function(){
+		a++;
+		liIn=a%5
+		$("#page01 #slide:not(:animated)").animate({marginLeft:"-=100%"},function(){
+			$("ul#button li:not(:animated)").removeClass("view").eq(liIn).addClass("view")
+			$("#page01 #slide:not(:animated)").css({marginLeft:"0"})		
+			$("#page01 #slide img:not(:animated)").first().appendTo("#page01 #slide")
+			});
+		},2000);
+}
+$("#page01").hover(function(){
+	clearInterval(sliderTime);
+},function(){
+	timer();
+});
+// for 슬라이드 사진
+slider= ["<img id='01' src='img/slider/slider1.jpg",
+		"<img id='02' src='img/slider/slider2.jpg",
+		"<img id='03' src='img/slider/slider3.png",
+		"<img id='04' src='img/slider/slider4.jpg",
+		"<img id='05' src='img/slider/slider5.jpg"]
+html += "<div id='slide'>"
+	for (i in slider){
+		html += slider[i] 
+		html += "' alt=''>"
+		}
+html+="<div>"
+	$("#page01").html(html)
+// 스크롤
+		$(window).scroll(function(){
+			var scrPos = $(this).scrollTop();
+			if( scrPos >= 700 ){
+				$("header ").addClass("view")
+				$("header nav ul li").addClass("view")
+				$("header nav ol li").addClass("view")
+				$("header nav ol li").eq(4).css({color:"black"})
+			}else if (scrPos <600){
+				$("header ").removeClass("view")
+				$("header nav ul li").removeClass("view")
+				$("header nav ol li").removeClass("view")
+				$("header nav ol li").eq(4).css({color:"white"})
+			}
+		});
+var c=0;
+$("ul#list li").eq(0).addClass("view")
+// 왼쪽 슬라이드
+$("button#sliderbutton01").click(function(){
+		c++;
+var d= c%2 ; 
+	$("#box .onetwo:not(:animated)").last().prependTo("#box")
+	$("#box:not(:animated)").css({marginLeft:"-100vw"})
+	$("#box:not(:animated)").animate({marginLeft:"+=100vw"},700)
+	$("ul#list li").removeClass("view").eq(d).addClass("view")
+ });
+var c=0;
+// 오른쪽 슬라이드
+$("button#sliderbutton02").click(function(){
+		c++;
+	var d= c%2 ; 
+		$("#box:not(:animated)").animate({marginLeft:"-=100vw"},700,function(){
+		$("#box .onetwo:not(:animated)").first().appendTo("#box")
+		$("#box:not(:animated)").css({marginLeft:0})
+		$("ul#list li").removeClass("view").eq(d).addClass("view")
+	});
+});
+// 왼쪽 네비
+$("#page04 > ul#list > li").eq(0).click(function(){
+	$("#page04 > ul#list > li").removeClass("view")
+	$(this).addClass("view")
+	$("#page04 > #box:not(:animated)").css({marginLeft:"0"})
+	$("#page04 > #box > #one").prependTo("#page04 > #box");
+});
+// 오른쪽 네바
+$("#page04 > ul#list > li").eq(1).click(function(){
+	$("#page04 > ul#list > li").removeClass("view")
+	$(this).addClass("view")
+	$("#page04 > #box").css({marginLeft:"0"})
+	$("#page04 > #box > #two").prependTo("#page04 > #box");
+});
+slider01= ["img/item/item1.jpg",
+			"img/item/item8.jpg",
+			"img/item/item6.jpg",
+			"img/item/item4.jpg"
+		]
+var slide01 = [
+	{ 
+		title:"[예약판매~10.7 입고 예정][CORAL]비비드 세미오··"
+		,sale:"53,100"
+		,price:"/59,000"
+		,dc:"10%"
+	},
+	{ 
+		title:"[BEIGE]오버핏 인생 더블 트렌치코트" 
+		,sale:"143,280" 
+		,price:"/199,000" 
+		,dc:"28%"
+	} ,
+	{ 
+		title:"[BLACK]천연 양가죽 트러커 자켓" 
+		,sale:"160,110" 
+		,price:"/269,000" 
+		,dc:"40%"
+	},
+	{ 
+		title:"[MUSTARD]오버핏 핸드메이드 리버시블 코트" 
+		,sale:"/319,000" 
+		,price:"59000" 
+		,dc:"19%"
+	} ,
+]
+slider02= [	
+			"img/item/item3.jpg",
+			"img/item/item7.jpg",
+			"img/item/item5.jpg",
+			"img/item/item2.jpg"
+]
+var slide02 = [
+	{ 
+		title:"[NAVY]오버핏 트렌치 코트" 
+		, sale:"53100" 
+		, price:"/209,000" 
+		, dc:"48%"
+	} ,
+	{ 
+		title:"[BLACK]멀티 2-WAY 토트백팩" 
+		, sale:"53100" 
+		, price:"/52,650" 
+		, dc:"19%"
+	} ,
+	{ 
+		title:"[예약 판매~10.8 입고 예정][BLACK]소매 포인트 모··" 
+		, sale:"47,790" 
+		, price:"/59,000" 
+		, dc:"19%"
+	},
+	{ 
+		title:"[예약 판매~10.8 입고 예정][BLACK]소매 포인트 모··" 
+		, sale:"47,790" 
+		, price:"/59,000" 
+		, dc:"19%"
+	}
+]
+sli = "";
+		for (var i in slider01){
+			sli+= "<div class='slideImg'>"
+			sli += "<img src='" 
+			sli += slider01[i] 
+			sli += "' alt=''>"
+			sli += "<span>" + slide01[i].title + "</span>"
+			sli += "<span>" + slide01[i].sale + "</span>"
+			sli += "<span>" + slide01[i].price + "</span>"
+			sli += "<span>" + slide01[i].dc + "</span>"
+			sli+= "</div>"
+		}
+		$("#page04 #box #one").html(sli)
+slid = "";
+		for (var j in slider02){
+			slid += "<div class='slideImg'>"
+			slid += "<img src='" 
+			slid += slider02[j] 
+			slid += "' alt=''>"
+			slid += "<span>" + slide02[j].title + "</span>"
+			slid += "<span>" + slide02[j].sale + "</span>"
+			slid += "<span>" + slide02[j].price + "</span>"
+			slid += "<span>" + slide02[j].dc + "</span>"
+			slid += "</div>"
+		}
+		$("#page04 #box #two").html(slid)
+	$("button#top").click(function(){
+		$("html,body").animate({scrollTop:0})
+	});
+});
+</script>
+</head>
+<body>
+<header>
+	<nav>
+	<h1> <a href="#"> HOME </a> </h1>
+		<ul>
+			<li> <a href="#"> ABOUT </a> </li>
+			<li> <a href="#"> SHOP </a> </li>
+			<li> <a href="#"> MAGAZINE </a> </li>
+			<li> <a href="#"> EVENT </a> </li>
+			<li> <a href="#"> STORE </a> </li>
+		</ul>
+		<ol>
+			<li> <a href="#"> LOGIN </a> </li>
+			<li> <a href="#"> JOIN </a> </li>
+			<li> <a href="#">  </a> </li>
+			<li> <a href="#">  </a> </li>
+			<li> 0</li>
+		</ol>
+	</nav>
+</header>
+
+<div id="lnb">
+	<span></span>	
+	<ol></ol>
+		<div id= "item01"class="item">
+			<dl>
+				<img src="img/item/item5.jpg" alt="">
+			</dl>
+			<dt>[예약 판매~10.8 입고···]</dt>
+		</div>
+		<div id= "item02"class="item">
+			<dl>
+				<img src="img/item/item4.jpg" alt="">
+			</dl>
+			<dt>[BEIGE]오버핏 하프 ···</dt>
+		</div>
+</div>
+<div id="page01" class="wrap"></div>
+	<ul id="button">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+<div id="page02" class="wrap">
+	<p>RECOMMEND ITEM</p>
+	<img src="img/main/main/main1.jpg" alt="">
+</div>
+<div id="page03" class="wrap">
+	<img src="img/main/main/main2.jpg" alt="">
+</div>
+<div id="page04" class="wrap">
+	<p>BEST SELLER</p>
+	<div id="box">
+		<div id="one" class="onetwo"></div>
+		<div id="two" class="onetwo"></div>
+	</div>
+	<ul id="list">
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+		<button id="sliderbutton01" class="sliderbutton"></button>
+		<button id="sliderbutton02" class="sliderbutton"></button>
+<div id="page05" class="wrap">
+	<img src="img/main/main/main3.jpg" alt="">
+</div>
+<div id="page06" class="wrap">
+	<p>MAGAZINE</p>
+		<img src="img/main/magazine/magazine.png" alt="">
+	<ul class="look"> 
+		<li>TNGT LOOK</li>
+		<li>트렌디한 이지 스포티룩<br/>
+		제안</li>
+		<li>한강에서 자전거 타기 좋은 날씨, 뭘 입어야 할까?</li>
+	</ul>
+		<img src="img/main/magazine/magazine.jpg" alt="">
+	<ul id="look02" class="look">
+		<li>TNGT LAB</li>
+		<li>아우터 맛집,<br/>
+		트렌치코트편</li>
+		<li>트렌치코트 인생템을 파헤쳐보자</li>
+	</ul>
+</div>
+<div id="page07" class="wrap">
+	<p>SNS</p>
+	<div id="imgBox" >
+		<img src="img/main/sns/sns1.jpg">
+		<img src="img/main/sns/sns2.jpg">
+		<img src="img/main/sns/sns3.jpg">
+		<img src="img/main/sns/sns4.jpg">
+		<img src="img/main/sns/sns5.jpg">
+		<img src="img/main/sns/sns6.jpg">
+	</div>
+</div>
+<button id="top">
+	<span>↑</span>
+</button>
+<footer>
+	<ul id="foot">
+		<li>이용약관</li>
+		<li>개인정보처리방침</li>
+		<li>청소년보호정책</li>
+		<li>공지사항</li>
+	</ul>
+	<ol id="info">
+		<li id="first">
+			<p>사업자 등록번호:211-87-87724</p>
+			<p>통신판매업신고 : 제 2010-서울강남-00066호</p>
+			<p>사업자 정보확인</p>
+		</li>
+		<li id="second">
+			<p>대표전화: 1544-5114</p>
+			<p>(유료)팩스 : 031-360-0003</p>
+		</li>
+		<li id="second">
+			<p>서울 강남구 언주로 870</p>
+			<p>(주)LF</p>
+			<p>대표이사 오규식</p>
+		</li>
+		<li> COPYRIGHT ⓒ 1990-2018 TNGT ALL RIGHTS RESERVED. </li>
+	</ol>
+</footer>
+</body>
+</html>

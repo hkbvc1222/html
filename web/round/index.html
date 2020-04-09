@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>ROUND A'ROUND</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/logo/round.png" type="image/x-icon">
+	<link rel="icon" href="img/logo/round.png" type="image/x-icon">
+<style>
+
+
+
+@media all and (max-width: 3600px) {
+
+* {
+	letter-spacing: -0.08vw;
+}
+img{
+	width:100%;
+}
+body.view {
+	overflow:hidden; 
+}
+#lnb a { 
+	color:black; 
+}
+#rnb a { 
+	color:black; 
+}
+#mobile {
+	display:none;
+}
+#web{
+	display:block;
+	position:relative;
+	z-index:0;
+}
+/*----------------------------------LNB------------------------------*/
+#lnb	{		
+	position:fixed;	
+	top:0;	
+	left:-20vw;	
+	padding-top:7vw;	
+	padding-left:3vw;
+	width:15vw;							
+	height:100%;
+	background:rgba(255,255,255,1);				
+	box-sizing:border-box;				
+	z-index:3;							
+	transition:all 0.5s;
+}	
+#back	{	
+	display:none;	
+	position:absolute;	
+	top:0;								
+	left:0;
+	width:100%;							
+	height:1500%;						
+	background:rgba(0,0,0,0.5);		
+	z-index:-1;					
+}
+#back.view 	{	
+	display:block; 							
+	transition:all 0.5s;
+}
+#lnb.view{		
+	left:0;								
+	transition:all 0.5s;
+}				
+#lnb>ul{	
+	overflow:hidden;	
+	display:flex; 	
+	width:12.5vw;						
+	flex-wrap: wrap;							
+	flex-direction:column;
+}
+#lnb>ul>li	{	
+	display:flex;	
+	position:relative;
+	width:80%; 							
+	height:2.5vw;
+	font-size:0.9vw;	
+	align-items:center;
+}
+#lnb>ul>li>a>p{		
+	display:inline-block;					
+}
+#lnb>ul>li>a>p.view	{		
+	border-bottom:1px black solid;		
+	font-weight:bold;
+}
+#lnb>ul>li::before		{		
+	content:"";							
+	position:absolute;	
+	top:1.23vw;							
+	right:0;
+	width:0.5vw;						
+	height:0.07vw;
+	background:black;					
+	transform:rotate(45deg);
+}
+#lnb>ul>li::after	{		
+	content:"";							
+	position:absolute;	
+	top:1.6vw;							
+	right:0;
+	width:0.5vw;						
+	height:0.07vw;
+	background:black;					
+	transform:rotate(-45deg);
+}
+#lnb>ul>li#last::before{		
+	display:none;
+}
+#lnb>ul>li#last::after{		
+	display:none;
+}
+/*----------------------------------LNB------------------------------*/
+#rnb	{		
+	position:fixed;	
+	top:0;	
+	left:-20vw;		
+	padding-top:7vw;						
+	padding-left:2.5vw;
+	width:15vw;							
+	height:100%;
+	background:rgba(255,255,255,1);	
+	box-sizing:border-box;				
+	opacity:0;
+	z-index:2;	
+	transition:all 0.5s;				
+}	
+#rnb.view{		
+	left:15vw;							
+	opacity:1;
+	transition:all 0.5s;
+}
+#rnb>ol{		
+	overflow:hidden;
+	display:none;
+	position:relative;	
+	width:12.5vw;	
+	flex-wrap: wrap;	
+	flex-direction:column;
+}
+#rnb>ol.view{		
+	display:block;	
+	transition:all 0.5s;
+}			
+#rnb>ol>li{		
+	display:flex;
+	position:relative;	
+	width:80%;
+	height:2.5vw;
+	line-height:2.5vw;
+	font-size:0.9vw;
+	align-items: center;
+	cursor:pointer;
+}
+#rnb>ol>li p{		
+	display:inline-block; 				
+	height:2vw;	
+	letter-spacing: 0;							
+}
+#rnb>ol>li p.view{		
+	display:block;
+	border-bottom:1px black solid;		
+	font-weight:bold;
+}
+#rnb>ol#pro>li::before{		
+	content:"";			
+	display:block;				
+	position:absolute;	
+	top:1vw;						
+	right:1vw;
+	width:0.4vw;
+	height:0.4vw;
+	border-top:1px solid rgba(0,0,0,0.7);
+	border-right:1px solid rgba(0,0,0,0.7);
+	transform:rotate(45deg);
+}
+#rnbImg	{		
+	width:500px;
+	height:100%;
+	display:none;	
+	position:fixed;					
+	top:0;
+	left:30vw;
+	background:white;								
+	z-index:2;				
+}			
+#rnbImg ul    { 
+	display:flex;	
+	position:absolute;
+	top:0;
+	width:100%;
+	height:100%;
+	flex-wrap:wrap;	
+	align-content: flex-start;
+	justify-content:space-around;		
+	transition:all 0.5s;
+}
+#rnbImg ul li {	
+	display:none;		
+	margin-top:3vw;	
+	width:170px;						
+	height:170px;		
+}
+#rnbImg > ul#greenteaList.view{
+	top:-100px;
+	transition:all 0.5s;
+}
+#rnbImg > ul#greenteaList>button#bottom.view{
+	opacity:1; 
+}
+#rnbImg > ul#greenteaList>button#bottom{
+	display:flex;
+	position:fixed;
+	left:50%;
+	bottom:0;
+	margin-left:-6vw;
+	width:3vw;
+	height:3vw;
+	align-items: center;
+	justify-content: center;
+	opacity:0;
+	cursor:pointer;
+	z-index:3;
+	transform:translate(-50%,-50%);
+}
+#rnbImg ul#greenteaList>button#bottom::before{
+	content:"";
+	display:block;
+	width:1vw;
+	height:1vw;
+	border-bottom:1px rgba(0,0,0,0.7) solid;
+	border-left:1px rgba(0,0,0,0.7) solid;	
+	transform:rotate(-45deg);
+}
+#rnbImg ul#greenteaList>button#top{
+	display:flex;
+	position:fixed;top:10vw;
+	left:50%;
+	margin-left:-6vw;
+	width:3vw;
+	height:3vw;
+	cursor:pointer;
+	transform:translate(-50%,-50%);
+	align-items: center;
+	justify-content: center;
+	opacity:0;
+	z-index:6;
+}
+#rnbImg ul#greenteaList>button#top.view{
+	opacity:1;
+}
+#rnbImg ul#greenteaList>button#top::before{
+	content:"";
+	display:block;
+	width:1vw;
+	height:1vw;
+	border-top:1px rgba(0,0,0,0.7) solid;
+	border-right:1px rgba(0,0,0,0.7) solid;
+	transform:rotate(-45deg);
+}
+#rnbImg ul li.view  {	
+	display:block;	
+}
+#rnbImg ul li p {
+	display:block;
+	text-align: center;					 
+	font-size:14px;					
+	color:gray;
+}
+#rnbImg ul li img  {
+	width:100%;
+}
+
+/*----------------------------------HEADER------------------------------*/
+header { 	
+	display:flex;	
+	position:fixed;
+	top:0;
+	left:0;
+	padding-left:3vw;					
+	padding-right:3vw;
+	width:100%;
+	height:5vw;
+	align-items:center;
+	justify-content: space-between;
+	box-sizing:border-box;
+	z-index:4;							
+}	
+header button#list{		
+	overflow:hidden;
+	position:relative;	
+	width:2vw;							
+	height:2vw;
+	z-index:5;
+	transition:all 0.5s;				
+}
+header button#list::before	{		
+	content:"";
+	display:block;
+	position:absolute;
+	top:30%;
+	left:0;
+	width:70%;
+	height:0.15vw;
+	background:black;
+	transition:all 0.3s;
+}
+header button#list::after		{		
+	content:"";
+	display:block;
+	position:absolute;
+	left:0;
+	bottom:25%;
+	width:30%;
+	height:0.15vw;
+	background:black;
+	transition:all 0.3s;
+}
+header button#list>span{	
+	display:block;	
+	position:absolute;
+	top:50%;
+	left:0;	
+	width:50%;							
+	height:0.15vw;						
+	background:black;				
+	transition:all 0.3s;
+}
+header button#list.view::before		{		
+	top:50%;
+	width:70%; 						
+	transform:rotate(45deg);
+}
+header button#list.view::after		{		
+	top:50%; 
+	width:70%; 					
+	transform:rotate(-45deg);
+}
+header button#list>span.view{		
+	left:-10vw;
+	transition:all 0.5s;
+}
+header button#search { 		
+	width:2vw;							
+	height:2vw;
+	background:url(img/main/icon.png) no-repeat ;
+	background-position:0.3vw 0.3vw;		
+	background-size:10vw auto;		
+}
+header > ul#search{
+	display:flex;
+	display:none;
+	position:absolute;
+	top:5vw;
+	right:3vw;
+	padding-left:2vw;
+	padding-right:2vw;
+	width:28vw;
+	height:32vw;
+	background:white;
+	border:#a4bce4 2px solid;
+	flex-direction:column;
+	box-sizing:border-box;
+}
+header > ul#search.view{
+	display:block;
+}
+header > ul#search > #input{
+	position:relative;
+	margin-top:2vw;
+	margin-bottom:2vw;
+	width:100%;
+}
+header > ul#search > #input > input {
+	width:100%;
+	height:2.5vw;
+	background:transparent;
+	border-bottom:2px black solid;
+	border:none;
+	font-size:0.9vw;
+	outline:none;
+}
+header ul#search >#input > #img { 		
+	position:absolute;
+	top:0;
+	right:0;
+	width:2vw;							
+	height:2vw;
+	background:url(img/main/icon.png) no-repeat ;
+	background-position:0.3vw 0.3vw;		
+	background-size:10vw auto;		
+	cursor:pointer;
+}
+header > ul#search > p {
+	display:inline-block;
+	font-size:0.8vw;
+}
+header > ul#search > ol#rank{
+	display:flex;
+	margin-top:1vw;
+	margin-bottom:2vw;
+	flex-direction:column;
+	justify-content: space-between;
+}
+header > ul#search > ol#rank > li {
+	margin-top:1vw;
+	height:2.1vw;
+	border-bottom:1px silver solid;
+	font-size:0.9vw;
+}
+header > ul#search > button#close {
+	width:100%;
+	height:3vw;
+	background:black;
+	font-size:1.2vw;
+	color:white;
+	cursor:pointer;
+}
+/*--------------------------------------------WRAP------------------------------------*/
+#wrap 	{	
+	overflow:hidden;
+	display:flex;
+	position:relative;
+	width:100%;
+	flex-direction:column;
+	z-index:-3;						
+}
+/*--------------------------------------------PAGE01------------------------------------*/
+
+#page01 {		
+	width:100%; 		 				
+	height:50vw;				
+}
+#page01 #background01{	
+	position:absolute;	
+	top:0;
+	right:0;							
+	width:50%;							
+	height:50vw;
+	background:url(img/main/m.main01.jpg) no-repeat;
+	background-attachment: fixed;
+	background-position:right;
+	background-size:contain;	
+	opacity:1;
+}
+#page01 #leftBox{		
+	display:flex;
+	width:50%;							
+	height:100%;	
+	align-items: center;
+}
+#page01 #leftBox #textBox 	{	
+	overflow:hidden;	
+	display:flex;
+	margin-left:12vw;	
+	width:30%; 							
+	flex-direction:column;
+	justify-content: space-between;	
+}
+#page01 #leftBox #textBox>p{		
+	margin-top:3vw;					
+	font-size:0.78vw;
+	color:gray;		
+}
+#page01 #leftBox #textBox>p>span{		
+	font-weight:bold;					
+	color:black;		
+}
+#page01 #leftBox #textBox #logo>img{ 		
+	width:100%;  
+}
+/*--------------------------------------------PAGE02------------------------------------*/
+#page02 {	
+	overflow:hidden;						
+	width:100%; 						
+	height:100vw;
+	background:white;
+}
+#page02 #topBox{		
+	display:flex;					
+	position:relative;
+	width:100%; 					
+	height:40vw;		
+	background:url(img/main/bg.jpg) no-repeat;
+	background-attachment: fixed;
+	background-position:center center;
+	background-size: cover;
+}
+#page02 #topBox::before	{			
+	content:"";					
+	position:absolute;
+	top:0; 						
+	left:0;
+	width:100%;					
+	height:100%;
+	background:rgba(0,0,0,0.2);	
+}
+#page02 #topBox #story 	{	
+	position:relative;		
+	margin:auto;					
+	width:22vw;				
+	text-align:center;
+	color:white;
+	z-index:1;
+}
+#page02 #topBox #story p#title	{		
+	font-size: 2.5vw;				
+}
+#page02 #topBox #story p#middle	{	
+	margin-top:2vw;	
+	font-size:0.74vw;				
+}
+#page02 #topBox #story button#brandStory{		
+	margin-top:3vw;	
+	width:9.5vw;					
+	height:2.5vw;	
+	border:1px white solid;				
+	font-size:0.9vw;			
+	color:white;					
+}
+#page02 #bottomBox{		
+	display:flex;
+	position:relative;	
+	padding-top:10vw;	
+	width:100%; 					
+	height:55vw;
+	background:white;				
+	box-sizing:border-box;
+}
+#page02 #bottomBox h2 {		
+	position:absolute;
+	width:100%;
+	text-align:center; 
+	font-weight:lighter;
+	font-size:2vw;	
+}
+#page02 #bottomBox #imgBox {	
+	overflow:hidden;	
+	display:flex;
+	margin:5vw auto 0;				
+	width:60.625vw;	
+	height:37vw;					
+	flex-wrap: wrap;		
+}
+#page02 #bottomBox #imgBox>ul#leftBox{		
+	margin-left:0;					
+	width:30.625vw;
+}
+#page02 #bottomBox #imgBox ul#middleBox	{		
+	overflow:hidden;	
+	display:flex;	
+	width:10vw;	
+	flex-wrap:wrap;						
+	flex-direction:column;
+}
+#page02 #bottomBox #imgBox ul#middleBox>li>img{ 
+	height:10vw; 
+}			
+#page02 #bottomBox #imgBox ul#middleBox>li#text	{		
+	height:27vw;					
+	background:#778880;		
+}
+#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt{		
+	margin-top:20vw;
+	margin-left:1.2vw;
+	width:80%;						
+	height:5vw;
+	font-size:0.78vw;
+	color:white;					
+	opacity:0;
+}
+#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt.view	{		margin-top:7vw;
+	letter-spacing: -0.05vw;
+	opacity:1;						
+	transition:all 1s;
+}
+#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt>button	{ 		
+	margin-top:1vw;
+	height:1.5vw;	
+	border-bottom:0.05vw white solid;				
+	font-weight:bold;
+	color:white;					
+}
+#page02 #bottomBox #imgBox ul#rightBox	{		
+	display:flex;
+	float:left;						
+	width:20vw;
+	flex-wrap:wrap;					
+	align-content:flex-start;
+}
+#page02 #bottomBox #imgBox ul#rightBox>li>img {
+	float:left;
+	width:10vw;		
+	height:10vw;		
+}
+#page02 #bottomBox #imgBox ul#rightBox>li>img:nth-of-type(3){
+	width:20vw;		
+	height:20vw;
+}
+#page02 #bottomBox #imgBox ul#rightBox>li>p#mobile{		
+	display:none;
+}		
+#page02 #bottomBox #imgBox ul#rightBox>li#text{ 	
+	overflow:hidden;	
+	padding-left:2vw;
+	width: 20vw;	
+	height:8vw;							
+	background:#778880;
+	box-sizing:border-box;
+}
+#page02 #bottomBox #imgBox ul#rightBox>li#text>p{		
+	margin-top:10vw;
+	width:70%; 						
+	height:40%;						
+	font-size:0.78vw;	
+	color:white;
+	opacity:0;	
+}
+#page02 #bottomBox #imgBox ul#rightBox>li#text>p.view{		
+	margin-top:2.5vw;	
+	opacity:1;				
+	transition:all 1s 0.5s ;
+}
+/*PAGE03*/
+#page03 {	
+	position:relative;	
+	top:0;	
+	width:100%;							
+	height:150vw;					
+	z-index:-1;							
+}
+#page03 #background02	{	
+	position:absolute;	
+	top:0vw;		
+	left:0;								
+	width:50%;							
+	height:100%;
+	background:url(img/main/main02.jpg) no-repeat;
+	background-attachment: fixed;
+	background-position:left;
+	background-size:contain;			
+}
+/*SKIN*/
+#page03 ul#skin{		
+	position:absolute;	
+	top:50vw;				
+	right:18vw;					
+	width:20vw;						
+	height:15vw;						
+	opacity:0;							
+	transition:all 1s;
+}
+#page03 ul#skin.view{		
+	top:40vw;							
+	opacity:1;
+	transition:all 1s;
+}
+#page03 ul#skin>p	{		
+	font-size:2vw;
+}
+#page03 ul#skin>li{		
+	margin-top:2vw;
+}
+#page03 ul#skin>button{		
+	margin:3vw auto;
+	width:6vw;							
+	height:2.2vw;
+	border:0.05vw silver solid;		
+	font-size:0.8vw;							
+}
+/*------------------------------GREENTEA------------------------------*/
+#page03 #greenTea {		
+	overflow:hidden;	
+	position:absolute;	
+	top:75vw;
+	right:15vw;					
+	width:30vw;
+	height:35vw;
+	background:white;
+}
+#page03 #greenTea>img{		
+	float:left;							
+	width:15vw;
+}
+#page03 #greenTea ul#tea{		
+	overflow:hidden;					
+	padding:3vw  2vw;		
+	margin-top:5vw;		
+	box-sizing:border-box;				
+	opacity:0;
+}
+#page03 #greenTea ul#tea.view{	
+	margin-top:0;		
+	opacity:1;							
+	transition:all 1s;
+}
+#page03 #greenTea ul#tea>p	{		
+	display:inline-block;				
+	line-height:2.5vw;
+	text-align: center;	
+	font-size:1.6vw; 					
+}
+#page03 #greenTea ul#tea li#web_info{		
+	margin-top:1vw;		
+	font-size:0.8vw;	
+	color:gray;							
+}
+#page03 #greenTea ul#tea li#mobile{		
+	display:none;
+}
+#page03 #greenTea ul#tea>button	{		
+	height:0.9vw;		
+	margin-top:2.5vw;				
+	border-bottom:0.05vw black solid;
+}
+#page03 #greenTea .sampleBox{		
+	display:flex;
+	float:right;
+	margin-top:5vw;	
+	width:19vw;							
+	justify-content:space-between;
+	opacity:0;						
+}
+#page03 #greenTea .sampleBox.view{		
+	margin-top:2vw;						
+	opacity:1;
+	transition:all 1s 0.5s;					
+}
+/*BASIC*/
+#page03 #basicSkin {		
+	position:absolute;	
+	top:113vw;							
+	right:15vw;					
+	width:30vw;		
+	text-align:right;				
+}	
+#page03 #basicSkin>img	{		
+	float:right;						
+	width:15vw;
+}
+#page03 #basicSkin ul#basic{		
+	margin-top:5vw;
+	padding-top:3vw; 					
+	padding-right:2vw;
+	width:15vw;		
+	box-sizing:border-box;					
+	opacity:0;
+}
+#page03 #basicSkin ul#basic.view{		
+	margin-top:0;						
+	opacity:1;
+	transition:all 1s;
+}
+#page03 #basicSkin ul#basic>p {		
+	line-height:2.5vw;	
+	text-align:right;					
+	font-size:1.6vw;	
+}
+#page03 #basicSkin ul#basic>li{		
+	margin-top:1vw;						
+	font-size:0.8vw;	
+	color:gray;						
+}
+#page03 #basicSkin ul#basic>button{		
+	margin-top:2.5vw;
+	height:0.9vw;						
+	border-bottom:0.05vw black solid;
+
+}
+/*PAGE03,04*/
+#page03 .merchandise .sampleBox	{		
+	display:flex;
+	margin-top:7vw;						
+	width:19vw;				
+	justify-content:space-between;			
+	opacity:0;						
+}				
+#page03 .merchandise .sampleBox.view{		
+	margin-top:6vw;						
+	opacity:1;
+	transition:all 1s 0.5s;				
+}
+#page03 .merchandise .sampleBox .sample>img{		
+	width:9vw;							
+}
+#page03 .merchandise .sampleBox .sample	{ 
+	position:relative;		
+	width:9vw;							
+	height:9vw;		
+	background:#f9f9f9;
+	cursor:pointer;
+	z-index:2;
+}
+#page03 .merchandise .sampleBox .sample > p{ 		
+	margin-top: 0.5vw;					
+	font-size:0.8vw;					
+	text-align:center;
+	opacity:0;
+}
+#page03 .merchandise .sampleBox .sample p.view{		
+	opacity:1;
+}
+#page04 .merchandise .sampleBox{		
+	width:19vw; 
+}
+#page04 .merchandise .sampleBox .sample	{		
+	position:relative;
+	width:9vw; 							
+	height:9vw; 
+	background:#f9f9f9;		
+	cursor:pointer;
+	z-index:2;
+}
+#page04 .merchandise .sampleBox .sample img{		
+	width:9vw;
+}
+#page04 .merchandise .sampleBox .sample p{ 		
+	margin-top: 0.5vw;	
+	text-align:center;					
+	font-size:0.8vw; 					
+	opacity:0;	
+}
+#page04 .merchandise .sampleBox .sample p.view{		
+	opacity:1;
+}		
+/*PAGE04*/
+#page04{	
+	position:relative;	
+	padding-top:26vw;					
+	padding-left:11vw;
+	width:100%;							
+	height:150vw;
+	background:white;					
+	box-sizing:border-box;
+}
+#page04 #background03{		
+	position:absolute;
+	top:0vw;
+	right:0;							
+	width:50%;							
+	height:100%;
+	background:url(img/main/main03.jpg) no-repeat;
+	background-attachment: fixed;
+	background-position:right;
+	background-size:contain;opacity:1;				
+}
+/*FRAGRANCE--PAGE04*/
+#page04 #fragranceBox{ 		
+	overflow:hidden;
+	position:absolute;					
+	margin-top:30vw;
+	width:20vw; 	 					
+	opacity:0;									
+}
+#page04 #fragranceBox.view{		
+	margin-top:13vw;
+	opacity:1;							
+	transition:all 1s;
+}
+#page04 #fragranceBox>ul#fragrance>p{		
+	font-size:1.8vw;
+}
+#page04 #fragranceBox>ul#fragrance>li{		
+	margin-top:1vw;						
+	letter-spacing:-0.05vw;
+	font-size:0.8vw;					
+	color:gray;
+}
+#page04 #fragranceBox>ul#fragrance>button{		
+	margin:3vw auto;
+	width:6vw;							
+	height:2.2vw;
+	border:0.05vw silver solid;		
+	font-size:0.8vw;							
+}
+/*HOME--PAGE04*/
+#page04 #homeBox{		
+	position:absolute;	
+	top:75vw;					
+	width:30vw;
+	height:35vw;
+	background:white;
+}
+#page04 #homeBox>img {		
+	float:left;							
+	width:15vw;
+}
+#page04 #homeBox ul#home{		
+	overflow:hidden;					
+	padding:2vw  2vw;	
+	margin-top:5vw;			
+	box-sizing:border-box;				
+	opacity:0;
+}
+#page04 #homeBox ul#home.view{		
+	margin-top:0;	
+	opacity:1;							
+	transition:all 1s;
+}
+#page04 #homeBox ul#home>p	{		
+	display:inline-block;				
+	line-height:2.5vw;
+	font-size:1.6vw; 						
+}
+#page04 #homeBox ul#home li {		
+	margin-top:1vw;						
+	font-size:0.8vw;				
+	color:gray;						
+}
+#page04 #homeBox ul#home>button	{
+	margin-top:2.5vw;		
+	height:0.9vw;						
+	border-bottom:0.05vw black solid;
+}
+#page04 #homeBox .sampleBox	{		
+	display:flex;
+	float:right;
+	margin-top:5vw;
+	justify-content:space-between;
+	opacity:0;							
+}
+#page04 #homeBox .sampleBox.view{		
+	margin-top:2vw;						
+	opacity:1;
+	transition:all 1s 0.5s;				
+}
+/*---------------------LIFE-------------PAGE04--------------------*/
+#page04 #lifeBox{		
+	position:absolute;	
+	top:110vw;						
+	width:30vw;
+	height:35vw;	
+	background:white;				
+	text-align:right;					
+}
+#page04 #lifeBox>img{		
+	float:right;					
+	width:15vw;
+}
+#page04 #lifeBox ul#life{		
+	overflow:hidden;				
+	padding:2vw  2vw;	
+	margin-top:5vw; 			
+	box-sizing:border-box;			
+	opacity:0;					
+}
+#page04 #lifeBox ul#life.view{	
+	margin-top:0;	
+	opacity:1;						
+	transition:all 1s;
+}
+#page04 #lifeBox ul#life>p{		
+	display:inline-block;			
+	line-height:2.5vw;
+	font-size:1.6vw; 							
+}
+#page04 #lifeBox ul#life li {			
+	margin-top:1vw;					
+	font-size:0.8vw;				
+	color:gray;						
+}
+#page04 #lifeBox ul#life>button	{	
+	margin-top:2.5vw;	
+	height:0.9vw;					
+	border-bottom:0.05vw black solid;
+}
+#page04 #lifeBox .sampleBox{		
+	display:flex;
+	margin-top:18vw;				
+	justify-content:space-between;
+	opacity:0;						
+}
+#page04 #lifeBox .sampleBox.view{		
+	margin-top:8vw;					
+	opacity:1;
+	transition:all 1s 0.5s;				
+}
+/*TEXT--PAGE05*/
+#page05 {		
+	display:flex;
+	position:relative;	
+	width:100%; 					
+	height:56vw;
+	flex-direction:column;			
+	justify-content: space-between;
+}
+#page05 #round{		
+	overflow:hidden;	
+	position:relative;				
+	width:64vw; 					
+	height:32vw;
+	padding-top:7.5vw;	
+	margin-left:20vw;			
+	box-sizing:border-box;
+}
+#page05 #round button.click{		
+	position:absolute; 		
+	top:23vw;		
+	width:55px;			
+	height:55px;					
+}
+#page05 #round button#left{		
+	left:0;
+	background:url(img/main/icon.png);
+	background-position:-50px 535px;
+	background-size:320px;		
+}
+#page05 #round button#right{		
+	right:0.3vw;
+	background:url(img/main/icon.png);
+	background-position:-95px 535px;
+	background-size:320px;
+}
+#page05 #round #topText	{		
+	width:64vw;						
+	height:9vw;
+	text-align:center;						
+}
+#page05 #round #topText>h2	{		
+	width:64vw; 					
+	font-weight:normal;
+	font-size:2vw;			
+}
+#page05 #round #topText>p{		
+	display:inline-block;
+	margin-top:1.2vw;		
+	height:50px;		
+	letter-spacing: -0.01vw;		
+	line-height:50px;	
+}
+#page05 #round #topText>p>span{		
+	display:block;					
+	float:left;
+	width:50px;						
+	height:50px;
+	background:url(img/main/icon.png);			
+	background-position:-83px	8px;
+	background-size:270px;				
+}
+#page05 #round>ul#foot{		
+	overflow:hidden;
+	display:flex;	
+	width:80vw;						
+	height:15vw;
+	justify-content:space-between;
+}
+#page05 #round>ul#foot>li{		
+	width:15vw;
+}
+#page05 #round>ul#foot>li>img{		
+	width:100%;
+}
+/*FOOT-TOP--PAGE05*/
+#page05 footer{		
+	padding-top:3vw;
+	padding-left:20vw;
+	width:100%;						
+	height:17vw;
+	background:rgba(0,0,0,0.05);	
+	box-sizing:border-box;			
+}
+#page05 footer #footer{		
+	width:60vw;						
+	height:4vw;					
+	border-bottom:1px rgba(0,0,0,0.05) solid;				
+}
+#page05 footer #footer>h1{		
+	width:9vw;					
+}
+/*FOOT--INFO---PAGE05*/
+#page05 footer #info{	
+	overflow:hidden;	
+	display:flex;
+	width:30vw;						
+	height:5vw;						
+	flex-wrap:wrap;					
+	align-items: flex-start;			
+	color:gray;					
+}
+#page05 footer #info>ul{	
+	display:flex;		
+	width:25vw;							
+	height:3vw;	
+	flex-wrap:wrap;						
+	justify-content:space-between;		
+	align-items: center;
+}
+#page05 footer #info>ul#first{		
+	width:15vw;
+}
+#page05 footer #info ul#first>li:first-child{		
+	font-weight:bold;			
+}
+#page05 footer #info>ul>li{		
+	float:left; 						
+	font-size:0.7vw;
+	line-height:3vw;					
+}
+#page05 footer #info ul#second{		
+	height:2vw; 						
+}
+#page05 footer #info ul#second>li{		
+	display:inline-block;
+	height:0.8vw;						
+	line-height:0.8vw;					
+}
+#page05 footer #info ul#second>li:last-child{		
+	width:17vw;							
+}
+#page05 footer #info>p{ 		
+	display:inline-block;
+	position:absolute;				
+	bottom:2vw; 					
+	font-size:0.75vw;
+	color:gray;
+}
+
+
+}
+@media all and (max-width: 1200px) {
+#page01 #background01{		
+	position:absolute;
+	top:0;
+	right:0;							
+	width:50%;							
+	height:50vw;
+	background:url(img/main/m.main01.jpg) no-repeat;
+	background-attachment: fixed;
+	background-position:100% 30%;
+	background-size:51% auto;	
+	opacity:1;							
+}
+
+}
+
+@media all and (max-width: 992px) {
+#web{
+	display:none;
+}
+#mobile{
+	overflow:hidden;
+	display:block;	
+	display:flex;
+	position:relative;
+	flex-direction:column;
+	align-content: center;	
+	z-index:-4;
+}
+#mobile_background01{
+	display:none;
+	position:fixed;
+	top:50px;
+	left:0;
+	width:420px;
+	height:420px;
+	background:url(img/main/main02.jpg);
+	background-size:cover;
+	z-index:-4;
+}
+#mobile_background02{
+	display:none;
+	position:fixed;
+	top:50px;
+	left:0;
+	width:420px;
+	height:420px;
+	background:url(img/main/main03.jpg);
+	background-size:cover;
+	z-index:-4;
+}
+/*----------------------------------------------------------------	*/
+#mobile #mobile_header{
+	display:flex;
+	position:fixed;
+	top:0;
+	padding-left:4vw;
+	padding-right:4vw;
+	width:100%;
+	height:50px;
+	background:transparent;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing:border-box;
+	z-index:3;
+}
+#mobile #mobile_header.view{
+	background:white;	
+	border-bottom:1px silver solid;
+}
+#mobile #mobile_header button {		
+	width:20px;		
+	height:20px;	
+}
+#mobile #mobile_header button#mobile_search {		
+	background:url(img/main/icon.png) no-repeat ;
+	background-position:left top;	
+	background-size:120px;	
+}
+#mobile #mobile_header button#mobile_list{			
+	position:relative;					
+	z-index:4;	
+}
+#mobile #mobile_header button#mobile_list::before{			
+	content:"";
+	position:absolute;						
+	top:30%;	
+	left:50%;
+	margin-top:0.5px;							
+	width:100%;
+	height:1px;								
+	background:black;						
+	transform:translate(-50%,-50%);			
+}
+#mobile #mobile_header button#mobile_list::after{			
+	content:"";
+	position:absolute;						
+	top:70%;
+	left:50%;
+	margin-top:0.5px;								
+	width:100%;
+	height:1px;								
+	background:black;						
+	transform:translate(-50%,-50%);			
+}		
+#mobile #mobile_header button#mobile_list span{	
+	position:absolute;						
+	top:50%;								
+	left:50%;	
+	margin-top:0.5px;					
+	width:100%;								
+	height:1px;
+	display:block;							
+	background:black;						
+	transform:translate(-50%,-50%);
+}
+#mobile #mobile_header #mobile_logo{
+	opacity:0;
+	width:15vw;
+}
+#mobile #mobile_header #mobile_logo.view{
+	opacity:1;
+	transition:1s all;
+}
+#mobile #mobile_header #mobile_logo img{
+	height:100%;
+}
+/*--------------------------------------------------------------------------------*/
+#mobile_page01{
+	position:relative;
+	padding-top:50px;		
+	width:420px; 								
+	height:1980px;
+	background:white;
+	box-sizing:border-box;	
+	box-shadow: 5px 5px 50px rgba(0,0,0,0.3);					
+	z-index:-3;	
+}		
+#mobile_page01 h2{
+	margin:50px 5px;
+	width:180px;
+}
+#mobile_page01 #m_text{	
+	overflow:hidden;
+	margin-left:5px;
+	width:200px; 	
+}
+#mobile_page01 #m_text p {	
+	float:left; 								
+	font-size:13px;
+}
+#mobile_page01 #m_text p span {	
+	letter-spacing: -0.2vw;
+	font-weight:bold;	
+	font-size:14px;								
+}
+#mobile_page01 #m_main01{		
+	overflow:hidden;	
+	margin-top:30px;	
+	width:420px;
+}
+#mobile_page01 #m_main02{
+	overflow:hidden;
+	position:relative;
+	width:420px;
+	height:560px;
+}
+#mobile_page01 #m_main02 #m_story{
+	position:absolute;
+	top:50%;
+	left:50%;
+	color:white;
+	text-align:center;
+	transform:translate(-50%,-50%);
+}
+#mobile_page01 #m_main02 #m_story>p#m_title{		
+	width:300px;
+	font-size:32px;		
+}
+#mobile_page01 #m_main02 #m_story>p#m_middle{	
+	margin:20px auto;
+	width:200px;
+	font-size:12px;
+}
+#mobile_page01 #m_main02 #m_story>button#m_brandStory{
+	margin:auto;	
+	width:120px;					
+	height:40px;
+	border:1px white solid;
+	font-weight:bold;
+	font-size:14px;	
+	color:white;
+}
+#mobile_page01 p#rara {
+	display:block;
+	margin-top:50px;
+	width:400px;
+	text-align:center;
+	font-size:32px;
+}
+#mobile_page01 #m_raraBox{
+	margin-top:50px;
+	width:400px;
+	height:300px;
+}
+#mobile_page01 #m_raraBox ul#first{
+	display:flex;
+	width:420px;
+	height:300px;
+	flex-wrap:wrap;
+	flex-direction:column;
+	align-content: space-between;
+	justify-content: space-between;
+}
+#mobile_page01 #m_raraBox ul#first li:first-child{
+	overflow:hidden;
+	padding-top:50px;
+	padding-left:20px;
+	width:250px;
+	height:300px;
+	background:#778880;
+	font-size:12px;
+	color:white;
+}
+#mobile_page01 #m_raraBox ul#first li:first-child>button{
+	margin-top:40px;
+	border-bottom:white 1px solid;
+	font-weight:bold;
+	font-size:13px;
+	color:white;
+}
+#mobile_page01 #m_raraBox ul li img{
+	width:auto;
+	height:100%;
+}
+#mobile_page01 #m_raraBox ul#first li{
+	overflow:hidden;
+	width:145px;	
+	height:145px;
+	border:0.2px silver solid;
+}
+#mobile_page01 #m_raraBox ul#first li>p#oil{
+	margin-top:-20px;
+	text-align: center;
+	font-size:12px;
+}
+#mobile_page01 #m_raraBox ul#second{
+	overflow:hidden;
+	display:flex;
+	margin-top:10px;
+	width:420px;
+	height:300px;
+	flex-wrap:wrap;
+	flex-direction:column;
+	align-content: space-between;
+	justify-content: space-between;
+}
+#mobile_page01 #m_raraBox ul#second li{
+	overflow:hidden;
+	width:145px;	
+	height:145px;
+	border:0.2px silver solid;
+}
+#mobile_page01 #m_raraBox ul#second li p{
+	margin-top:-20px;
+	width:100%;
+	text-align:center;
+	font-size:12px;
+}
+#mobile_page01 #m_raraBox ul#second li#pro>img{
+	margin-top:-30px;
+	width:100%; 
+	height:auto;
+}
+#mobile_page01 #m_raraBox ul#second li:last-child{
+	overflow:hidden;
+	width:270px;
+	height:300px;
+}
+/*PAGE02*/
+#mobile_page02 {
+	margin-top:500px;
+	width:420px;							
+	height:1970px;
+	background:white;
+	box-shadow: 5px 5px 50px rgba(0,0,0,0.3);
+}
+#mobile_page02 ul#skin{
+	margin-left:30px;	
+	width:420px;						
+	height:650px;							
+}
+#mobile_page02 ul li:first-child p{
+	margin-top:10px;
+	font-size:30px;
+}
+#mobile_page02 ul#skin li:nth-of-type(2){
+	margin-top:30px;					
+	margin-bottom:30px;
+}
+#mobile_page02 ul#skin li:nth-of-type(2) p{	
+	letter-spacing:-0.2vw;					
+	font-size:16px;	
+}
+#mobile_page02 ul#skin li:nth-of-type(3) { 
+	width:130px;						
+	height:35px; 
+	border:1px gray solid; 
+	text-align:center;	
+	line-height:35px;
+}
+#mobile_page02 ul#skin li:last-child{
+	margin-top:50px;
+	width:280px;
+}
+#mobile_page02 ul#green{
+	overflow:hidden;
+	padding-left:180px;
+	width:420px;
+	box-sizing:border-box;
+}
+#mobile_page02 ul#green li:nth-of-type(2){
+	margin-top:20px;
+	margin-bottom:20px;
+	font-size:14px;
+}
+#mobile_page02 ul#green li:nth-of-type(3) {
+	display:inline;
+	font-size:12px;
+	font-weight:bold;
+	border-bottom:1px black solid;
+}
+#mobile_page02 ul#green>ol{
+	display:flex;
+	margin-left:-150px;
+	width:280px;
+	height:170px;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;
+}
+#mobile_page02 ul#green>ol>li{
+	position:relative;
+	width:130px;
+	height:150px;
+	background:rgba(0,0,0,0.04);
+}
+#mobile_page02 ul#green>ol>li>img{
+	width:130px;
+	height:130px;
+}
+#mobile_page02 ul#green>ol>li>p{
+	display:inline-block;
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:130px;
+	text-align:center;
+	font-size:12px;
+}
+#mobile_page02 ul#basic{
+	margin-top:100px;
+	margin-left:30px;
+	width:390px;						
+	height:650px;							
+}
+#mobile_page02 ul#basic>li:first-child{
+	margin-left:80px;
+	width:280px;
+}
+#mobile_page02 ul#basic li#title>p{
+	font-size:30px;
+}
+#mobile_page02 ul#basic li:nth-of-type(3){
+	margin-top:15px;
+	margin-bottom:15px;
+	font-size:14px;
+}
+#mobile_page02 ul#basic li:nth-of-type(4){
+	display:inline;
+	border-bottom:1px black solid;
+	font-weight:bold;
+	font-size:12px;
+}
+#mobile_page02 ul#basic>ol{
+	display:flex;
+	margin-left:15px;
+	width:280px;
+	height:170px;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;
+}
+#mobile_page02 ul#basic>ol>li{
+	width:130px;
+	height:130px;
+	background:rgba(0,0,0,0.04);
+}
+#mobile_page02 ul#basic>ol>li>p{
+	display:block;
+	width:130px;
+	text-align:center;
+	font-size:13px;
+}
+/*PAGE03*/
+#mobile_page03 {
+	margin-top:500px;	
+	width:420px; 						
+	height:2000px;
+	background:white;
+	box-shadow: 5px 5px 50px rgba(0,0,0,0.3);
+}
+#mobile_page03 ul#fragrance{
+	margin-top:30px;
+	margin-left:30px;	
+	width:420px;						
+	height:650px;							
+}
+#mobile_page03 ul li:first-child p{	
+	font-size:30px;
+}
+#mobile_page03 ul#fragrance li:nth-of-type(2){
+	margin-top:30px;					
+	margin-bottom:30px;
+}
+#mobile_page03 ul#fragrance li:nth-of-type(2) p{	
+	letter-spacing:-0.2vw;
+	font-size:16px;						
+}
+#mobile_page03 ul#fragrance li:nth-of-type(3) { 
+	width:130px;						
+	height:35px; 
+	border:1px gray solid; 
+	line-height:35px;
+	text-align:center;	
+}
+#mobile_page03 ul#fragrance li:last-child{
+	margin-top:50px;
+	width:280px;
+}
+#mobile_page03 ul#home{
+	margin-top:30px;
+	width:420px;
+	height:400px;
+}
+#mobile_page03 ul#home>li:first-child{
+	margin-left:120px;
+}
+#mobile_page03 ul#home>li:nth-of-type(2){
+	margin-top:15px;
+	margin-left:120px;
+	margin-bottom:15px;
+}
+#mobile_page03 ul#home li:nth-of-type(2) p{
+	letter-spacing: -0.18vw;
+}
+#mobile_page03 ul#home>li:nth-of-type(3) {
+	display:inline;
+	margin-left:120px;
+	border-bottom:1px black solid;
+	font-weight:bold;
+	font-size:12px;
+}
+#mobile_page03 ul#home>ol{
+	display:flex;
+	margin-left:30px;
+	width:280px;
+	height:170px;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;
+}
+#mobile_page03 ul#home>ol>li{
+	width:130px;
+	height:130px;
+	background:rgba(0,0,0,0.04);
+}
+#mobile_page03 ul#home>ol>li>p{
+	display:block;
+	width:130px;
+	height:15px;
+	line-height:15px;
+	text-align:center;
+	font-size:12px;
+}
+#mobile_page03 ul#life{
+	margin-top:100px;
+	margin-left:30px;
+	width:390px;						
+	height:790px;							
+}
+#mobile_page03 ul#life>li:first-child{
+	margin-left:80px;
+	width:280px;
+}
+#mobile_page03 ul#life li#title>p{
+	font-size:30px;
+}
+#mobile_page03 ul#life li:nth-of-type(3){
+	margin-top:15px;
+	margin-bottom:15px;	
+	font-size:14px;
+}
+#mobile_page03 ul#life li:nth-of-type(4){
+	display:inline;
+	border-bottom:1px black solid;
+	font-weight:bold;
+	font-size:12px;
+}
+#mobile_page03 ul#life>ol{
+	display:flex;
+	margin-left:15px;
+	width:280px;
+	height:170px;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;
+}
+#mobile_page03 ul#life>ol>li{
+	width:130px;
+	height:130px;
+	background:rgba(0,0,0,0.04);
+}
+#mobile_page03 ul#life>ol>li>p{
+	display:block;
+	width:130px;
+	text-align:center;
+	font-size:13px;
+}
+/*---------------------------------------------------*/
+#m_footer {		
+	display:flex;	
+	width:420px; 					
+	height:650px;
+	background:white;				
+	flex-direction:column;			
+	justify-content: space-between;
+	align-items: center;			
+}
+#m_footer #round{		
+	overflow:hidden;
+	position:relative;	
+	width:100%; 					
+	height:300px;
+}
+#m_footer #round #topText{		
+	width:300px;						
+	height:120px;
+	margin:auto;
+	text-align:center;					
+}
+#m_footer #round #topText>h2{		
+	width:300px; 						
+	font-weight:normal;
+	font-size:32px;			
+}
+#m_footer #round #topText>p{		
+	display:inline-block;
+	margin-top:20px;				
+	letter-spacing: -0.01vw;		
+	line-height:25px;				
+}
+#m_footer #round #topText>p>span{		
+	display:block;					
+	float:left;
+	margin-right:5px;
+	width:25px;						
+	height:25px;	
+	background:url(img/main/icon.png);
+	background-position:-47.5px	2px;
+	background-size:150px;			
+}
+#m_footer #round>ul#foot{	
+	display:flex;	
+	position:relative;	
+	margin-top:30px;
+	width:1500px;						
+	height:150px;
+	flex-wrap:wrap;						
+}
+#m_footer #round>ul#foot>li{		
+	margin-left:10px;
+	width:150px; 
+}
+#m_footer #round>ul#foot>li>img	{		
+	width:100%;
+}
+#m_footer #round button.click{		
+	position:absolute;
+	top:70%;
+	width:30px;
+	height:40px;					
+}
+#m_footer #round button#left{		
+	left:0;
+	background:url(img/main/icon.png);
+	background-position:-45px 385px;
+	background-size:230px;		
+}
+#m_footer #round button#right{		
+	right:40px;
+	background:url(img/main/icon.png);
+	background-position:-80px 385px;
+	background-size:230px;
+}
+/*FOOT--TOP--PAGE05*/
+#m_footer footer{	
+	overflow:hidden;
+	padding-top:30px; 
+	padding-left:20px;
+	margin:0 auto;			
+	width:420px;						
+	background:rgba(0,0,0,0.03);		
+	box-sizing:border-box;
+}
+#m_footer footer #footer{		
+	width:420px;						
+	height:40px;					
+	border-bottom:1px rgba(0,0,0,0.05) solid;		
+}
+#m_footer footer #footer>h1{		
+	width:100px;			
+}
+/*FOOT--INFO--PAGE05*/
+#m_footer footer #info{		
+	overflow:hidden;
+	width:420px;					
+	height:200px;					
+	color:gray;					
+}
+#m_footer footer #info>ul#first{	
+	display:flex;
+	margin-top:10px;		
+	width:420px;						
+	height:50px;	
+	flex-wrap:wrap;						
+	align-items: center;				
+	color:black;
+}
+#m_footer footer #info ul#first>li:first-child::before{
+	display:none;
+}
+#m_footer footer #info>ul>li::before{
+	content:"|";
+	position:absolute;
+	left:-9px;
+}
+#m_footer footer #info ul#first>li:first-child	{	
+	margin-left:0;	
+	font-weight:bold;			
+	font-size:12px;	
+}
+#m_footer footer #info>ul#first>li{		
+	float:left; 	
+	position:relative;							
+	margin-left:15px;
+	text-align:center;
+	font-size:12px;
+}
+#m_footer footer #info #second	{		
+	width:280px;
+	height:200px;
+}
+#m_footer footer #info #second>p		{		
+	display:block;
+	font-size:10px;
+}
+#m_footer footer #info #second>p:last-child		{		
+	margin-top:20px;
+	font-size:12px;
+	color:black;
+}
+
+}
+@media all and (max-width:400px) {
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script>
+	$(function(){ 
+
+//------------------------------------------SCROLL---------------
+$(window).scroll(function(){
+	var scrPos = $(window).scrollTop();
+	var page01=$("#page01").height();
+	var page02=$("#page02").height();
+	var page03Skin=$("#page03 ul#skin").height();
+	var page03=$("#page03").height();
+	var page04=$("#page04").height();
+			
+if ( scrPos >= 0  && scrPos < page01) {
+	$("#page02 #bottomBox #imgBox ul#rightBox>li#text>p").removeClass("view")
+	$("#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt").removeClass("view")
+}else if (scrPos > (page01+100) && scrPos <= (page01+page02)){
+	$("#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt").addClass("view")
+	$("#page02 #bottomBox #imgBox ul#rightBox>li#text>p").addClass("view")
+	$("#page03>ul#skin").removeClass("view")
+}else if (scrPos > (page01+page02-800) && scrPos < (page01+page02+(page03Skin*2))){
+	$("#page02 #bottomBox #imgBox ul#rightBox>li#text>p").removeClass("view")
+	$("#page02 #bottomBox #imgBox ul#middleBox>li#text>#txt").removeClass("view")
+
+	$("#page03>ul#skin").addClass("view")
+	$("#page03>#greenTea>ul#tea").removeClass("view")
+	$("#page03>#greenTea>.sampleBox").removeClass("view")
+
+	$("#page03>#basicSkin>ul#basic").removeClass("view")
+	$("#page03>#basicSkin>.sampleBox").removeClass("view")
+}else if (scrPos >= (page01+page02+(page03Skin*2)) && scrPos <= (page01+page02+(page03Skin*3)) ){
+	$("#page03>#basicSkin>ul#basic").removeClass("view")
+	$("#page03>#basicSkin>.sampleBox").removeClass("view")
+				
+	$("#page03>#greenTea>ul#tea").addClass("view")
+	$("#page03>#greenTea>.sampleBox").addClass("view")
+}else if (scrPos > (page01+page02+(page03Skin*3) ) && scrPos < (page01+page02+(page03Skin*3.5)) ) {
+	$("#page03>#basicSkin>ul#basic").addClass("view")
+	$("#page03>#basicSkin>.sampleBox").addClass("view")
+
+	$("#page03>ul#skin").removeClass("view")
+	$("#page04>#fragranceBox").removeClass("view")						
+	$("#page04>#homeBox>ul#home").removeClass("view")
+	$("#page04>#homeBox>.sampleBox").removeClass("view")
+}else if(scrPos > (page01+page02+(page03Skin*3.5)) && scrPos <  (page01+page02+page03) ){
+	$("#page03>#basicSkin>ul#basic").addClass("view")
+	$("#page03>#basicSkin>.sampleBox").addClass("view")
+
+	$("#page04>#fragranceBox").addClass("view")
+	$("#page04>#homeBox>ul#home").removeClass("view")
+	$("#page04>#homeBox>.sampleBox").removeClass("view")
+
+	$("#page04>#lifeBox>ul#life").removeClass("view")
+	$("#page04>#lifeBox>.sampleBox").removeClass("view")
+}else if(scrPos > (page01+page02+page03) && scrPos <(page01+page02+page03+(page04/2))){
+				
+	$("#page03>#basicSkin>ul#basic").removeClass("view")
+	$("#page03>#basicSkin>.sampleBox").removeClass("view")
+
+	$("#page04>#fragranceBox").addClass("view")
+	$("#page04>#homeBox>ul#home").addClass("view")
+	$("#page04>#homeBox>.sampleBox").addClass("view")
+
+}else if(scrPos >= (page01+page02+page03+(page04/2)) && scrPos < (page01+page02+page03+page04)){
+		
+	$("#page04>#lifeBox>ul#life").addClass("view")
+	$("#page04>#lifeBox>.sampleBox").addClass("view")
+}else if ( scrPos > (page01+page02+page03+page04+1000)){
+	$("#page04>#lifeBox>ul#life").removeClass("view")
+	$("#page04>#fragranceBox").removeClass("view")
+	$("#page04>#homeBox>ul#home").removeClass("view")
+	$("#page04>#homeBox>.sampleBox").removeClass("view")
+}
+
+});
+// $("#rnb,#lnb,#rnbImg,#back").mousewheel(function(e,delta){
+// 	return false;
+// });
+//------------------------------------------RNB---------------
+$("#rnb>ol#pro>li").eq(0).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#greenteaList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").addClass("view")
+});
+$("#rnb>ol#pro>li").eq(1).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#basicList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(2).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#sunList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(3).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#homeList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(4).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#lifeList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(5).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#bodyList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+//------------------------------------------LNB---------------
+//------------------------------------------LNB---------------
+$("#lnb>ul>li").hover(function(){
+	$("p",this).toggleClass("view")
+});
+
+// $("#rnb>ol>li").mouseenter(function(){
+// 	$("p",this).addClass("view")
+// });
+
+$("#lnb>ul>li").eq(0).mouseenter(function(){
+	$("#rnb").addClass("view")
+	$("#rnb>ol#about").addClass("view")
+	$("#rnb>ol#pro").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(1).mouseenter(function(){
+	$("#rnb").addClass("view")
+	$("#rnb>ol#about").removeClass("view")
+	$("#rnb>ol#pro").addClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(2).mouseenter(function(){
+	$("#rnb").removeClass("view")
+	$("#rnb>ol").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(3).mouseenter(function(){
+	$("#rnb").removeClass("view")
+	$("#rnb>ol").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+
+// 첫번째 클릭시
+var click=0;
+$("button#list").click(function(){
+	if(click==0){
+	$(this).addClass("view");
+	$("span",this).addClass("view");
+	$("#lnb").addClass("view")
+	$("#back").addClass("view")
+	$("body").addClass("view")
+	click=1;	
+}else {
+// 두번째 클릭시
+	$(this).removeClass("view");
+	$("span",this).removeClass("view");
+	$("#lnb").removeClass("view")
+	$("#back").removeClass("view")
+	$("#rnb").removeClass("view")
+	$("#rnb>ol").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+	$("body").removeClass("view")
+	click=0;
+}
+});
+
+
+//----------------------------------RNB -------상품사진---------------------
+rnbImg01 = new Vue ({
+ 				el:"#rnbImg",
+ 				data:{
+ 					greentea:[
+ 						{img:"green01" 		,name:"그린티 미스트 토너"},
+ 						{img:"green02"		,name:"그린티 스킨 세럼"},
+ 						{img:"green03"		,name:"그린티 릴리프 크림"},
+ 						{img:"green04"		,name:"그린티 수퍼 씨드 오일"},
+ 						{img:"green05"		,name:"그린티 약산성 클렌징폼"},
+ 						{img:"green06"		,name:"그린티 트러블 버블폼"},
+ 						{img:"green07"		,name:"그린티 퓨어 클렌징 오일"},
+ 						{img:"green08"		,name:"그린티 약산성 립앤아이 리무버"}
+ 					],
+ 					basic:[
+ 						{img:"b01"			,name:"컴포트 하이드레이팅 워터"},
+ 						{img:"b02"			,name:"이센셜 부스팅 하이드레이터"},
+ 						{img:"b03"			,name:"리페어링 액티브 세럼"},
+ 						{img:"b04"			,name:"인텐스 베리어 크림"}
+ 					],
+ 					sun:[
+ 						{img:"s01"			,name:"그린티 시카 선로션"},
+ 						{img:"s02"			,name:"그린티 시카 선스틱"}
+ 					],
+ 					home:[
+ 						{img:"h01"			,name:"센티드 디퓨저"},
+ 						{img:"h02"			,name:"센티드 캔들"},
+ 						{img:"h03"			,name:"드라이플라워 디퓨저"},
+ 						{img:"h04"			,name:"선인장 디퓨저"},
+ 						{img:"h05"			,name:"마이 러블리 펫 디퓨저"},
+ 						{img:"h06"			,name:"드라이플라워 센티드 카드"}
+ 					],
+ 					life:[
+ 						{img:"l01"			,name:"블룸 에디션"},
+ 						{img:"l02"			,name:"라이프 프래그런스"}
+ 					],
+ 					body:[
+ 						{img:"body01"		,name:"버블 바쓰"},
+ 						{img:"body02"		,name:"바쓰 솔트"},
+ 						{img:"body03"		,name:"드라이플라워 롤온 & 핸드크림"},
+ 						{img:"body04"		,name:"드라이플라워 바디 & 헤어 미스트"}
+ 					],
+ 				},
+ 				methods:{
+ 				}
+ });
+
+
+//----------------------------------PAGE03,4 -------상품---설명------------------
+$("#page03 > .merchandise > .sampleBox > .sample").hover(function(){
+	$("p",this).toggleClass("view")
+});
+$("#page04 > .merchandise > .sampleBox > .sample").hover(function(){
+	$("p",this).toggleClass("view")
+});
+//상품 슬라이드
+$("#page05 #round button#right").click(function(){
+		$("#page05 #round ul#foot:not(:animated)").animate({marginLeft:"-=16.1vw"},1000,function(){
+		$("#page05 #round ul#foot>li").first().appendTo("#page05 #round ul#foot")
+		$("#page05 #round ul#foot").css({marginLeft:0})
+		});	
+});
+$("#page05 #round button#left").click(function(){
+		$("#page05 #round ul#foot>li").last().prependTo("#page05 #round ul#foot")
+		$("#page05 #round ul#foot").css({marginLeft:"-16.1vw"})
+		$("#page05 #round ul#foot:not(:animated)").animate({marginLeft:"+=16.1vw"},1000)
+});
+
+$("#m_footer #round button#right").click(function(){
+		$("#m_footer #round ul#foot:not(:animated)").animate({marginLeft:"-=160px"},1000,function(){
+		$("#m_footer #round ul#foot>li").first().appendTo("#m_footer #round ul#foot")
+		$("#m_footer #round ul#foot").css({marginLeft:0})
+		});	
+});
+$("#m_footer #round button#left").click(function(){
+		$("#m_footer #round ul#foot>li").last().prependTo("#m_footer #round ul#foot")
+		$("#m_footer #round ul#foot").css({marginLeft:"-160px"})
+		$("#m_footer #round ul#foot:not(:animated)").animate({marginLeft:"+=160px"},1000)
+});
+// -------------------------------------------------------------------------------------------
+$("header > button#search").click(function(){
+	$("header > ul#search").toggleClass("view")
+});
+$("header> ul#search > button#close").click(function(){
+	$("header > ul#search").removeClass("view")
+})
+// -------------------------------------------------------------------------------------------
+$("#rnbImg > ul#greenteaList>button#bottom").click(function(){
+	$(this).removeClass("view")
+	$("#rnbImg > ul#greenteaList").addClass("view")
+	$("#rnbImg > ul#greenteaList>button#top").addClass("view")
+});
+$("#rnbImg > ul#greenteaList>button#top").click(function(){
+	$(this).removeClass("view")
+	$("#rnbImg > ul#greenteaList").removeClass("view")
+	$("#rnbImg > ul#greenteaList>button#bottom").addClass("view")
+});
+// -------------------------------------------------------------------------------------------
+$(window).scroll(function(){
+	var scr = $(window).scrollTop();
+	if (scr  == 0){
+		$("#mobile #mobile_header").removeClass("view")
+		$("#mobile #mobile_header #mobile_logo").removeClass("view")
+	}else if(scr > 0){
+		$("#mobile #mobile_header").addClass("view")
+		$("#mobile #mobile_header #mobile_logo").addClass("view")
+	}
+})
+$(window).scroll(function(){
+	var scrPos = $(window).scrollTop();
+	if (scrPos  < 3000){
+		$("#mobile #mobile_background01").css({display:"block"})
+		$("#mobile #mobile_background02").css({display:"none"})
+	}else if(scrPos > 3000){
+		$("#mobile #mobile_background01").css({display:"none"})
+		$("#mobile #mobile_background02").css({display:"block"})
+	}
+})
+
+	});
+</script>
+</head>
+<body>
+<div id="web">
+	<header>
+		<button id="list">
+			<span></span>
+		</button>
+		<button id="search"></button>
+			<ul id="search">
+				<div id="input">	
+					<input type="" name="" placeholder="상품명을 입력해주세요.">
+					<div id="img"><a href="#"></a></div>
+				</div>
+				<p>인기 검색어</p>
+				<ol id="rank">
+					<li>1. &nbsp 그린티 시카 선로션</li>
+					<li>2. &nbsp 그린티 약산성 클렌징폼</li>
+					<li>3. &nbsp 센티드 디퓨저</li>
+					<li>4. &nbsp 라이프 프래그넌스</li>
+					<li>5. &nbsp 버블 바쓰</li>
+				</ol>
+				<button id="close">닫기</button>
+			</ul>
+	</header>
+	<div id="back"></div>
+	<div id="lnb">
+		<ul>
+			<li>
+				<a href=""><p>About</p></a>
+			</li>
+			
+			<li>
+				<a href=""><p>Product</p></a>
+			</li>
+			
+			<li id="last">
+				<a href=""><p>RARA Moments</p></a>
+			</li>
+
+			<li id="last">
+				<a href=""><p>Stores</p></a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="rnb">
+		<ol id="about">
+			<li><a href="brand_story.html">Brand Story  </a> 	</li>
+			<li><a href="brand_story.html">Awards		</a>	</li>
+			<li><a href="brand_story.html">RARA StyleR	</a>	</li>			
+		</ol>
+
+		<ol id="pro">
+			<li> Greentea Skin Care 	</li>
+			<li> Basic Skin Care 		</li>
+			<li> SunCare 				</li>
+			<li> Home fragrance 		</li>
+			<li> Life Fragrance 		</li>
+			<li> Body Care 				</li>
+		</ol>
+		
+	</div>
+
+
+
+
+	<div id="rnbImg">
+		
+		<ul id="greenteaList">
+			<button id="top"></button>
+			<button id="bottom"></button>
+
+			<li v-for="(item , index) in greentea">
+				<img v-bind:src='"img/greentea/"+ item.img + ".png"'>
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+
+		<ul id="basicList">
+			<li v-for="(item , index) in basic">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+
+		<ul id="sunList">
+			<li v-for="(item , index) in sun">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="homeList">
+			<li v-for="(item , index) in home">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="lifeList">
+			<li v-for="(item , index) in life">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="bodyList">
+			<li v-for="(item , index) in body">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+	</div>
+
+
+	<div id="wrap">
+
+		<div id="page01" class="page">
+			<div id="background01">	</div>
+
+			<div id="leftBox">
+				<div id="textBox">	
+						<div id="logo">
+							<img src="img/main/logo.png">
+						</div>
+
+					<p>일상 속 기분좋은 휴식 <br>
+						라이프 코스메틱 <span>라운드어라운드</span>
+					</p>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div id="page02">
+			
+			
+			<div id="topBox">
+				<div id="story">
+					<p id="title">
+						The Life Cosmetic<br/>
+						ROUND A'ROUND
+					</p>	
+					<p id="middle">
+						라운드어라운드는 나를 둘러싼 일상에 기분 좋은 휴식을 선물하는<br>
+						NO.1 라이프코스메틱 브랜드입니다.
+					</p>
+					<button id="brandStory">BrandStory</button>
+				</div>
+			</div>	
+
+			<div id="bottomBox">
+				<h2>RARA Moments</h2>
+
+				<div id="imgBox">
+					
+					<ul id="leftBox">
+						<li >
+							<img src="img/main/moment01.jpg">
+						</li>
+					</ul>
+					
+					<ul id="middleBox">
+						<li id="text">
+							<div id="txt">
+							<p>
+								라운드어라운드와<br/>
+								함께하는 모든 행복의 순간
+								</p>
+							<button>MORE</button>
+							</div>
+						</li>
+						<li >
+							<img src="img/main/moment02.jpg">
+						</li>
+					</ul>
+
+					<ul id="rightBox" >
+						<li>
+							<img src="img/main/moment03.jpg">
+							<img src="img/main/moment04.jpg">
+							<img src="img/main/moment05.jpg">
+						</li>
+						<li id="text">
+							<p>
+								나와 나를 둘러싼 모든 일상이<br/>
+								더 아름다워집니다.
+							</p>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div id="page03">
+			<div id="background02">	</div>
+			<ul id="skin">
+				<p>Skin Care</p>
+				<li>바쁜 일상 속에서도 그 무엇보다 소중한 <br/>
+					나의 피부를 위한 스킨케어를 제안합니다.
+				</li>
+				<button>MORE</button>
+			</ul>
+
+			<div id="greenTea" class="merchandise">
+				<img src="img/main/skin01.jpg">
+
+				<ul id="tea">
+					<p>Greentea<br/>Skin Care</p>
+					<li id="web_info">피부를 위한<br/>
+						'착한' 스킨케어의 시작<br/>
+						그린티 수분 진정<br/>
+						스킨케어 라인
+					</li>
+
+					<li id="mobile">
+						피부를 위한 '착한' 스킨케어의 시작 그린티 수분 진정	스킨케어 라인
+					</li>
+					<button>MORE</button>
+				</ul>
+				
+				<div class="sampleBox">
+
+					<div id="sample01" class="sample">
+						<img src="img/main/skin02.png">
+						<p>그린티 약산성 클렌징폼</p>
+					</div>
+					
+					<div id="sample02" class="sample">
+						<img src="img/main/skin03.png">
+						<p>그린티 수퍼 씨드 오일</p>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div id="basicSkin" class="merchandise">
+				<img src="img/main/basic01.jpg">
+
+				<ul id="basic" >
+					<p>Basic<br/>Skin Care</p>
+					<li>꼭 필요한 것만 담아<br/>
+						매일이 더 편안한 피부<br/>
+						베이직 스킨케어 라인
+					</li>
+					<button>MORE</button>
+				</ul>
+				
+
+				<div class="sampleBox">
+
+					<div id="sample01" class="sample">
+						<img src="img/main/basic02.png">
+						<p>리페어링 액티브 세럼</p>
+					</div>
+
+					<div id="sample02" class="sample">
+						<img src="img/main/basic03.png">
+						<p>컴포트 하이드레이팅 워터</p>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<div id="page04">
+			<div id="background03">	</div>
+
+			<div id="fragranceBox" >
+				<ul id="fragrance">
+					<p>Fragrance</p>
+					<li>나와 나를 둘러싼 모든 시간과 공간을 더 가치있게<br/>
+						채워주는 라운드어라운드의 프래그런스
+					</li>
+					<button>MORE</button>
+				</ul>
+			</div>
+
+			<div id="homeBox" class="merchandise">
+				<img src="img/main/home01.jpg">
+
+				<ul id="home">
+					<p>Home<br/>Fragrance</p>
+					<li>은은하게 오랫동안 지속되는<br/>
+						향기로 공간을 스타일링 하는<br/>
+						홈 프래그런스
+					</li>
+					<button>MORE</button>
+				</ul>
+				
+				<div class="sampleBox">
+
+					<div id="sample01" class="sample">
+						<img src="img/main/home02.png">
+						<p>선인장 디퓨저</p>
+					</div>
+
+					<div id="sample02" class="sample">
+						<img src="img/main/home03.png">
+						<p>드라이플라워 디퓨저</p>
+					</div>
+
+				</div>
+			</div>	
+
+			<div id="lifeBox" class="merchandise">
+				<img src="img/main/life01.jpg">
+
+				<ul id="life">
+					<p>Life<br/>Fragrance</p>
+					<li>남들과는 다르게 나의 일상을<br/>
+						특별하게 채우는 감성적인 향기
+					</li>
+					<button>MORE</button>
+				</ul>
+				
+				<div class="sampleBox">
+					<div id="sample01" class="sample">
+						<img src="img/main/life02.png">
+						<p>라이프 프래그런스</p>
+					</div>
+
+					<div id="sample02" class="sample">
+						<img src="img/main/life03.png">
+						<p>블룸 에디션</p>
+					</div>
+					
+				</div>
+
+
+			</div>		
+		</div>
+
+
+
+	</div>
+
+	<div id="page05">
+		<div id=round>
+			
+			<div id="topText">
+				<h2># ROUND A`ROUND</h2>
+				<p>
+					<span></span>
+					roundaround_official
+				</p>
+			</div>
+
+			<ul id="foot">
+				<li><img  src="img/main/r01.jpg">	</li>
+				<li><img  src="img/main/r02.jpg">	</li>
+				<li><img  src="img/main/r03.jpg">	</li>
+				<li><img  src="img/main/r04.jpg">	</li>
+				<li><img  src="img/main/r05.jpg">	</li>
+				
+			</ul>
+			<button id="left" class="click"></button>
+			<button id="right" class="click"></button>
+		</div>
+
+
+		<footer>
+			<div id="footer">
+				<h1>
+					<img src="img/main/logo.png">
+				</h1>
+			</div>
+
+			<div id="info">
+				<ul id="first">
+					<li><strong>개인정보처리방침</strong></li>
+					<li>이용약관</li>
+					<li>법적고지</li>
+				</ul>
+
+				<ul id="second">
+					<li><strong>씨제이올리브영 주식회사</strong></li>
+					<li><strong>대표이사: 구창근</strong></li>
+					<li><strong>사업자등록번호</strong>: 809-81-01574</li>
+					<li><strong>고객센터 </strong>: 1522-0882</li>
+					<li><strong>주소 </strong>: (04323) <strong>서울특별시 용산구 한강대로</strong> 366 (동자동) 6층</li>
+				</ul>
+
+				<p>Copyright ©2019 CJ OliveYoung. All rights reserved.</p>
+			</div>
+
+		</footer>
+	</div>
+</div>
+<!-- -------------------------------------------------------------------- WEB-->
+<div id="mobile">
+				<div id="mobile_background01"></div>
+				<div id="mobile_background02"></div>
+	<div id="mobile_header">
+		
+		<button id="mobile_list">
+			<span></span>
+		</button>
+
+		<div id="mobile_logo">
+			<img src="img/main/logo.png">
+		</div>
+
+		<button id="mobile_search"></button>
+	</div>
+
+	<div id="mobile_page01">
+			<h2><img src="img/main/logo.png"></h2>
+			<div id="m_text">
+				<p>일상 속 기분 좋은 휴식</p>
+				<p>라이프 코스메틱 <span>라운드 어라운드</span></p>
+			</div>
+
+			<div id="m_main01" class="m_main">
+				<img src="img/main/m.main01.jpg">
+			</div>
+
+			<div id="m_main02" class="m_main">
+				<img src="img/main/m_bg.jpg" alt="">
+				<div id="m_story">
+					<p id="m_title">
+						The Life Cosmetic<br/>
+						ROUND A'ROUND
+					</p>	
+					<p id="m_middle">
+						라운드어라운드는 나를 둘러싼 일상에 기분 좋은 휴식을 선물하는<br>
+						NO.1 라이프코스메틱 브랜드입니다.
+					</p>
+					<button id="m_brandStory">BrandStory</button>
+				</div>
+		</div>	
+
+		<p id="rara">RARA Moments</p>
+
+		<div id="m_raraBox">
+			<ul id="first">
+				<li>
+					<p>라운드어라운드와 함께하는</p>
+					<p>모든 행복의 순간</p>
+					<button>More</button>
+				</li>
+				<li id="pro">
+					<img src="img/main/3.jpg">
+					<p id="oil">수퍼 씨드 오일</p>
+				</li>
+				<li>	
+					<img src="img/main/2.jpg">	
+				</li>
+			</ul>
+
+			<ul id="second">
+				<li>
+					<img src="img/main/moment03.jpg">
+					<p>약산성 클렌징폼</p>
+				</li>
+				<li id="pro">
+					<img src="img/main/moment01.jpg">
+				</li>
+				<li>	
+					<img src="img/main/moment04.jpg">	
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div id="mobile_page02">
+		<ul id="skin">
+			<li>
+				<p>Skin Care</p>
+			</li>
+			<li>
+				<p>바쁜 일상 속에서도 그 무엇보다 소중한</p>
+				<p>나의 피부를 위한 스킨케어를 제안합니다.</p>
+			</li>
+			<li>More</li>
+			<li><img src="img/main/skin01.jpg"></li>
+			
+		</ul>
+
+		<ul id="green">
+			<li>
+				<p>Greentea</p>
+				<p>Skin Care</p>
+			</li>
+			<li>
+				<p>피부를 위한 '착한'스킨케어의 시작.</p>
+				<p>그린티 수분 진정 스킨케어 라인</p>
+			</li>
+			<li>More</li>
+				<ol>
+					<li>
+						<img src="img/main/skin02.png">
+						<p>그린티 약산성 클렌징폼</p>
+					</li>
+					<li>
+						<img src="img/main/skin03.png">
+						<p>그린티 수퍼 씨드 오일</p>
+					</li>
+				</ol>
+		</ul>
+
+		<ul id="basic">
+			<li>
+				<img src="img/main/skin_01.jpg">
+			</li>
+			<li id="title">
+				<p>Basic</p>
+				<p>Skin Care</p>
+			</li>
+			<li>
+				<p>꼭 필요한 것만 담아 매일이 더 편안한 </p>
+					<p>피부</p>
+				<p>배이직 스킨케어 라인</p>
+			</li>
+			<li>More</li>
+				<ol>
+					<li>
+						<img src="img/main/skin_02.png">
+						<p>리페어링 엑티브 세럼</p>
+					</li>
+					<li>
+						<img src="img/main/skin_03.png">
+						<p>컴포트 하이드레이팅 워터</p>
+					</li>
+				</ol>
+		</ul>
+	</div>
+	<div id="mobile_page03">
+		<ul id="fragrance">
+			<li>
+				<p>Fragrance</p>
+			</li>
+			<li>
+				<p>나와 나를 둘러싼  모든 시간과 공간을 </p>
+				<p>더 가치있게 채워주는 </p>
+				<p>라운드어라운드의 프래그런스 </p>
+			</li>
+			<li>More</li>
+			
+			<li><img src="img/main/home01.jpg"></li>
+		</ul>
+
+		<ul id="home">
+			
+			<li>
+				<p>Home</p>
+				<p>Fragrance</p>
+			</li>
+			<li>
+				<p>은은하게 오랫동안 지속되는 향기로 </p>
+				<p>공간을 스타일링 하는 홈 프래그런스</p>
+			</li>
+			<li>More</li>
+				<ol>
+					<li>
+						<img src="img/main/home02.png">
+						<p>선인장 디퓨저</p>
+					</li>
+					<li>
+						<img src="img/main/home03.png">
+						<p>드라이플라워 디퓨저</p>
+					</li>
+				</ol>
+		</ul>
+
+		<ul id="life">
+			<li>
+				<img src="img/main/life01.jpg">
+			</li>
+			<li id="title">
+				<p>Life</p>
+				<p>Fragrance</p>
+			</li>
+			<li>
+				<p>나의 일상을 특별하게 채우는 감성적인 </p>
+				<p>향기</p>
+			</li>
+			<li>More</li>
+				<ol>
+					<li>
+						<img src="img/main/life02.png">
+						<p>라이프 프래그런스</p>
+					</li>
+					<li>
+						<img src="img/main/life03.png">
+						<p>블룸 에디션</p>
+					</li>
+				</ol>
+		</ul>
+	</div>
+
+	<div id="m_footer">
+			<div id=round>
+				
+				<div id="topText">
+					<h2># ROUND A`ROUND</h2>
+					<p>
+						<span></span>
+						roundaround_official
+					</p>
+				</div>
+
+				<ul id="foot">
+					<li><img  src="img/main/r01.jpg">	</li>
+					<li><img  src="img/main/r02.jpg">	</li>
+					<li><img  src="img/main/r03.jpg">	</li>
+					<li><img  src="img/main/r04.jpg">	</li>
+					<li><img  src="img/main/r05.jpg">	</li>
+				
+				</ul>
+					<button id="left" class="click"></button>
+					<button id="right" class="click"></button>
+			</div>
+
+
+			<footer>
+				<div id="footer">
+					<h1>
+						<img src="img/main/logo.png">
+					</h1>
+				</div>
+
+				<div id="info">
+					<ul id="first">
+						<li><strong>개인정보처리방침</strong></li>
+						<li>이용약관</li>
+						<li>법적고지</li>
+					</ul>
+
+					<div id="second">
+						<p>씨제이올리브영 주식회사</p>
+						<p>대표이사: 구창근</p>
+						<p>사업자등록번호: 809-81-01574</p>
+						<p>고객센터 </strong>: 1522-0882</p>
+						<p>주소 : (04323) 서울특별시 용산구 한강대로 366 (동자동) 6층</p>
+						<p>Copyright ©2019 CJ OliveYoung. All rights reserved.</p>
+					</div>
+
+					
+				</div>
+
+			</footer>
+		
+	</div>
+
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+	<title>BRAND_STORY</title>
+	<link rel="stylesheet" href="Snippet/css/reset.css">
+	<link rel="shortcut icon" href="img/logo/round.png" type="image/x-icon">
+	<link rel="icon" href="img/logo/round.png" type="image/x-icon">
+<style>
+body.view{
+	overflow:hidden;
+}
+#lnb a { 
+	color:black; 
+}
+#rnb a { 
+	color:black; 
+}
+#back	{
+	display:none;
+	position:absolute;
+	top:0;								
+	left:0;
+	width:100%;
+	height:1500%;
+	background:rgba(0,0,0,0.5);		
+	z-index:3;		
+}
+#back.view 	{	
+	display:block; 							
+	transition:all 0.5s;
+}
+#lnb	{
+	position:fixed;
+	top:0;
+	left:-20vw;
+	padding-top:7vw;
+	padding-left:3vw;
+	width:15vw;							
+	height:100%;
+	background:rgba(255,255,255,1);				
+	box-sizing:border-box;			
+	z-index:3;
+	transition:all 0.5s;
+}	
+#lnb.view{		
+	left:0;						
+	transition:all 0.5s;
+}				
+#lnb>ul{	
+	overflow:hidden;
+	display:flex; 		
+	width:12.5vw;						
+	flex-wrap: wrap;					
+	flex-direction:column;
+}
+#lnb>ul>li	{	
+	display:flex;	
+	position:relative;
+	width:80%; 							
+	height:2.5vw;
+	font-size:0.9vw;
+	align-items:center;
+}
+#lnb>ul>li>a>p{		
+	display:inline-block;
+}
+#lnb>ul>li>a>p.view	{		
+	border-bottom:1px black solid;
+	font-weight:bold;
+}
+#lnb>ul>li::before		{		
+	content:"";							
+	position:absolute;	
+	top:1.23vw;							
+	right:0;
+	width:0.5vw;						
+	height:0.07vw;
+	background:black;					
+	transform:rotate(45deg);
+}
+#lnb>ul>li::after	{		
+	content:"";							
+	position:absolute;	
+	top:1.6vw;							
+	right:0;
+	width:0.5vw;						
+	height:0.07vw;
+	background:black;					
+	transform:rotate(-45deg);
+}
+#lnb>ul>li#last::before	{		
+	display:none;
+}
+#lnb>ul>li#last::after	{		
+	display:none;
+}
+/*----------------------------------LNB------------------------------*/
+#rnb	{		
+	position:fixed;
+	top:0;
+	left:-20vw;
+	padding-top:7vw;
+	padding-left:2.5vw;
+	width:15vw;							
+	height:100%;
+	background:rgba(255,255,255,1);	
+	box-sizing:border-box;				
+	opacity:0;
+	z-index:4;							
+	transition:all 0.5s;				
+}	
+#rnb.view{		
+	left:15vw;
+	opacity:1;
+	transition:all 0.5s;
+}
+#rnb>ol	{	
+	overflow:hidden;	
+	display:none;
+	position:relative;
+	width:12.5vw;
+	flex-wrap: wrap;
+	flex-direction:column;
+}
+#rnb>ol.view	{		
+	display:block;
+	transition:all 0.5s;
+}			
+#rnb>ol>li	{		
+	display:flex;
+	position:relative;
+	width:80%;
+	height:2.5vw;
+	line-height:2.5vw;
+	font-size:0.9vw;
+	align-items: center;
+	cursor:pointer;	
+}
+#rnb>ol>li p{		
+	display:inline-block;
+	height:2vw;
+	letter-spacing: 0;
+}
+#rnb>ol>li p.view{		
+	display:block;
+	border-bottom:1px black solid;
+	font-weight:bold;
+}
+#rnb>ol#pro>li::before{		
+	content:"";			
+	display:block;				
+	position:absolute;	
+	top:1vw;						
+	right:1vw;
+	width:0.4vw;
+	height:0.4vw;
+	border-top:1px solid rgba(0,0,0,0.7);
+	border-right:1px solid rgba(0,0,0,0.7);
+	transform:rotate(45deg);
+}
+#rnbImg	{	
+	display:none;
+	position:fixed;					
+	top:0;
+	left:30vw;	
+	width:500px;
+	height:100%;
+	background:white;								
+	z-index:4;
+}			
+#rnbImg ul    { 
+	display:flex;	
+	position:absolute;
+	top:0;	
+	width:100%;
+	height:100%;
+	flex-wrap:wrap;	
+	align-content: flex-start;
+	justify-content:space-around;		
+	transition:all 0.5s;
+}
+#rnbImg ul li {	
+	display:none;	
+	margin-top:3vw;	
+	width:170px;						
+	height:170px;		
+}
+#rnbImg > ul#greenteaList.view{
+	top:-100px;
+	transition:all 0.5s;
+}
+#rnbImg > ul#greenteaList>button#bottom.view{
+	opacity:1; 
+}
+#rnbImg > ul#greenteaList>button#bottom{
+	display:flex;
+	position:fixed;
+	left:50%;
+	bottom:0;
+	margin-left:-6vw;
+	width:3vw;
+	height:3vw;
+	transform:translate(-50%,-50%);
+	align-items: center;
+	justify-content: center;
+	opacity:0;
+	cursor:pointer;
+	z-index:4;
+}
+#rnbImg ul#greenteaList>button#bottom::before{
+	content:"";
+	display:block;
+	width:1vw;
+	height:1vw;
+	border-bottom:1px rgba(0,0,0,0.7) solid;
+	border-left:1px rgba(0,0,0,0.7) solid;
+	transform:rotate(-45deg);
+}
+#rnbImg ul#greenteaList>button#top{
+	display:flex;
+	position:fixed;
+	top:10vw;
+	left:50%;
+	margin-left:-6vw;
+	width:3vw;
+	height:3vw;
+	transform:translate(-50%,-50%);
+	align-items: center;
+	justify-content: center;
+	cursor:pointer;
+	opacity:0;
+	z-index:6;
+}
+#rnbImg ul#greenteaList>button#top.view{
+	opacity:1;
+}
+#rnbImg ul#greenteaList>button#top::before{
+	content:"";
+	display:block;
+	width:1vw;
+	height:1vw;
+	border-top:1px rgba(0,0,0,0.7) solid;
+	border-right:1px rgba(0,0,0,0.7) solid;
+	transform:rotate(-45deg);
+}
+#rnbImg ul li.view   {	
+	display:block;	
+}
+#rnbImg ul li p {
+	display:block;
+	text-align: center;	
+	font-size:14px;					
+	color:gray;
+}
+#rnbImg ul li img  {
+	width:100%;
+}
+header {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:5vw;
+	background:transparent;
+	border-bottom:1px rgba(0,0,0,0.1) solid;
+	z-index:4;
+}
+header.view{
+	border:none;
+}
+header > h1 {
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-top:1vw;
+	margin-left:-150px;
+	width:300px;
+	height:3vw;
+	background:url(img/main/logo.png) no-repeat;
+	background-position:center;
+	background-size:150px;
+	cursor:pointer;
+	z-index:3;
+}
+header > h1 > a {
+	display:block;
+	height:100%;
+	cursor:pointer;
+}
+header > ul#header_indi {
+	display:flex;
+	position:relative;
+	padding-left:7vw;
+	padding-right:7vw;
+	width:100%;
+	height:100%;
+	box-sizing: border-box;
+	align-items:center;
+	justify-content: space-between;
+}
+header > ul#header_indi > li{
+	position:relative;
+	width:3vw;
+	height:3vw;
+	cursor:pointer;
+	transition:all 0.5s;
+}
+header > ul#header_indi > li#list.view{
+	margin-left:-6vw;
+	transition:all 0.5s;
+}
+header > ul#header_indi > li#list::before{
+	content:"";
+	position:absolute;
+	top:30%;
+	width:2vw;
+	height:2px;
+	background:black;
+	transition:all 0.3s;
+}
+header > ul#header_indi > li#list::after{
+	content:"";
+	position:absolute;
+	top:60%;
+	width:1vw;
+	height:2px;
+	background:black;	
+	transition:all 0.3s;
+}
+header > ul#header_indi > li#list.view::before{
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%) rotate(45deg);
+	transition:all 0.3s;
+}
+header > ul#header_indi > li#list.view::after{
+	top:50%;
+	left:50%;
+	width:2vw;
+	transform:translate(-50%,-50%) rotate(-45deg);
+	transition:all 0.3s;
+}
+
+header > ul#header_indi > li#list > hr {
+	position:absolute;
+	top:45%;
+	width:1.5vw;
+	height:2px;
+	background:black;
+	border:none;
+}
+header > ul#header_indi > li#search::before{
+	content:"";
+	position:absolute;
+	top:18%;
+	left:18%;
+	width:1.3vw;
+	height:1.3vw;
+	border-radius:2vw;
+	border:2px black solid;
+}
+header > ul#header_indi > li#search::after{
+	content:"";
+	position:absolute;
+	right:7%;
+	bottom:27%;
+	width:1vw;
+	height:2px;
+	background:black;
+	transform:rotate(45deg);
+}
+/*=========================*/
+#wrap{
+	display:flex;
+	flex-direction: column;
+}
+.page{
+	position:relative;
+	width:100%;
+	height:100vh;
+}
+.page > button#bottom{
+	position:absolute;
+	left:50%;
+	bottom:0;
+	width:2.5vw;
+	height:2.5vw;
+	border-radius:3vw;
+	border:2px solid white;
+	transform:translate(-50%,-50%);
+}
+.page > button#bottom::before{
+	content:"";
+	position:absolute;
+	top:50%;
+	left:30%;
+	width:0.8vw;
+	height:0.8vw;
+	border-right:2px white solid;
+	border-bottom:2px white solid;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+.page > ul{
+	display:flex;
+	position:absolute;
+	top:55%;
+	left:50%;
+	width:60%;
+	height:60%;
+	font-size:2.5vw;
+	color:white;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transform:translate(-50%,-50%);
+}
+/*======================*/
+#page01 > img {
+	position:absolute;
+	top:50%;
+	left:50%;
+	width:280px;
+	transform:translate(-50%,-50%);
+}
+/*======================*/
+#page02 {
+	background-image:url(img/story/story02.jpg);
+	background-size:cover;
+}
+/*======================*/
+#page03 {
+	background-image:url(img/story/story03.jpg);
+	background-size:cover;
+}
+/*======================*/
+#page04 {
+	background-image:url(img/story/story04.jpg);
+	background-size:cover;
+}
+/*======================*/
+#page05 {
+	background-image:url(img/story/story05.jpg);
+	background-size:cover;
+}
+#page05 > ul {
+	display:flex;
+	height:20vw;
+	text-align:center;
+	align-items: center;
+	flex-direction:column;
+	justify-content: space-between;
+}
+/*======================*/
+#page06 {
+	background:#fff6ed;
+}
+#page06 > #img_box {
+	position:absolute;
+	top:60%;
+	left:50%;
+	width:50vw;
+	height:50vw;
+	background:url(img/story/story06.png);
+	background-size:cover;
+	border-radius:50vw;
+	transform:translate(-50%,-50%);
+	transition:all 0.5s;
+}
+#page06 > #img_box.view {
+	top:20%;
+	transition:all 0.5s;
+}
+#page06 > ul{
+	top:55%;
+	font-size:2vw;
+	color:#616e76;
+	justify-content: flex-end;
+}
+/*======================*/
+#page07 {
+	overflow:hidden;
+	background:#fff6ed;
+	background-image:url(img/story/story07.jpg);
+	background-repeat:repeat-x;
+	background-size:auto 80%;
+	background-position-x:50%;
+	background-position-y:-10px;
+}
+#page07 > ul{
+	top:60%;
+	justify-content: flex-end;
+	font-size:2vw;
+	color:#616e76;
+}
+/*======================*/
+#page08 {
+	background-image:url(img/story/story08.jpg);
+	background-size:cover;
+}
+#page08 > ul{
+	top:45%;
+	height:8vw;
+	justify-content: space-between;
+}
+#page08 > ul > li:last-child{
+	font-size:1.5vw;
+}
+#page08 > button#top{
+	display:flex;
+	position:absolute;
+	left:50%;
+	bottom:0;
+	width:5vw;
+	height:5vw;
+	border-radius:5vw;
+	border:2px solid white;
+	align-self: center;
+	justify-content: center;
+	transform:translate(-50%,-50%);
+}
+#page08 > button#top::before{
+	content:"";
+	margin-top:0.9vw;
+	width:1vw;
+	height:1vw;
+	border-top:1px white solid;
+	border-left:1px white solid;
+	transform:rotate(45deg) translate(-50%,-50%);
+}
+#page08 > button#top::after{
+	content:"";
+	position:absolute;
+	top:50%;
+	width:1px;
+	height:2vw;
+	background:white;
+	transform:translate(-50%,-50%);
+}
+/*================================*/
+#page01 > button#bottom{
+	border:2px solid black;
+}
+#page01 > button#bottom::before{
+	border-right:2px black solid;
+	border-bottom:2px black solid;
+}
+#page06 > button#bottom{
+	border:2px solid black;
+}
+#page06 > button#bottom::before{
+	border-right:2px black solid;
+	border-bottom:2px black solid;
+}
+#page07 > button#bottom{
+	border:2px solid black;
+}
+#page07 > button#bottom::before{
+	border-right:2px black solid;
+	border-bottom:2px black solid;
+}
+/*======================*/
+footer{
+	padding-left:12%;
+	padding-right:12%;
+	width:100%;
+	height:55vh;
+	background:#f9f9f9;
+	color:#616e76;
+	box-sizing:border-box;
+}
+footer > #header{
+	display:flex;
+	width:100%;
+	height:10vw;
+	border-bottom:1px rgba(0,0,0,0.1) solid;
+	align-items: flex-end;
+}
+footer > #header > h2 {
+	width:300px;
+	height:6vw;
+	background:url(img/main/logo.png) no-repeat;
+	background-position:left;
+	background-size:200px;
+}
+footer > ol#first{
+	display:flex;
+	width:30%;
+	height:4vw;
+	align-items: center;
+	justify-content: space-between;
+}
+footer > ol#first > li:first-child{
+	font-weight:bold;
+}
+footer > ol#second {
+	display:flex;
+	width:48%;
+	height:6vw;
+	flex-direction: column;
+	align-items: space-between;
+	justify-content:center; 
+}
+footer > ol#second > li {
+	display:flex;
+	height:1.5vw;
+	justify-content: space-between;
+}
+footer > p {
+	margin-top:1vw;
+}
+@media all and (max-width: 1400px) { 
+
+}
+
+
+@media all and (max-width: 992px) {
+	
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+
+
+@media all and (max-width:576px) {
+	
+}
+
+</style>
+<script src="Snippet/js/jquery-3.4.1.min.js">	</script>
+<script src="Snippet/js/jquery.mousewheel.min.js">	</script>
+<script src="Snippet/js/jquery-ui.js">	</script>
+<script src="Snippet/js/jquery.touchSwipe.js">	</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+<script>
+	$(function(){
+	var height = $("#page01").height();
+$(".page").mousewheel(function(e,delta){
+	var position = $(this).offset().top;
+	if (delta > 0 ){
+		$("html:not(:animated),body:not(:animated)").stop().animate({scrollTop: position - height})
+		return false;
+	}else {
+		$("html:not(:animated),body:not(:animated)").stop().animate({scrollTop: position + height})
+		return false;
+	}
+});
+// ======================
+$("footer").mousewheel(function(e,delta){
+	if (delta > 0 ){
+		$("html:not(:animated),body:not(:animated)").stop().animate({scrollTop:(height*7)})
+		return false;
+	}
+})
+// page06 애니메이션
+$(window).scroll(function(){
+	scrPos = $(window).scrollTop();
+	var height = $("#page01").height();
+	if (scrPos > (height*4) ){
+		$("#page06 > #img_box ").addClass("view")
+	}else{
+		$("#page06 > #img_box ").removeClass("view")
+	}
+})
+// 버튼 마그네틱스크롤
+$(".page > button#bottom").click(function(){
+	var scrPos = $(window).scrollTop();
+	var height = $("#page01").height();
+	$("html:not(:animated),body:not(:animated)").stop().animate({scrollTop: scrPos + height})
+	return false;
+});
+// 마지막버튼 top기능
+$("#page08 > button#top").click(function(){
+	$("html:not(:animated),body:not(:animated)").stop().animate({scrollTop: 0})
+	return false;
+});
+//첫번째 클릭
+var click=0;
+$("li#list").click(function(){
+	if(click==0){
+		$(this).addClass("view")
+		$("hr",this).css({display:"none"})
+		$("header").addClass("view")
+		$("#lnb").addClass("view")
+		$("#back").addClass("view")
+		$("body").addClass("view")
+		click=1;				
+	}else {
+//두번째 클릭
+		$(this).removeClass("view")
+		$("hr",this).css({display:"block"})
+		$("header").removeClass("view")
+		$("#lnb").removeClass("view")
+		$("#back").removeClass("view")
+		$("#rnb").removeClass("view")
+		$("#rnb>ol").removeClass("view")
+		$("#rnbImg").css({display:"none"})
+		$("body").removeClass("view")
+		click=0;
+	}
+});
+// ======================
+$("#lnb>ul>li").eq(0).mouseenter(function(){
+	$("#rnb").addClass("view")
+	$("#rnb>ol#about").addClass("view")
+	$("#rnb>ol#pro").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(1).mouseenter(function(){
+	$("#rnb").addClass("view")
+	$("#rnb>ol#about").removeClass("view")
+	$("#rnb>ol#pro").addClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(2).mouseenter(function(){
+	$("#rnb").removeClass("view")
+	$("#rnb>ol").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+$("#lnb>ul>li").eq(3).mouseenter(function(){
+	$("#rnb").removeClass("view")
+	$("#rnb>ol").removeClass("view")
+	$("#rnbImg").css({display:"none"})
+});
+// ======================
+$("#lnb>ul>li").hover(function(){
+	$("p",this).toggleClass("view")
+});
+// ======================
+$("#rnb>ol#pro>li").eq(0).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#greenteaList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").addClass("view")
+});
+$("#rnb>ol#pro>li").eq(1).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#basicList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(2).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#sunList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(3).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#homeList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(4).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#lifeList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+$("#rnb>ol#pro>li").eq(5).hover(function(){
+	$("#rnbImg>ul>li").removeClass("view")
+	$("#rnbImg").css({display:"block"})
+	$("#rnbImg>ul#bodyList>li").addClass("view")
+	$("#rnbImg>ul#greenteaList >button#bottom").removeClass("view")
+});
+// ======================
+
+rnbImg01 = new Vue ({
+ 				el:"#rnbImg",
+ 				data:{
+ 					greentea:[
+ 						{img:"green01" 		,name:"그린티 미스트 토너"},
+ 						{img:"green02"		,name:"그린티 스킨 세럼"},
+ 						{img:"green03"		,name:"그린티 릴리프 크림"},
+ 						{img:"green04"		,name:"그린티 수퍼 씨드 오일"},
+ 						{img:"green05"		,name:"그린티 약산성 클렌징폼"},
+ 						{img:"green06"		,name:"그린티 트러블 버블폼"},
+ 						{img:"green07"		,name:"그린티 퓨어 클렌징 오일"},
+ 						{img:"green08"		,name:"그린티 약산성 립앤아이 리무버"}
+ 					],
+ 					basic:[
+ 						{img:"b01"			,name:"컴포트 하이드레이팅 워터"},
+ 						{img:"b02"			,name:"이센셜 부스팅 하이드레이터"},
+ 						{img:"b03"			,name:"리페어링 액티브 세럼"},
+ 						{img:"b04"			,name:"인텐스 베리어 크림"}
+ 					],
+ 					sun:[
+ 						{img:"s01"			,name:"그린티 시카 선로션"},
+ 						{img:"s02"			,name:"그린티 시카 선스틱"}
+ 					],
+ 					home:[
+ 						{img:"h01"			,name:"센티드 디퓨저"},
+ 						{img:"h02"			,name:"센티드 캔들"},
+ 						{img:"h03"			,name:"드라이플라워 디퓨저"},
+ 						{img:"h04"			,name:"선인장 디퓨저"},
+ 						{img:"h05"			,name:"마이 러블리 펫 디퓨저"},
+ 						{img:"h06"			,name:"드라이플라워 센티드 카드"}
+ 					],
+ 					life:[
+ 						{img:"l01"			,name:"블룸 에디션"},
+ 						{img:"l02"			,name:"라이프 프래그런스"}
+ 					],
+ 					body:[
+ 						{img:"body01"		,name:"버블 바쓰"},
+ 						{img:"body02"		,name:"바쓰 솔트"},
+ 						{img:"body03"		,name:"드라이플라워 롤온 & 핸드크림"},
+ 						{img:"body04"		,name:"드라이플라워 바디 & 헤어 미스트"}
+ 					],
+ 				},
+ 				methods:{
+ 				}
+ });
+// ==========================
+$("#rnbImg > ul#greenteaList>button#bottom").click(function(){
+	$(this).removeClass("view")
+	$("#rnbImg > ul#greenteaList").addClass("view")
+	$("#rnbImg > ul#greenteaList>button#top").addClass("view")
+});
+$("#rnbImg > ul#greenteaList>button#top").click(function(){
+	$(this).removeClass("view")
+	$("#rnbImg > ul#greenteaList").removeClass("view")
+	$("#rnbImg > ul#greenteaList>button#bottom").addClass("view")
+});
+
+
+	});
+</script>
+</head>
+<body>
+
+<header>
+	<h1><a href="index.html"></a></h1>
+	<ul id="header_indi">
+		<li id="list"><hr></li>
+		<li id="search"></li>
+	</ul>
+</header>
+
+	<div id="back"></div>
+	<div id="lnb">
+		<ul>
+			<li>
+				<a href=""><p>About</p></a>
+			</li>
+			
+			<li>
+				<a href=""><p>Product</p></a>
+			</li>
+			
+			<li id="last">
+				<a href=""><p>RARA Moments</p></a>
+			</li>
+
+			<li id="last">
+				<a href=""><p>Stores</p></a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="rnb">
+		<ol id="about">
+			<li><a href="brand_story.html">Brand Story  </a> 	</li>
+			<li><a href="brand_story.html">Awards		</a>	</li>
+			<li><a href="brand_story.html">RARA StyleR	</a>	</li>			
+		</ol>
+
+		<ol id="pro">
+			<li> Greentea Skin Care 	</li>
+			<li> Basic Skin Care 		</li>
+			<li> SunCare 				</li>
+			<li> Home fragrance 		</li>
+			<li> Life Fragrance 		</li>
+			<li> Body Care 				</li>
+		</ol>
+		
+	</div>
+
+
+
+
+	<div id="rnbImg">
+		
+		<ul id="greenteaList">
+			<button id="top"></button>
+			<button id="bottom"></button>
+
+			<li v-for="(item , index) in greentea">
+				<img v-bind:src='"img/greentea/"+ item.img + ".png"'>
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+
+		<ul id="basicList">
+			<li v-for="(item , index) in basic">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+
+		<ul id="sunList">
+			<li v-for="(item , index) in sun">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="homeList">
+			<li v-for="(item , index) in home">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="lifeList">
+			<li v-for="(item , index) in life">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+
+		<ul id="bodyList">
+			<li v-for="(item , index) in body">
+				<img v-bind:src="'img/greentea/' + item.img  +  '.png'">
+				<p>{{ item.name }}</p>
+			</li>
+		</ul>
+	</div>
+
+
+<div id="wrap">
+<div id="page01" class="page">
+	<img src="img/main/logo.png">
+	<button id="bottom"></button>
+</div>
+
+<div id="page02" class="page">
+
+	<ul>
+		<li>화려하거나 도드라지지는 않지만</li>
+		<li>꼭 필요한 것만을 담아,</li>
+		<li>피부가 편안한 스킨케어</li>
+	</ul>
+
+	<button id="bottom"></button>
+</div>
+
+<div id="page03" class="page">
+	<ul>
+		<li>바쁜 하루속,</li>
+		<li>여유로움을 느끼게 해주는</li>
+		<li>감성적인 향기</li>
+	</ul>
+
+	<button id="bottom"></button>
+</div>
+
+<div id="page04" class="page">
+	<ul>
+		<li>복잡한 하루 끝,</li>
+		<li>지친 몸과 마음을 평온하게 해주는 바디케어</li>
+	</ul>
+
+	<button id="bottom"></button>
+</div>
+
+<div id="page05" class="page">
+	<ul>
+		<ol>
+			<li>기분 좋은 아침을 시작으로</li>
+			<li>편안한게 잠들 때까지,</li>
+		</ol>
+		<ol>
+			<li>바쁜 도시 생활 속</li>
+			<li>자신만의 라이프스타일을 만들어가는</li>
+			<li>당신을 위해</li>
+		</ol>
+	</ul>
+	<button id="bottom"></button>
+</div>
+
+<div id="page06" class="page">
+	<ul>
+		<li>라운드어라운드가</li>
+		<li>일상에 기분 좋은 휴식을 선물합니다.</li>
+	</ul>
+	<div id="img_box"></div>
+	<button id="bottom"></button>
+</div>
+
+<div id="page07" class="page">
+	<div id="img"></div>
+
+	<ul>
+		<li>소중한 당신을 위해,조금 더 특별하게</li>
+		<li>늘, 당신 곁에 머물러 휴식 같은 케어를 제안합니다.</li>
+	</ul>
+	<button id="bottom"></button>
+</div>
+
+<div id="page08" class="page">
+	<ul>
+		<li>라이프 코스메틱, 라운드어라운드</li>
+		<li>THE LIFE COSMETIC ROUND A'ROUND</li>
+	</ul>
+	<button id="top"></button>
+</div>
+
+<footer>
+	<div id="header">
+		<h2></h2>
+	</div>
+
+	<ol id="first">
+		<li>개인정보처리방침</li>
+		<li>이용약관</li>
+		<li>법적고지</li>
+	</ol>
+	<ol id="second">
+		<li>
+			<p>씨제이올리브영 주식회사</p>
+			<p>대표이사: 구창근</p>
+			<p>사업장 등록번호:809-81-01574</p>
+		</li>
+		<li>
+			<p>고객센터 : 1522-0882 </p>
+			<p>주소:(04323)서울특별시 용산구 한강대로 366 (동자동) 6층</p>
+		</li>
+	</ol>
+	<P>Copyright ⓒ2019 CJ OliveYoung. All rights reserved.</P>
+</footer>
+
+</div>
+</body>
+</html>
